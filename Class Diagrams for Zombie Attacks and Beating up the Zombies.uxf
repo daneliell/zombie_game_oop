@@ -4,31 +4,19 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>710</x>
-      <y>220</y>
+      <x>720</x>
+      <y>260</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>ZombieActor
-bg=yellow</panel_attributes>
+    <panel_attributes>ZombieActor</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>630</x>
-      <y>230</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>530</x>
-      <y>210</y>
+      <x>540</x>
+      <y>250</y>
       <w>110</w>
       <h>50</h>
     </coordinates>
@@ -37,33 +25,10 @@ Behaviour</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>450</x>
-      <y>230</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>340</x>
-      <y>220</y>
-      <w>120</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>AttackBehaviour
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>190</x>
-      <y>130</y>
+      <x>200</x>
+      <y>170</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -73,43 +38,43 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>230</x>
-      <y>150</y>
-      <w>130</w>
+      <x>240</x>
+      <y>190</y>
+      <w>90</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0;110.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;70.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>60</y>
+      <x>290</x>
+      <y>100</y>
       <w>100</w>
-      <h>100</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>80.0;10.0;30.0;10.0;30.0;80.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;90.0;40.0;90.0;40.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>140</y>
+      <x>400</x>
+      <y>180</y>
       <w>90</w>
-      <h>100</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
-    <additional_attributes>70.0;10.0;70.0;60.0;10.0;60.0;10.0;80.0</additional_attributes>
+    <additional_attributes>70.0;10.0;70.0;30.0;10.0;30.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
-      <y>10</y>
+      <x>370</x>
+      <y>50</y>
       <w>210</w>
       <h>140</h>
     </coordinates>
@@ -124,6 +89,156 @@ bg=yellow</panel_attributes>
 GameMap map) : String
 
 bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>310</y>
+      <w>90</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>70.0;60.0;70.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>310</y>
+      <w>110</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;40.0;90.0;40.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>250</x>
+      <y>370</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Location</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>370</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Item
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>230</y>
+      <w>190</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>AttackBehaviour
+--
+- zombieDialogue : String
+- dialogueChance : float
+--
++ printDialogue()
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>360</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Zombie
+--
+- armsNumber : int
+- legsNumber : int
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>280</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>40.0;10.0;40.0;50.0;10.0;50.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>270</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>290</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;70.0;40.0;70.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>950</x>
+      <y>50</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
+Package::FatClass
+{Some Properties}
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>440</y>
+      <w>200</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>ZombieBehaviour
+--
+- zombieDialogue : String
+- dialogueChance : Float
+--
++printDialogue()</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
