@@ -4,38 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>200</y>
-      <w>160</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>Human
--
--
-toCorpse()
-
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>150</x>
-      <y>220</y>
-      <w>150</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-turns to &gt;
-m1=1
-m2=1</panel_attributes>
-    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>610</x>
-      <y>230</y>
+      <x>720</x>
+      <y>320</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -45,8 +15,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>220</y>
+      <x>570</x>
+      <y>310</y>
       <w>170</w>
       <h>50</h>
     </coordinates>
@@ -58,8 +28,8 @@ converts to &gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>330</x>
-      <y>100</y>
+      <x>440</x>
+      <y>190</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -69,8 +39,8 @@ converts to &gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>120</y>
+      <x>480</x>
+      <y>210</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -80,12 +50,12 @@ converts to &gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>210</y>
+      <x>390</x>
+      <y>300</y>
       <w>190</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>Corpse
+    <panel_attributes>ZombieCorpse
 -
 conversionCounter: Random
 -
@@ -96,8 +66,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>60</x>
-      <y>100</y>
+      <x>170</x>
+      <y>190</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -107,24 +77,36 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>100</x>
-      <y>120</y>
-      <w>30</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>150</x>
-      <y>100</y>
+      <x>260</x>
+      <y>190</y>
       <w>170</w>
       <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
     <additional_attributes>10.0;20.0;150.0;20.0;150.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>430</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ZombieAttackAction
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>370</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>
