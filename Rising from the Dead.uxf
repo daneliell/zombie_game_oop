@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
+      <x>610</x>
       <y>320</y>
       <w>100</w>
       <h>30</h>
@@ -15,7 +15,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
+      <x>460</x>
       <y>310</y>
       <w>170</w>
       <h>50</h>
@@ -28,7 +28,7 @@ converts to &gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>440</x>
+      <x>330</x>
       <y>190</y>
       <w>100</w>
       <h>30</h>
@@ -39,7 +39,7 @@ converts to &gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>370</x>
       <y>210</y>
       <w>30</w>
       <h>110</h>
@@ -50,7 +50,7 @@ converts to &gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
+      <x>280</x>
       <y>300</y>
       <w>190</w>
       <h>80</h>
@@ -66,7 +66,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
+      <x>60</x>
       <y>190</y>
       <w>100</w>
       <h>30</h>
@@ -77,7 +77,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
+      <x>150</x>
       <y>190</y>
       <w>170</w>
       <h>130</h>
@@ -89,7 +89,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>410</x>
+      <x>300</x>
       <y>430</y>
       <w>150</w>
       <h>30</h>
@@ -101,12 +101,67 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
+      <x>360</x>
       <y>370</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>430</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Human</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>430</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>AttackAction</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>440</y>
+      <w>190</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>440</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>210</y>
+      <w>190</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0;90.0;120.0;90.0;230.0;170.0;230.0</additional_attributes>
   </element>
 </diagram>

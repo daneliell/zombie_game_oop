@@ -29,7 +29,7 @@ bg=yellow</panel_attributes>
     </coordinates>
     <panel_attributes>Crop
 -
--ripeCOunter: int
+-ripeCounter: int
 -
 +isRipe()
 bg=yellow</panel_attributes>
