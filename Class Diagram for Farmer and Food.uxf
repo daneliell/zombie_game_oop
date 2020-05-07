@@ -307,13 +307,10 @@ m2=1
     <coordinates>
       <x>40</x>
       <y>290</y>
-      <w>1000</w>
+      <w>990</w>
       <h>400</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
-plants &gt;
-m1=1
-m2=1</panel_attributes>
+    <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>970.0;150.0;970.0;380.0;10.0;380.0;10.0;10.0</additional_attributes>
   </element>
   <element>
