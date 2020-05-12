@@ -17,7 +17,7 @@ import edu.monash.fit2099.engine.GameMap;
  *
  */
 public class AttackBehaviour implements Behaviour {
-	private ZombieCapability attackableTeam;
+	protected ZombieCapability attackableTeam;
 	
 	/**
 	 * Constructor.

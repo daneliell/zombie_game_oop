@@ -12,7 +12,9 @@ import edu.monash.fit2099.engine.GameMap;
 
 public class ZombieAttackBehaviour extends AttackBehaviour{
 	private String zombieDialogue = "Braaaaaaaains...";
-	private double dialogueChance = 0.1;
+	private int dialogueChance = 10;
+	private int upperBound = 100;
+	private Random rand = new Random();
 	
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
@@ -24,7 +26,18 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 			if (!(e.getDestination().containsAnActor()))
 				continue;
 			if (e.getDestination().getActor().hasCapability(attackableTeam)) {
-				return new ZombieAttackAction(e.getDestination().getActor());
+				int int_random = rand.nextInt(100); 
+				if (int_random >= 0 & int_random <= 10) {
+					return zombieDialogue
+				}
+				else {
+					if (rand.nextBoolean()) {
+						return new ZombieAttackAction(e.getDestination().getActor());
+					}
+					else {
+						return new BiteAction(e.getDestination().getActor());
+					}
+				}
 			}
 		}
 		return null;
