@@ -11,6 +11,11 @@ import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
 
 public class ZombieAttackBehaviour extends AttackBehaviour{
+	
+	public ZombieAttackBehaviour(ZombieCapability attackableTeam) {
+		super(attackableTeam);
+	}
+
 	private String zombieDialogue = "Braaaaaaaains...";
 	private int dialogueChance = 10;
 	private int upperBound = 100;
@@ -26,9 +31,9 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 			if (!(e.getDestination().containsAnActor()))
 				continue;
 			if (e.getDestination().getActor().hasCapability(attackableTeam)) {
-				int int_random = rand.nextInt(100); 
-				if (int_random >= 0 & int_random <= 10) {
-					return zombieDialogue
+				int randomInt = rand.nextInt(100); 
+				if (randomInt <= dialogueChance) {
+					return zombieDialogue;
 				}
 				else {
 					if (rand.nextBoolean()) {
