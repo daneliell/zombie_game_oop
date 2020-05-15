@@ -6,6 +6,7 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.IntrinsicWeapon;
+import java.lang.Math; 
 
 /**
  * A Zombie.
@@ -17,10 +18,13 @@ import edu.monash.fit2099.engine.IntrinsicWeapon;
  */
 public class Zombie extends ZombieActor {
 	private Behaviour[] behaviours = {
-			new AttackBehaviour(ZombieCapability.ALIVE),
+			new ZombieAttackBehaviour(ZombieCapability.ALIVE),
 			new HuntBehaviour(Human.class, 10),
 			new WanderBehaviour()
 	};
+	
+	private String zombieDialogue = "Braaaaaaaains...";
+	private double dialogueChance = 0.1;
 
 	public Zombie(String name) {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
@@ -43,6 +47,11 @@ public class Zombie extends ZombieActor {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+		double rand = Math.random(); 
+		if (rand <= dialogueChance) {
+			display.println(name + ": " + zombieDialogue);
+		}
+		
 		for (Behaviour behaviour : behaviours) {
 			Action action = behaviour.getAction(this, map);
 			if (action != null)

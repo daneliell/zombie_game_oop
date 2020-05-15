@@ -16,8 +16,6 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 		super(attackableTeam);
 	}
 
-	private String zombieDialogue = "Braaaaaaaains...";
-	private int dialogueChance = 10;
 	private int upperBound = 100;
 	private Random rand = new Random();
 	
@@ -31,17 +29,11 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 			if (!(e.getDestination().containsAnActor()))
 				continue;
 			if (e.getDestination().getActor().hasCapability(attackableTeam)) {
-				int randomInt = rand.nextInt(100); 
-				if (randomInt <= dialogueChance) {
-					return zombieDialogue;
+				if (rand.nextBoolean()) {
+					return new ZombieAttackAction(e.getDestination().getActor());
 				}
 				else {
-					if (rand.nextBoolean()) {
-						return new ZombieAttackAction(e.getDestination().getActor());
-					}
-					else {
-						return new BiteAction(e.getDestination().getActor());
-					}
+					return new BiteAction(e.getDestination().getActor());
 				}
 			}
 		}
