@@ -18,6 +18,14 @@ public class Crop extends Ground {
 		return false;
 	}
 	
+	public int getAge() {
+		return this.ripeAge;
+	}
+	
+	public void setAge(int Age) {
+		this.ripeAge = Age;
+	}
+	
 	public void tick(Location location) {
 		super.tick(location);
 		this.ripeAge--;
