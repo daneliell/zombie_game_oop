@@ -11,8 +11,8 @@ import edu.monash.fit2099.engine.Weapon;
 
 public class BiteAction extends AttackAction{
 
-	private int missChance;
-	private int damage;
+	private double missChance = 0.6;
+	private int damage = 15;
 	private int healthRestored = 5;
 	
 	public BiteAction(Actor target) {
@@ -21,8 +21,9 @@ public class BiteAction extends AttackAction{
 	
 	@Override
 	public String execute(Actor actor, GameMap map) {
-
-		if (rand.nextBoolean()) {
+		
+		double rand = Math.random(); 
+		if (rand <= missChance) {
 			return actor + " misses " + target + ".";
 		}
 
