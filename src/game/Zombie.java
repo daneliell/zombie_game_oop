@@ -6,7 +6,13 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.IntrinsicWeapon;
-import java.lang.Math; 
+import edu.monash.fit2099.engine.Item;
+import edu.monash.fit2099.engine.WeaponItem;
+import java.lang.Math;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 /**
  * A Zombie.
@@ -25,12 +31,20 @@ public class Zombie extends ZombieActor {
 	
 	private String zombieDialogue = "Braaaaaaaains...";
 	private double dialogueChance = 0.1;
+	
+	private List<WeaponItem> limbs = new ArrayList<WeaponItem>();
+	private double limbLostChance = 0.25;
+	private Boolean isSecondTurn = false;
 
 	public Zombie(String name) {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
+		for (int i = 0; i < 2; i++) {
+			limbs.add(new ZombieArm());
+			limbs.add(new ZombieLeg());
+		}
+		Collections.shuffle(limbs);
 	}
 	
-
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon() {
 		return new IntrinsicWeapon(10, "punches");
@@ -59,4 +73,5 @@ public class Zombie extends ZombieActor {
 		}
 		return new DoNothingAction();	
 	}
+
 }
