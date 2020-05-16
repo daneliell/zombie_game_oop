@@ -14,24 +14,24 @@ public class FertilizeAction extends Action{
 	public String execute(Actor actor, GameMap map) {
 		
 		if(this.target.isRipe()) {
-			return "The " + target + " is already ripe";
+			return "Crop is already ripe";
 		}
 		
 		if(this.target.getAge() < 10) {
 			this.target.setAge(0);
-			return "The " + target + " was fertilized";
+			return "Crop was fertilized";
 		}
 		
 		else {
 			int newAge = this.target.getAge() - 10;
 			this.target.setAge(newAge);
-			return "The " + target + " was fertilized";
+			return "Crop was fertilized";
 		}
 		
 	}
 	
 	public String menuDescription(Actor actor) {
-		return actor + " fertilized " + target;
+		return actor + " fertilized crop";
 	}
 
 }
