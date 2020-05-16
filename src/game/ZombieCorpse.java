@@ -11,8 +11,8 @@ public class ZombieCorpse extends Item {
 	private int minTurns = 5;
 	private int maxTurns = 10;
 	
-	public ZombieCorpse(String name, char displayChar, boolean portable) {
-		super("dead" + name, '%', false);
+	public ZombieCorpse(String name) {
+		super(name, 'a', false);
 		
 		Random rand = new Random();
 		conversionCounter = rand.nextInt((maxTurns - minTurns) + 1) + minTurns;
@@ -22,7 +22,8 @@ public class ZombieCorpse extends Item {
 	public void tick(Location currentLocation) {
 		if (conversionCounter == 0) {
 			currentLocation.removeItem(this);
-			currentLocation.addActor(new Zombie(name));
+			currentLocation.addActor(new Zombie("Zombie " + name));
+			System.out.println(name + "rises from the dead!");
 		}
 		else {
 			conversionCounter--;
