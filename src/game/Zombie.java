@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.IntrinsicWeapon;
 import edu.monash.fit2099.engine.Item;
+import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.WeaponItem;
 import java.lang.Math;
 import java.util.ArrayList;
@@ -33,11 +34,15 @@ public class Zombie extends ZombieActor {
 	private double dialogueChance = 0.1;
 	
 	private List<WeaponItem> limbs = new ArrayList<WeaponItem>();
+	private int armsNumber;
+	private int legsNumber;
 	private double limbLostChance = 0.25;
 	private Boolean isSecondTurn = false;
 
 	public Zombie(String name) {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
+		armsNumber = 2;
+		legsNumber = 2;
 		for (int i = 0; i < 2; i++) {
 			limbs.add(new ZombieArm());
 			limbs.add(new ZombieLeg());
@@ -73,5 +78,28 @@ public class Zombie extends ZombieActor {
 		}
 		return new DoNothingAction();	
 	}
-
+	
+	public String loseLimb(Location dropLocation) {
+		//double rand = Math.random(); 
+		double rand = 0.1;
+		//Location dropLocation = new Location(map, map.locationOf(this).x() + 1, map.locationOf(this).y());
+		//System.out.println(dropLocation.x());
+		
+		if (rand <= limbLostChance) {
+			Random randLimbs = new Random();
+			if ((armsNumber & legsNumber) != 0) {
+				if (randLimbs.nextBoolean() & armsNumber != 0) {
+					armsNumber--;
+					dropLocation.addItem(new ZombieArm());
+					return name + "'s arm was knocked off!";
+				}
+				else if (legsNumber != 0){
+					legsNumber--;
+					dropLocation.addItem(new ZombieLeg());
+					return name + "'s leg was knocked off!";
+				}
+			}
+		}
+		return null;
+	}
 }

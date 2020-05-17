@@ -75,6 +75,6 @@ public class ZombieAttackAction extends AttackAction{
 				drop.execute(target, map);
 			map.removeActor(target);	
 		}
-		return target + "is killed.";
+		return target + " is killed.";
 	}
 }
