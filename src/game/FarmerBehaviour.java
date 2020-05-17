@@ -18,8 +18,10 @@ public class FarmerBehaviour implements Behaviour {
 	public Action getAction(Actor actor, GameMap map) {
 		ArrayList<Action> actions = new ArrayList<Action>();
 		
-		Location farmerLocation = map.locationOf(actor);
-		Location nextLocation = new Location(map, farmerLocation.x()+1, farmerLocation.y());
+		Location currentLocation = map.locationOf(actor);
+		Location nextLocation = new Location(map, currentLocation.x()+1, currentLocation.y());
+		Crop currentCrop = (Crop) currentLocation.getGround();
+		Crop nextCrop = (Crop) nextLocation.getGround();
 		
 		Random rand = new Random();
 		int sowProbability = rand.nextInt((100 - 1) + 1) + 1;
@@ -28,15 +30,15 @@ public class FarmerBehaviour implements Behaviour {
 			
 		}
 		
-		if(farmerLocation.getGround() instanceof Crop) {
-			actions.add(new FertilizeAction((Crop) farmerLocation.getGround()));
+		if(currentLocation.getGround() instanceof Crop && !currentCrop.isRipe()) {
+			actions.add(new FertilizeAction((Crop) currentLocation.getGround()));
 			
 		}
 		
-		if(farmerLocation.getGround() instanceof Crop) {
-			actions.add(new HarvestAction((Crop) farmerLocation.getGround(), farmerLocation));
+		if(currentLocation.getGround() instanceof Crop && currentCrop.isRipe()) {
+			actions.add(new HarvestAction((Crop) currentLocation.getGround(), currentLocation));
 		}
-		else if(nextLocation.getGround() instanceof Crop) {
+		else if(nextLocation.getGround() instanceof Crop && nextCrop.isRipe()) {
 			actions.add(new HarvestAction((Crop) nextLocation.getGround(), nextLocation));
 		}
 		
