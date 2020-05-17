@@ -7,9 +7,7 @@ import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 
 public class Farmer extends Human {
-	private Behaviour[] behaviours = {new WanderBehaviour(),
-									  new FarmerBehaviour()
-	};
+	private Behaviour[] behaviours = {new FarmerBehaviour(),new WanderBehaviour()};
 									 
 	
 	protected Farmer(String name, char displayChar, int hitPoints) {
