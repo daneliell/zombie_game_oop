@@ -23,44 +23,42 @@ public class ZombieAttackAction extends AttackAction{
 	private double biteMissChance = 0.6;
 	private int biteDamage = 15;
 	private int healthRestored = 5;
+	private int armsNumber;
 	
-	public ZombieAttackAction(Actor target) {
+	public ZombieAttackAction(Actor target, int armsNumber) {
 		super(target);
+		this.armsNumber = armsNumber;
 	}
 	
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		String result;
-		Random choice = new Random();
-		
+		String result = "";
+
 		// 50/50 chance to either use normal attacks or a bite attack
-		if (choice.nextBoolean()) {
-			Weapon weapon = actor.getWeapon();
-			
-			if (Math.random() <= missChance) {
-				return actor + " misses " + target + ".";
+		if (armsNumber == 2) {
+			if (Math.random() < 50) {
+				return normalAttack(actor,map);
 			}
-
-			int damage = weapon.damage();
-			result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
-			
-			result += performAttack(biteDamage, map);
+			else {
+				return biteAttack(actor,map);
+			}
 		}
+		// 30/60 chance to use normal attacks of a bite attack when Zombie only has 1 arm
+		else if (armsNumber == 1) {
+			if (Math.random() < 30) {
+				return normalAttack(actor,map);
+			}
+			else {
+				return biteAttack(actor,map);
+			}
+		}
+		// does not attack if Zombie has no arms
 		else {
-			if (Math.random() <= biteMissChance) {
-				return actor + " misses " + target + ".";
-			}
-
-			result = actor + " bites " + target + " for " + biteDamage + " damage and restores " + healthRestored
-					+ " health.";
-			
-			actor.heal(healthRestored);
-			result += performAttack(biteDamage, map);
+			return result;
 		}
-		return result;
 	}
 	
-	public String performAttack(int damage, GameMap map) {
+	private String performAttack(int damage, GameMap map) {
 		target.hurt(damage);
 		if (!target.isConscious()) {
 			ZombieCorpse zombieCorpse = new ZombieCorpse(target.toString());
@@ -76,5 +74,32 @@ public class ZombieAttackAction extends AttackAction{
 			return System.lineSeparator() + target + " is killed.";
 		}
 		return "";
+	}
+	
+	private String normalAttack(Actor actor, GameMap map) {
+		Weapon weapon = actor.getWeapon();
+		
+		if (Math.random() <= missChance) {
+			return actor + " misses " + target + ".";
+		}
+
+		int damage = weapon.damage();
+		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
+		result += performAttack(biteDamage, map);
+		
+		return result;
+	}
+	
+	private String biteAttack(Actor actor, GameMap map) {
+		if (Math.random() <= biteMissChance) {
+			return actor + " misses " + target + ".";
+		}
+
+		String result = actor + " bites " + target + " for " + biteDamage + " damage and restores " + healthRestored
+				+ " health.";
+		
+		actor.heal(healthRestored);
+		result += performAttack(biteDamage, map);
+		return result;
 	}
 }

@@ -37,16 +37,16 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 					return new PickUpItemAction(item);
 				}
 			}
-		}
-		// Is there an attackable Actor next to me?
-		List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
-		Collections.shuffle(exits);
-		
-		for (Exit e: exits) {
-			if (!(e.getDestination().containsAnActor()))
-				continue;
-			if (e.getDestination().getActor().hasCapability(attackableTeam)) {
-				return new ZombieAttackAction(e.getDestination().getActor());
+			// Is there an attackable Actor next to me?
+			List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
+			Collections.shuffle(exits);
+			
+			for (Exit e: exits) {
+				if (!(e.getDestination().containsAnActor()))
+					continue;
+				if (e.getDestination().getActor().hasCapability(attackableTeam)) {
+					return new ZombieAttackAction(e.getDestination().getActor(),armsNumber);
+				}
 			}
 		}
 		return null;
