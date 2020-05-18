@@ -9,6 +9,7 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Weapon;
 import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.WeaponItem;
 
 /**
  * Special Action for attacking other Actors.
@@ -49,11 +50,7 @@ public class AttackAction extends Action {
 		
 		if (target instanceof Zombie == true) {
 			Zombie zombie = (Zombie) target;
-			Location dropLocation = new Location(map, map.locationOf(target).x() + 1, map.locationOf(target).y());
-			String loseLimbResult = zombie.loseLimb(map.locationOf(target));
-			if (loseLimbResult != null) {
-				result += System.lineSeparator() + loseLimbResult;
-			}
+			result += zombie.loseLimb(map);
 		}
 		
 		if (!target.isConscious()) {

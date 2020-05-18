@@ -44,9 +44,9 @@ public class ZombieAttackAction extends AttackAction{
 
 			int damage = weapon.damage();
 			result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
-
-			result += System.lineSeparator() + performAttack(damage, map);
-			}
+			
+			result += performAttack(biteDamage, map);
+		}
 		else {
 			double rand = Math.random(); 
 			if (rand <= biteMissChance) {
@@ -57,8 +57,8 @@ public class ZombieAttackAction extends AttackAction{
 					+ " health.";
 			
 			actor.heal(healthRestored);
-			result += System.lineSeparator() + performAttack(biteDamage, map);
-			}
+			result += performAttack(biteDamage, map);
+		}
 		return result;
 	}
 	
@@ -74,7 +74,9 @@ public class ZombieAttackAction extends AttackAction{
 			for (Action drop : dropActions)		
 				drop.execute(target, map);
 			map.removeActor(target);	
+			
+			return System.lineSeparator() + target + " is killed.";
 		}
-		return target + " is killed.";
+		return "";
 	}
 }
