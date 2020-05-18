@@ -10,40 +10,40 @@ import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
 
 public class FarmerBehaviour implements Behaviour {
+	private int minProb = 1;
+	private int maxProb = 100;
+	private int sowProbability;
+	private Random random;
 	
 	public FarmerBehaviour() {
-		
+		Random rand = new Random();
+		sowProbability = rand.nextInt((maxProb - minProb) + 1) + minProb;
 	}
 	
 	public Action getAction(Actor actor, GameMap map) {
 		ArrayList<Action> actions = new ArrayList<Action>();
 		
-		Location currentLocation = map.locationOf(actor);
-		Location nextLocation = new Location(map, currentLocation.x()+1, currentLocation.y());
-		Crop currentCrop = (Crop) currentLocation.getGround();
-		Crop nextCrop = (Crop) nextLocation.getGround();
+		Location farmerLocation = map.locationOf(actor);
+		Location nextLocation = new Location(map, farmerLocation.x()+1, farmerLocation.y());
 		
-		Random rand = new Random();
-		int sowProbability = rand.nextInt((100 - 1) + 1) + 1;
-		if(sowProbability <= 33 && nextLocation.getGround() instanceof Dirt) {
+		if(this.sowProbability <= 33) {
 			actions.add(new SowAction(nextLocation));
 			
 		}
 		
-		if(currentLocation.getGround() instanceof Crop && !currentCrop.isRipe()) {
-			actions.add(new FertilizeAction((Crop) currentLocation.getGround()));
+		if(farmerLocation.getGround() instanceof Crop) {
+			actions.add(new FertilizeAction((Crop) farmerLocation.getGround()));
 			
 		}
 		
-		if(currentLocation.getGround() instanceof Crop && currentCrop.isRipe()) {
-			actions.add(new HarvestAction((Crop) currentLocation.getGround(), currentLocation));
+		if(farmerLocation.getGround() instanceof Crop) {
+			actions.add(new HarvestAction((Crop) farmerLocation.getGround(), farmerLocation));
 		}
-		else if(nextLocation.getGround() instanceof Crop && nextCrop.isRipe()) {
+		else if(nextLocation.getGround() instanceof Crop) {
 			actions.add(new HarvestAction((Crop) nextLocation.getGround(), nextLocation));
 		}
 		
 		if (!actions.isEmpty()) {
-			Random random = new Random();
 			return actions.get(random.nextInt(actions.size()));
 		}
 		else {

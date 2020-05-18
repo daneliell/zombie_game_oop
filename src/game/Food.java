@@ -8,9 +8,5 @@ public class Food extends Item {
 	public Food() {
 		super("food", 'f', true);
 	}
-	
-	public int getNutrients() {
-		return this.nutrients;
-	}
 
 }

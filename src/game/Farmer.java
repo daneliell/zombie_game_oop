@@ -7,13 +7,16 @@ import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 
 public class Farmer extends Human {
-	private Behaviour[] behaviours = {new FarmerBehaviour(),new WanderBehaviour()};
+	private Behaviour[] behaviours = {new FarmerBehaviour(),
+									  new WanderBehaviour()
+	};
 									 
 	
-	protected Farmer(String name, char displayChar, int hitPoints) {
+	protected Farmer(String name) {
 		super(name, 'F', 50);
 	}
 	
+	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		for (Behaviour behaviour : behaviours) {
 			Action action = behaviour.getAction(this, map);
