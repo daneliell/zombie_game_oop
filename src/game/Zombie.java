@@ -33,7 +33,7 @@ public class Zombie extends ZombieActor {
 	private String zombieDialogue = "Braaaaaaaains...";
 	private double dialogueChance = 0.1;
 	
-	private int[] dropLocation = {(0,1)};
+	private int[] dropLocation = {-1,1};
 	private int armsNumber;
 	private int legsNumber;
 	private double limbLostChance = 0.25;
