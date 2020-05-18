@@ -33,7 +33,7 @@ public class Zombie extends ZombieActor {
 	private String zombieDialogue = "Braaaaaaaains...";
 	private double dialogueChance = 0.1;
 	
-	private List<WeaponItem> limbs = new ArrayList<WeaponItem>();
+	private int[] dropLocation = {(0,1)};
 	private int armsNumber;
 	private int legsNumber;
 	private double limbLostChance = 0.25;
@@ -43,11 +43,6 @@ public class Zombie extends ZombieActor {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
 		armsNumber = 2;
 		legsNumber = 2;
-		for (int i = 0; i < 2; i++) {
-			limbs.add(new ZombieArm());
-			limbs.add(new ZombieLeg());
-		}
-		Collections.shuffle(limbs);
 	}
 	
 	@Override
@@ -79,27 +74,32 @@ public class Zombie extends ZombieActor {
 		return new DoNothingAction();	
 	}
 	
-	public String loseLimb(Location dropLocation) {
+	public String loseLimb(GameMap map) {
 		//double rand = Math.random(); 
 		double rand = 0.1;
-		//Location dropLocation = new Location(map, map.locationOf(this).x() + 1, map.locationOf(this).y());
-		//System.out.println(dropLocation.x());
 		
 		if (rand <= limbLostChance) {
+			Random randLocation = new Random();
+	        int randomX = randLocation.nextInt(dropLocation.length);
+	        int randomY = randLocation.nextInt(dropLocation.length);
+	        System.out.println(randomX);
+	        System.out.println(randomY);
+			int x = map.locationOf(this).x()+randomX;
+			int y = map.locationOf(this).y()+randomY;
 			Random randLimbs = new Random();
-			if ((armsNumber & legsNumber) != 0) {
+			if ((armsNumber | legsNumber) != 0) {
 				if (randLimbs.nextBoolean() & armsNumber != 0) {
 					armsNumber--;
-					dropLocation.addItem(new ZombieArm());
-					return name + "'s arm was knocked off!";
+					map.at(x, y).addItem(new ZombieArm());
+					return System.lineSeparator() + name + "'s arm was knocked off!";
 				}
-				else if (legsNumber != 0){
+				if (legsNumber != 0) {
 					legsNumber--;
-					dropLocation.addItem(new ZombieLeg());
-					return name + "'s leg was knocked off!";
+					map.at(x, y).addItem(new ZombieLeg());
+					return System.lineSeparator() + name + "'s leg was knocked off!";
 				}
 			}
 		}
-		return null;
+		return "";
 	}
 }

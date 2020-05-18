@@ -11,7 +11,7 @@ import edu.monash.fit2099.engine.WeaponItem;
 public class ZombieArm extends WeaponItem{
 	
 	public ZombieArm() {
-		super("zombie arm", '/', 15, "whacks");
+		super("zombie arm", '/', 15, "smacks");
 	}
 
 }
