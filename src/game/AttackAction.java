@@ -39,9 +39,9 @@ public class AttackAction extends Action {
 
 		Weapon weapon = actor.getWeapon();
 
-		if (rand.nextBoolean()) {
+		/*if (rand.nextBoolean()) {
 			return actor + " misses " + target + ".";
-		}
+		}*/
 
 		int damage = weapon.damage();
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";

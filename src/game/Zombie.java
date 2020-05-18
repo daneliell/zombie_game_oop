@@ -102,18 +102,21 @@ public class Zombie extends ZombieActor {
 			Random randLimbs = new Random();
 			if ((armsNumber | legsNumber) != 0) {
 				if (randLimbs.nextBoolean() & armsNumber != 0) {
+					String result = "";
 					armsNumber--;
 					attackBehaviour.setArms(armsNumber);
+					result += System.lineSeparator() + name + "'s arm was knocked off";
+					
 					if (armsNumber == 1) {
 						if (Math.random() < 50) {
-							dropWeapon();
+							result += dropWeapon(map);
 						}
 					}
 					if (armsNumber == 0) {
-						dropWeapon();
+						result += dropWeapon(map);
 					}
 					map.at(x, y).addItem(new ZombieArm());
-					return System.lineSeparator() + name + "'s arm was knocked off!";
+					return result;
 				}
 				if (legsNumber != 0) {
 					legsNumber--;
@@ -125,9 +128,13 @@ public class Zombie extends ZombieActor {
 		return "";
 	}
 	
-	private void dropWeapon() {
-		if (this.getWeapon() instanceof WeaponItem) {
-			this.removeItemFromInventory((Item) this.getWeapon());
+	private String dropWeapon(GameMap map) {
+		String result = "";
+		if (this.getWeapon() instanceof IntrinsicWeapon == false) {
+			WeaponItem weapon = (WeaponItem) this.getWeapon();
+			weapon.getDropAction().execute(this, map);
+			result = " and drops the " + weapon + " that it was holding!";
 		}
+		return result;
 	}
 }
