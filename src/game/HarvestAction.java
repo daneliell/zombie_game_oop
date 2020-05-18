@@ -15,13 +15,10 @@ public class HarvestAction extends Action {
 	}
 	
 	public String execute(Actor actor, GameMap map) {
-		if(this.crop.isRipe()) {
-			this.ground.setGround(new Dirt());
-			this.ground.addItem(new Food());
-			return actor + " harvested the ripe " + this.crop;
-		}
+		this.ground.setGround(new Dirt());
+		this.ground.addItem(new Food());
+		return actor + " harvested the ripe " + this.crop;
 		
-		return this.crop + " is not ripe";
 	}
 	
 	public String menuDescription(Actor actor) {
