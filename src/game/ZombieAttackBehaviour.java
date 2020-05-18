@@ -20,39 +20,54 @@ import edu.monash.fit2099.engine.PickUpItemAction;
  *
  */
 public class ZombieAttackBehaviour extends AttackBehaviour{
-	
 	private int armsNumber;
 	
-	public ZombieAttackBehaviour(ZombieCapability attackableTeam) {
+	/**
+	 * Constructor.
+	 * 
+	 * Calls the parent class constructor to set the team that the
+	 * owner of this Behaviour is allowed to attack.
+	 * 
+	 * @param attackableTeam Team descriptor for ZombieActors that can be attacked
+	 * @param armsNumber Number of arms belonging to the owner of the behaviour
+	 */
+	public ZombieAttackBehaviour(ZombieCapability attackableTeam, int armsNumber) {
 		super(attackableTeam);
+		this.armsNumber = armsNumber;
 	}
 	
+	/**
+	 * If Zombie has at least 1 arm:
+	 * Calls the getPickUpAction() method in Item class to return a PickUpItemAction 
+	 * that picks up the item at the location of the Zombie if the Item is
+	 * a Weapon.
+	 * 
+	 * If no Item is at location, calls method getAttackAction from its parent class to 
+	 * return an AttackAction that attacks an adjacent attackable Actor.
+	 * 
+	 */
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		// Is there a weapon at my location for me to use?
+		// Only can perform actions if Zombie has at least 1 arm
 		if (armsNumber != 0) {
+			// Is there a weapon at my location for me to use?
 			List<Item> items = new ArrayList<Item>(map.locationOf(actor).getItems());
 			for (Item item : items) {
 				if (item.asWeapon() != null) {
-					return new PickUpItemAction(item);
+					return item.getPickUpAction();
 				}
 			}
-			// Is there an attackable Actor next to me?
-			List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
-			Collections.shuffle(exits);
-			
-			for (Exit e: exits) {
-				if (!(e.getDestination().containsAnActor()))
-					continue;
-				if (e.getDestination().getActor().hasCapability(attackableTeam)) {
-					return new ZombieAttackAction(e.getDestination().getActor(),armsNumber);
-				}
-			}
+			return getAttackAction(actor, map);
 		}
 		return null;
 	}
 	
-	public void setArms(int newArmsNumber) {
-		armsNumber = newArmsNumber;
+	/**
+	 * Public method to reduce the armsNumber by 1
+	 */
+	public void removeArm() {
+		if (armsNumber > 0) {
+			armsNumber--;
+		}
 	}
 }

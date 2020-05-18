@@ -52,7 +52,7 @@ public class ZombieAttackAction extends AttackAction{
 				return biteAttack(actor,map);
 			}
 		}
-		// does not attack if Zombie has no arms
+		// Does not attack if Zombie has no arms
 		else {
 			return result;
 		}

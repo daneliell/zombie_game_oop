@@ -6,8 +6,8 @@ import edu.monash.fit2099.engine.Location;
 import java.util.Random;
 
 /**
- * A class which represents a corpse item when an Actor is killed
- * by a Zombie. Turns into a Zombie Actor within 5-10 turns.
+ * A class which represents a corpse item when an Actor is killed by
+ * a Zombie. Turns into a Zombie Actor within 5-10 turns.
  * 
  * @author Daniel Yuen
  *

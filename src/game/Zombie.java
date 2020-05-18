@@ -6,13 +6,8 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.IntrinsicWeapon;
-import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.WeaponItem;
 import java.lang.Math;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -24,27 +19,33 @@ import java.util.Random;
  *
  */
 public class Zombie extends ZombieActor {
-	private ZombieAttackBehaviour attackBehaviour = new ZombieAttackBehaviour(ZombieCapability.ALIVE);
+	private ZombieAttackBehaviour attackBehaviour = new ZombieAttackBehaviour(ZombieCapability.ALIVE, 2);
 	private Behaviour[] moveBehaviours = {
 			new HuntBehaviour(Human.class, 10),
 			new WanderBehaviour()
 	};
 	
+	// attributes for producing Zombie dialogue
 	private String zombieDialogue = "Braaaaaaaains...";
 	private double dialogueChance = 0.1;
 	
+	// attributes for dropping limbs on hit feature
 	private int[] dropLocation = {-1,1};
 	private int armsNumber;
 	private int legsNumber;
 	private double limbLostChance = 0.25;
-	private Boolean isSecondTurn;
-
+	private Boolean isSecondTurn = false;
+	
+	/**
+	 * Constructor.
+	 * 
+	 * Sets the armsNumber and legsNumber to 2 during creation of a Zombie.
+	 * @param name
+	 */
 	public Zombie(String name) {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
 		armsNumber = 2;
 		legsNumber = 2;
-		attackBehaviour.setArms(armsNumber);
-		isSecondTurn = false;
 	}
 	
 	@Override
@@ -104,7 +105,7 @@ public class Zombie extends ZombieActor {
 				if (randLimbs.nextBoolean() & armsNumber != 0) {
 					String result = "";
 					armsNumber--;
-					attackBehaviour.setArms(armsNumber);
+					attackBehaviour.removeArm();
 					result += System.lineSeparator() + name + "'s arm was knocked off";
 					
 					if (armsNumber == 1) {
@@ -133,7 +134,7 @@ public class Zombie extends ZombieActor {
 		if (this.getWeapon() instanceof IntrinsicWeapon == false) {
 			WeaponItem weapon = (WeaponItem) this.getWeapon();
 			weapon.getDropAction().execute(this, map);
-			result = " and drops the " + weapon + " that it was holding!";
+			result = " and drops the " + weapon + " that it was holding.";
 		}
 		return result;
 	}
