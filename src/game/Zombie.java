@@ -24,8 +24,8 @@ import java.util.Random;
  *
  */
 public class Zombie extends ZombieActor {
-	private Behaviour[] behaviours = {
-			new ZombieAttackBehaviour(ZombieCapability.ALIVE),
+	private ZombieAttackBehaviour attackBehaviour = new ZombieAttackBehaviour(ZombieCapability.ALIVE);
+	private Behaviour[] moveBehaviours = {
 			new HuntBehaviour(Human.class, 10),
 			new WanderBehaviour()
 	};
@@ -43,6 +43,7 @@ public class Zombie extends ZombieActor {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
 		armsNumber = 2;
 		legsNumber = 2;
+		attackBehaviour.setArms(armsNumber);
 	}
 	
 	@Override
@@ -66,30 +67,39 @@ public class Zombie extends ZombieActor {
 			display.println(name + ": " + zombieDialogue);
 		}
 		
-		for (Behaviour behaviour : behaviours) {
-			Action action = behaviour.getAction(this, map);
-			if (action != null)
-				return action;
+		Action attackAction = attackBehaviour.getAction(this,map);
+		if (attackAction != null) {
+			return attackAction;
+		}
+		for (Behaviour moveBehaviour : moveBehaviours) {
+			Action moveAction = moveBehaviour.getAction(this, map);
+			if (moveAction != null)
+				return moveAction;
 		}
 		return new DoNothingAction();	
 	}
 	
 	public String loseLimb(GameMap map) {
-		//double rand = Math.random(); 
-		double rand = 0.1;
-		
-		if (rand <= limbLostChance) {
+		if (Math.random() <= limbLostChance) {
 			Random randLocation = new Random();
 	        int randomX = randLocation.nextInt(dropLocation.length);
 	        int randomY = randLocation.nextInt(dropLocation.length);
-	        System.out.println(randomX);
-	        System.out.println(randomY);
 			int x = map.locationOf(this).x()+randomX;
 			int y = map.locationOf(this).y()+randomY;
+			
 			Random randLimbs = new Random();
 			if ((armsNumber | legsNumber) != 0) {
 				if (randLimbs.nextBoolean() & armsNumber != 0) {
 					armsNumber--;
+					attackBehaviour.setArms(armsNumber);
+					if (armsNumber == 1) {
+						if (Math.random() < 50) {
+							dropWeapon();
+						}
+					}
+					if (armsNumber == 0) {
+						dropWeapon();
+					}
 					map.at(x, y).addItem(new ZombieArm());
 					return System.lineSeparator() + name + "'s arm was knocked off!";
 				}
@@ -101,5 +111,11 @@ public class Zombie extends ZombieActor {
 			}
 		}
 		return "";
+	}
+	
+	private void dropWeapon() {
+		if (this.getWeapon() instanceof WeaponItem) {
+			this.removeItemFromInventory((Item) this.getWeapon());
+		}
 	}
 }

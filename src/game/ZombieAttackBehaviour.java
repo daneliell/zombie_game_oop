@@ -21,17 +21,21 @@ import edu.monash.fit2099.engine.PickUpItemAction;
  */
 public class ZombieAttackBehaviour extends AttackBehaviour{
 	
+	private int armsNumber;
+	
 	public ZombieAttackBehaviour(ZombieCapability attackableTeam) {
 		super(attackableTeam);
 	}
 	
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		// Is there an item at my location?
-		List<Item> items = new ArrayList<Item>(map.locationOf(actor).getItems());
-		for (Item item : items) {
-			if (item.asWeapon() != null) {
-				return new PickUpItemAction(item);
+		// Is there a weapon at my location for me to use?
+		if (armsNumber != 0) {
+			List<Item> items = new ArrayList<Item>(map.locationOf(actor).getItems());
+			for (Item item : items) {
+				if (item.asWeapon() != null) {
+					return new PickUpItemAction(item);
+				}
 			}
 		}
 		// Is there an attackable Actor next to me?
@@ -46,5 +50,9 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 			}
 		}
 		return null;
+	}
+	
+	public void setArms(int newArmsNumber) {
+		armsNumber = newArmsNumber;
 	}
 }

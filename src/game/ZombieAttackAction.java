@@ -37,8 +37,7 @@ public class ZombieAttackAction extends AttackAction{
 		if (choice.nextBoolean()) {
 			Weapon weapon = actor.getWeapon();
 			
-			double rand = Math.random(); 
-			if (rand <= missChance) {
+			if (Math.random() <= missChance) {
 				return actor + " misses " + target + ".";
 			}
 
@@ -48,8 +47,7 @@ public class ZombieAttackAction extends AttackAction{
 			result += performAttack(biteDamage, map);
 		}
 		else {
-			double rand = Math.random(); 
-			if (rand <= biteMissChance) {
+			if (Math.random() <= biteMissChance) {
 				return actor + " misses " + target + ".";
 			}
 
