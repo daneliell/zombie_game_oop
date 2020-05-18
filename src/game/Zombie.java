@@ -37,13 +37,14 @@ public class Zombie extends ZombieActor {
 	private int armsNumber;
 	private int legsNumber;
 	private double limbLostChance = 0.25;
-	private Boolean isSecondTurn = false;
+	private Boolean isSecondTurn;
 
 	public Zombie(String name) {
 		super(name, 'Z', 100, ZombieCapability.UNDEAD);
 		armsNumber = 2;
 		legsNumber = 2;
 		attackBehaviour.setArms(armsNumber);
+		isSecondTurn = false;
 	}
 	
 	@Override
@@ -71,11 +72,22 @@ public class Zombie extends ZombieActor {
 		if (attackAction != null) {
 			return attackAction;
 		}
-		for (Behaviour moveBehaviour : moveBehaviours) {
-			Action moveAction = moveBehaviour.getAction(this, map);
-			if (moveAction != null)
-				return moveAction;
+		
+		if (legsNumber == 0) {
+			return new DoNothingAction();
 		}
+		else if (legsNumber == 2 | isSecondTurn == true) {
+			isSecondTurn = false;
+			for (Behaviour moveBehaviour : moveBehaviours) {
+				Action moveAction = moveBehaviour.getAction(this, map);
+				if (moveAction != null)
+					return moveAction;
+			}
+		}
+		else if (legsNumber == 1 & isSecondTurn == false) {
+			isSecondTurn = true;
+		}
+		
 		return new DoNothingAction();	
 	}
 	
