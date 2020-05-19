@@ -2,6 +2,7 @@ package edu.monash.fit2099.demo.conwayslife;
 
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
+import game.Crop;
 
 public class Tree extends Ground {
 	private int age = 0;
@@ -20,5 +21,11 @@ public class Tree extends Ground {
 			displayChar = 't';
 		if (age == 20)
 			displayChar = 'T';
+	}
+
+	@Override
+	public Crop asCrop() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

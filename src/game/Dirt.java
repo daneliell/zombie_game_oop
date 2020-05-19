@@ -10,4 +10,11 @@ public class Dirt extends Ground {
 	public Dirt() {
 		super('.');
 	}
+
+	@Override
+	public Crop asCrop() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

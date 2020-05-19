@@ -2,6 +2,7 @@ package game;
 
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.Weapon;
 
 public class Crop extends Ground {
 	private int ripeAge = 20;
@@ -35,5 +36,11 @@ public class Crop extends Ground {
 		}
 		
 	}
+
+	@Override
+	public Crop asCrop() {
+		return this instanceof Crop ? (Crop) this : null;
+	}
+
 
 }

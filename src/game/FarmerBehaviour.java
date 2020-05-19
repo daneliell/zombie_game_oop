@@ -1,55 +1,52 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
-
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
 
 public class FarmerBehaviour implements Behaviour {
-	private int minProb = 1;
-	private int maxProb = 100;
-	private int sowProbability;
-	private Random random;
 	
 	public FarmerBehaviour() {
-		Random rand = new Random();
-		sowProbability = rand.nextInt((maxProb - minProb) + 1) + minProb;
 	}
 	
 	public Action getAction(Actor actor, GameMap map) {
-		ArrayList<Action> actions = new ArrayList<Action>();
+		Location actorLocation = map.locationOf(actor);
 		
-		Location farmerLocation = map.locationOf(actor);
-		Location nextLocation = new Location(map, farmerLocation.x()+1, farmerLocation.y());
+		List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
+		Collections.shuffle(exits);
 		
-		if(this.sowProbability <= 33) {
-			actions.add(new SowAction(nextLocation));
-			
+		if(Math.random()<33) {
+			for(Exit exit: exits) {
+				Ground ground = exit.getDestination().getGround();
+				if(ground == new Dirt()) {
+					return new SowAction(exit.getDestination());
+				}
+			}
 		}
 		
-		if(farmerLocation.getGround() instanceof Crop) {
-			actions.add(new FertilizeAction((Crop) farmerLocation.getGround()));
-			
+		if(actorLocation.getGround().asCrop() != null) {
+			return new FertilizeAction(map.locationOf(actor).getGround().asCrop());
 		}
 		
-		if(farmerLocation.getGround() instanceof Crop) {
-			actions.add(new HarvestAction((Crop) farmerLocation.getGround(), farmerLocation));
-		}
-		else if(nextLocation.getGround() instanceof Crop) {
-			actions.add(new HarvestAction((Crop) nextLocation.getGround(), nextLocation));
-		}
 		
-		if (!actions.isEmpty()) {
-			return actions.get(random.nextInt(actions.size()));
+		if(actorLocation.getGround().asCrop() != null & actorLocation.getGround().asCrop().isRipe()) {
+			return new HarvestAction(actorLocation.getGround().asCrop(), actorLocation);
 		}
 		else {
-			return null;
+			for(Exit exit: exits) {
+				Ground ground = exit.getDestination().getGround();
+				if(ground.asCrop().isRipe()) {
+					return new HarvestAction(ground.asCrop(), exit.getDestination());
+				}
+			}
 		}
-		
+		return null;
 	}
-
 }

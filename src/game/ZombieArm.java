@@ -4,7 +4,9 @@ import java.util.List;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
+import edu.monash.fit2099.engine.DropItemAction;
 import edu.monash.fit2099.engine.Item;
+import edu.monash.fit2099.engine.PickUpItemAction;
 import edu.monash.fit2099.engine.WeaponItem;
 
 /**
@@ -16,12 +18,14 @@ import edu.monash.fit2099.engine.WeaponItem;
 public class ZombieArm extends WeaponItem{
 	private Item craftItem;
 	protected Actions allowableActions;
+	private boolean inInventory;
 	
 	public ZombieArm() {
 		super("zombie arm", '/', 15, "smacks");
 		this.allowableActions = new Actions();
 		this.craftItem = new ZombieClub();
 		this.addAction(this.getCraftingAction());
+		
 		
 	}
 	
@@ -50,6 +54,7 @@ public class ZombieArm extends WeaponItem{
 	public List<Action> getAllowableActions() {
 		return allowableActions.getUnmodifiableActionList();
 	}
+	
 
 
 }
