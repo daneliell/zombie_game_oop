@@ -3,7 +3,11 @@ package game;
 
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.WeaponItem;
-
+/**
+ * 
+ * @author Sravan
+ *
+ */
 public class ZombieMace extends WeaponItem {
 	
 	public ZombieMace() {

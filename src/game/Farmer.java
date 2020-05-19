@@ -5,7 +5,11 @@ import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
-
+/**
+ * 
+ * @author Sravan
+ *
+ */
 public class Farmer extends Human {
 	private Behaviour[] behaviours = {new FarmerBehaviour(),
 									  new WanderBehaviour()

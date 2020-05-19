@@ -3,7 +3,11 @@ package game;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
-
+/**
+ * 
+ * @author Sravan
+ *
+ */
 public class FertilizeAction extends Action{
 	protected Crop target;
 	

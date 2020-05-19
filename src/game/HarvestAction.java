@@ -4,7 +4,11 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
-
+/**
+ * 
+ * @author Sravan
+ *
+ */
 public class HarvestAction extends Action {
 	protected Crop crop;
 	protected Location ground;
