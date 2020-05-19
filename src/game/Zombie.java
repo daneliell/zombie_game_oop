@@ -75,11 +75,10 @@ public class Zombie extends ZombieActor {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-		double rand = Math.random(); 
-		if (rand < dialogueChance) {
-			display.println(name + ": " + zombieDialogue);
+		// has a chance to return a SpeakAction
+		if (Math.random() < 0.1) {
+			return new SpeakAction(zombieDialogue, dialogueChance);
 		}
-		
 		// performs an attack if it can
 		Action attackAction = attackBehaviour.getAction(this,map);
 		if (attackAction != null) {
