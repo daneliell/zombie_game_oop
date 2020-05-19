@@ -1,9 +1,6 @@
 package game;
 
 import edu.monash.fit2099.engine.WeaponItem;
-
-import java.util.ArrayList;
-
 import edu.monash.fit2099.engine.Item;
 
 /**
@@ -13,26 +10,30 @@ import edu.monash.fit2099.engine.Item;
  *
  */
 public class ZombieLeg extends WeaponItem {
-	ArrayList<Item> craftItems = new ArrayList<Item>();
+	private Item craftItem;
 	
 	public ZombieLeg() {
 		super("zombie leg", '}', 20, "whacks");
-		this.setCraftItems(this.craftItems);
-		this.addCraftItems(new ZombieMace());
+		this.craftItem = new ZombieMace();
 	}
 	
-	public void setCraftItems(ArrayList<Item> craftItems) {
-		this.craftItems = craftItems;
+	
+	public Item getCraftItem() {
+		return this.craftItem;
 	}
 	
-	public ArrayList<Item> getCraftItems() {
-		return this.craftItems;
-	}
 	
-	public void addCraftItems(Item item) {
-		ArrayList<Item> currentItems = this.getCraftItems();
-		currentItems.add(item);
-		this.setCraftItems(currentItems);
+	public boolean isCraftable() {
+		return true;
+	}
+
+
+	@Override
+	public CraftingAction getCraftingAction() {
+		if(this.isCraftable()) {
+			return new CraftingAction(this);
+		}
+		return null;
 	}
 
 }

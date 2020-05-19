@@ -26,7 +26,7 @@ public class PortableItem extends Item {
 	}
 
 	@Override
-	public ArrayList<Item> getCraftItems() {
+	public ArrayList<Item> getCraftItem() {
 		// TODO Auto-generated method stub
 		return null;
 	}

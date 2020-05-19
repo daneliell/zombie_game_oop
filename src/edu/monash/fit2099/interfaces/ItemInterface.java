@@ -1,8 +1,7 @@
 package edu.monash.fit2099.interfaces;
 
-import java.util.ArrayList;
-
 import edu.monash.fit2099.engine.Item;
+import game.CraftingAction;
 
 /**
  * This interface provides the ability to add methods to Ground, without modifying code in the engine,
@@ -10,9 +9,8 @@ import edu.monash.fit2099.engine.Item;
  */
 public interface ItemInterface {
 	
-	
-	public void setCraftItems(ArrayList<Item> craftItems);
-	public void addCraftItems(Item item);
-	public ArrayList<Item> getCraftItems();
+	public Item getCraftItem();
+	public boolean isCraftable();
+	public CraftingAction getCraftingAction();
 
 }

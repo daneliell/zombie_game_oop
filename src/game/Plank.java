@@ -31,7 +31,7 @@ public class Plank extends WeaponItem {
 	}
 
 	@Override
-	public ArrayList<Item> getCraftItems() {
+	public ArrayList<Item> getCraftItem() {
 		// TODO Auto-generated method stub
 		return null;
 	}
