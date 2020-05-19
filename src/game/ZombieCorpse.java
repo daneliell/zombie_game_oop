@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * A class which represents a corpse item when an Actor is killed by
+ * A Item subclass which represents a corpse Item when an Actor is killed by
  * a Zombie. Turns into a Zombie Actor within 5-10 turns.
  * 
  * @author Daniel Yuen
