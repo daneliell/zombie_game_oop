@@ -1,9 +1,9 @@
 package edu.monash.fit2099.demo.mars;
 
-import java.util.ArrayList;
 
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.WeaponItem;
+import game.CraftingAction;
 
 public class Stick extends WeaponItem {
 
@@ -12,20 +12,22 @@ public class Stick extends WeaponItem {
 	}
 
 	@Override
-	public void setCraftItems(ArrayList<Item> craftItems) {
+	public Item getCraftItem() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override
-	public void addCraftItems(Item item) {
+	public boolean isCraftable() {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
-	public ArrayList<Item> getCraftItem() {
-		// TODO Auto-generated method stub
+	public CraftingAction getCraftingAction() {
+		if(this.isCraftable()) {
+			return new CraftingAction(this);
+		}
 		return null;
 	}
 
