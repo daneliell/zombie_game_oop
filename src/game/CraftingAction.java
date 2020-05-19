@@ -1,38 +1,44 @@
 package game;
 
+import java.util.ArrayList;
+
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.WeaponItem;
+import edu.monash.fit2099.engine.Item;
+
+/**
+ * 
+ * @author Sravan Krsna Rao
+ *
+ */
 
 public class CraftingAction extends Action {
-	protected WeaponItem rawWeapon;
-	protected WeaponItem craftedWeapon;
+	protected Item rawItem;
+	protected Item craftedItem;
 	
-	public CraftingAction(WeaponItem rawWeapon) {
-		this.rawWeapon = rawWeapon;
+	public CraftingAction(Item rawItem, Item craftedItem) {
+		this.rawItem = rawItem;
+		this.craftedItem = craftedItem;
 	}
 	
 	public String execute(Actor actor, GameMap map) {
-		if(this.rawWeapon == new ZombieArm()) {
-			this.craftedWeapon = new ZombieClub();
-			actor.removeItemFromInventory(this.rawWeapon);
-			actor.addItemToInventory(this.craftedWeapon);
-			return "A zombie club was crafted.";
+		ArrayList<Item> craftItems = new ArrayList<Item>();
+		craftItems = this.rawItem.getCraftItems();
+		for(Item item: craftItems) {
+			if(item == this.craftedItem) {
+				actor.removeItemFromInventory(this.rawItem);
+				actor.addItemToInventory(this.craftedItem);
+				return this.rawItem + " was crafted into a " + this.craftedItem + ".";
+			}
 		}
-		
-		if(this.rawWeapon == new ZombieLeg()) {
-			this.craftedWeapon = new ZombieMace();
-			actor.removeItemFromInventory(this.rawWeapon);
-			actor.addItemToInventory(this.craftedWeapon);
-			return "A zombie mace was crafted.";
-		}
-		
 		return null;
+		
 	}
 	
+	
 	public String menuDescription(Actor actor) {
-		return actor + " crafted a " + this.craftedWeapon + "."; 
+		return actor + " crafted a " + this.craftedItem + "."; 
 	}
 	
 }
