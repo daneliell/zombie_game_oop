@@ -32,8 +32,6 @@ public class ZombieAttackAction extends AttackAction{
 	
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		String result = "";
-
 		// 50/50 chance to either use normal attacks or a bite attack
 		if (armsNumber == 2) {
 			if (Math.random() < 50) {
@@ -43,55 +41,38 @@ public class ZombieAttackAction extends AttackAction{
 				return biteAttack(actor,map);
 			}
 		}
-		// 30/60 chance to use normal attacks of a bite attack when Zombie only has 1 arm
+		// 25/75 chance to use normal attacks of a bite attack when Zombie only has 1 arm
 		else if (armsNumber == 1) {
-			if (Math.random() < 30) {
+			if (Math.random() < 25) {
 				return normalAttack(actor,map);
 			}
 			else {
 				return biteAttack(actor,map);
 			}
 		}
-		// Does not attack if Zombie has no arms
+		// always use bite attacks when Zombie has no arms
 		else {
-			return result;
+			return biteAttack(actor,map);
 		}
-	}
-	
-	private String performAttack(int damage, GameMap map) {
-		target.hurt(damage);
-		if (!target.isConscious()) {
-			ZombieCorpse zombieCorpse = new ZombieCorpse(target.toString());
-			map.locationOf(target).addItem(zombieCorpse);
-			
-			Actions dropActions = new Actions();
-			for (Item item : target.getInventory())
-				dropActions.add(item.getDropAction());
-			for (Action drop : dropActions)		
-				drop.execute(target, map);
-			map.removeActor(target);	
-			
-			return System.lineSeparator() + target + " is killed.";
-		}
-		return "";
 	}
 	
 	private String normalAttack(Actor actor, GameMap map) {
 		Weapon weapon = actor.getWeapon();
 		
-		if (Math.random() <= missChance) {
+		if (Math.random() < missChance) {
 			return actor + " misses " + target + ".";
 		}
 
 		int damage = weapon.damage();
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
-		result += performAttack(biteDamage, map);
+		ZombieCorpse zombieCorpse = new ZombieCorpse(target.toString());
+		result += performAttack(damage, map, zombieCorpse);
 		
 		return result;
 	}
 	
 	private String biteAttack(Actor actor, GameMap map) {
-		if (Math.random() <= biteMissChance) {
+		if (Math.random() < biteMissChance) {
 			return actor + " misses " + target + ".";
 		}
 
@@ -99,7 +80,8 @@ public class ZombieAttackAction extends AttackAction{
 				+ " health.";
 		
 		actor.heal(healthRestored);
-		result += performAttack(biteDamage, map);
+		ZombieCorpse zombieCorpse = new ZombieCorpse(target.toString());
+		result += performAttack(biteDamage, map, zombieCorpse);
 		return result;
 	}
 }

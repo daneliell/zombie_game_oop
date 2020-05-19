@@ -53,9 +53,21 @@ public class AttackAction extends Action {
 			Zombie zombie = (Zombie) target;
 			result += zombie.loseLimb(map);
 		}
+
+		Item corpse = new PortableItem("dead " + target, '%');
+		result += performAttack(damage, map, corpse);
 		
+		return result;
+	}
+
+	@Override
+	public String menuDescription(Actor actor) {
+		return actor + " attacks " + target;
+	}
+	
+	protected String performAttack(int damage, GameMap map, Item corpse) {
+		target.hurt(damage);
 		if (!target.isConscious()) {
-			Item corpse = new PortableItem("dead " + target, '%');
 			map.locationOf(target).addItem(corpse);
 			
 			Actions dropActions = new Actions();
@@ -65,15 +77,8 @@ public class AttackAction extends Action {
 				drop.execute(target, map);
 			map.removeActor(target);	
 			
-			result += System.lineSeparator() + target + " is killed.";
+			return System.lineSeparator() + target + " is killed.";
 		}
-
-		return result;
+		return "";
 	}
-
-	@Override
-	public String menuDescription(Actor actor) {
-		return actor + " attacks " + target;
-	}
-	
 }

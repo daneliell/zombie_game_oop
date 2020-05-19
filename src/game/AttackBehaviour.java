@@ -43,18 +43,6 @@ public class AttackBehaviour implements Behaviour {
 	 */
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		return getAttackAction(actor, map);
-	}
-	
-	/**
-	 * Protected method to check for valid Actors to perform an attack on and
-	 * returns an AttackAction if it is possible, null otherwise.
-	 * 
-	 * @param actor The actor acting
-	 * @param map The GameMap containing the Actor
-	 * @return an AttackAction if attacks are possible
-	 */
-	protected Action getAttackAction(Actor actor, GameMap map) {
 		// Is there an attackable Actor next to me?
 		List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
 		Collections.shuffle(exits);
@@ -67,5 +55,29 @@ public class AttackBehaviour implements Behaviour {
 			}
 		}
 		return null;
+		//return getAttackAction(actor, map);
 	}
+	
+	/**
+	 * Protected method to check for valid Actors to perform an attack on and
+	 * returns an AttackAction if it is possible, null otherwise.
+	 * 
+	 * @param actor The actor acting
+	 * @param map The GameMap containing the Actor
+	 * @return an AttackAction if attacks are possible
+	 */
+	/*protected Action getAttackAction(Actor actor, GameMap map, AttackAction action) {
+		// Is there an attackable Actor next to me?
+		List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
+		Collections.shuffle(exits);
+
+		for (Exit e: exits) {
+			if (!(e.getDestination().containsAnActor()))
+				continue;
+			if (e.getDestination().getActor().hasCapability(attackableTeam)) {
+				return new AttackAction(e.getDestination().getActor());
+			}
+		}
+		return null;
+	}*/
 }
