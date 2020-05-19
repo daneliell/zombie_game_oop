@@ -19,6 +19,7 @@ public class CraftingAction extends Action {
 	
 	public CraftingAction(Item rawItem) {
 			this.rawItem = rawItem;
+			this.craftedItem = this.rawItem.getCraftItem();
 	}
 	
 	public boolean itemInInventory(Actor actor) {
@@ -32,13 +33,9 @@ public class CraftingAction extends Action {
 	}
 	
 	public String execute(Actor actor, GameMap map) {
-		if (this.itemInInventory(actor)) {
-			this.craftedItem = this.rawItem.getCraftItem();
 			actor.removeItemFromInventory(this.rawItem);
 			actor.addItemToInventory(this.craftedItem);
 			return menuDescription(actor);
-		}		
-		return null;
 	}
 	
 	public String menuDescription(Actor actor) {
