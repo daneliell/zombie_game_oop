@@ -21,15 +21,19 @@ public class FarmerBehaviour implements Behaviour {
 		
 		List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
 		Collections.shuffle(exits);
-		
-		if(Math.random()<33) {
+		 
 			for(Exit exit: exits) {
 				Ground ground = exit.getDestination().getGround();
 				if(ground == new Dirt()) {
-					return new SowAction(exit.getDestination());
+					if (Math.random()<33) {
+						return new SowAction(exit.getDestination());
+					}
+					else {
+						break;
+					}
 				}
 			}
-		}
+		
 		
 		if(actorLocation.getGround().asCrop() != null) {
 			return new FertilizeAction(map.locationOf(actor).getGround().asCrop());
