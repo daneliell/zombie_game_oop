@@ -33,7 +33,10 @@ public class AttackAction extends Action {
 	public AttackAction(Actor target) {
 		this.target = target;
 	}
-
+	
+	/**
+	 * Have a chance to cause Zombies to lose their limbs on hit.
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 
@@ -65,6 +68,15 @@ public class AttackAction extends Action {
 		return actor + " attacks " + target;
 	}
 	
+	/**
+	 * Damages the target and checks if the target is still alive. If not,
+	 * a corpse Item is added in its place.
+	 * 
+	 * @param damage Amount of damage done to the target
+	 * @param map The GameMap containing the target
+	 * @param corpse Corpse Item to be left at target location
+	 * @return String with the result if the target is killed
+	 */
 	protected String performAttack(int damage, GameMap map, Item corpse) {
 		target.hurt(damage);
 		if (!target.isConscious()) {

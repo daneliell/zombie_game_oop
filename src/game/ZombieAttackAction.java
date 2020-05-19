@@ -1,18 +1,14 @@
 package game;
 
-import java.util.Random;
 
-import edu.monash.fit2099.engine.Action;
-import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Weapon;
 
 /**
  * Attack action for Zombies to choose between a normal attack
  * or a bite attack. Leaves a ZombieCorpse instance if the target
- * is knocked unconscious.
+ * is dead.
  * 
  * @author Daniel Yuen
  *
@@ -25,11 +21,28 @@ public class ZombieAttackAction extends AttackAction{
 	private int healthRestored = 5;
 	private int armsNumber;
 	
+	/**
+	 * Constructor.
+	 * 
+	 * Sets the armsNumber attribute accordingly.
+	 * 
+	 * @param target The Actor to attack
+	 * @param armsNumber Number of arms attached to the Zombie on attack
+	 */
 	public ZombieAttackAction(Actor target, int armsNumber) {
 		super(target);
 		this.armsNumber = armsNumber;
 	}
 	
+	/**
+	 * Performs either a normal attack or a bite attack based on the 
+	 * number of arms attached to the Zombie when attacking target.
+	 * With 2 arms, has an equal chance to use normal attacks. With 1
+	 * arm, chance is reduced by half. With no arms, the Zombie always
+	 * uses bite attacks.
+	 * 
+	 * @return String containing the result either of a normal attack or bite attack
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		// 50/50 chance to either use normal attacks or a bite attack
@@ -56,6 +69,15 @@ public class ZombieAttackAction extends AttackAction{
 		}
 	}
 	
+	/**
+	 * A normal attack using either the weapon the Zombie is holding
+	 * or by punching. Places a ZombieCorpse instance if the target
+	 * is killed.
+	 * 
+	 * @param actor Actor to be hit
+	 * @param map The GameMap containing the Actor
+	 * @return String result of the attack
+	 */
 	private String normalAttack(Actor actor, GameMap map) {
 		Weapon weapon = actor.getWeapon();
 		
@@ -71,6 +93,14 @@ public class ZombieAttackAction extends AttackAction{
 		return result;
 	}
 	
+	/**
+	 * A bite attack that restores health. Places a ZombieCorpse
+	 * instance if the target is killed.
+	 * 
+	 * @param actor Actor to be bitten
+	 * @param map The GameMap containing the Actor
+	 * @return String result of the attack
+	 */
 	private String biteAttack(Actor actor, GameMap map) {
 		if (Math.random() < biteMissChance) {
 			return actor + " misses " + target + ".";

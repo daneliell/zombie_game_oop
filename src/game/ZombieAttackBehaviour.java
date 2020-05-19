@@ -42,13 +42,13 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 	 * that picks up the item at the location of the Zombie if the Item is
 	 * a Weapon.
 	 * 
-	 * If no Item is at location, calls method getAttackAction from its parent class to 
-	 * return an AttackAction that attacks an adjacent attackable Actor.
+	 * If no Item is at location, looks for attackable Actors next to the Zombie and
+	 * returns an AttackAction that attacks the Actor.
 	 * 
 	 */
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		// Only can perform actions if Zombie has at least 1 arm
+		// Only can pick up Weapons if Zombie has at least 1 arm
 		if (armsNumber != 0) {
 			// Is there a weapon at my location for me to use?
 			List<Item> items = new ArrayList<Item>(map.locationOf(actor).getItems());

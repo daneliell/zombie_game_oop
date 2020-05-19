@@ -12,14 +12,18 @@ import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 /**
- * A Zombie.
+ * A Zombie. Zombies have a chance to say something Zombie-like each turn. Zombies
+ * can attack Humans with either a normal attack or a bite attack. If a Zombie is
+ * standing on a WeaponItem, it picks it up and uses it instead. 
  * 
- * This Zombie is pretty boring.  It needs to be made more interesting.
+ * On hit, a Zombie has a chance to lose any of its 4 limbs. Reduced limbs cause
+ * the Zombie to behave differently such as dropping its weapon when it loses
+ * its arms and losing the ability to move after losing both its legs. Dropped Zombie 
+ * limbs can be wielded as weapons by the player.
  * 
- * @author ram
+ * @author Daniel Yuen
  *
  */
 public class Zombie extends ZombieActor {
@@ -35,7 +39,6 @@ public class Zombie extends ZombieActor {
 	private double dialogueChance = 0.1;
 	
 	// attributes for dropping limbs on hit
-	//private int[][] dropLocation = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,-1}};
 	private int armsNumber;
 	private int legsNumber;
 	private double limbLostChance = 0.25;
@@ -61,7 +64,7 @@ public class Zombie extends ZombieActor {
 	}
 
 	/**
-	 * Before beginning a turn, it has a chance for the Zombie to say something Zombie-like.
+	 * Before beginning a turn, Zombies have a chance for to say something Zombie-like.
 	 * If a Zombie can attack, it will. If the Zombie has only 1 leg, it only performs move actions
 	 * once every two turns. If the Zombie has no legs, it will not be able to move at all. If it
 	 * has both legs, it will perform its move actions, which is to chase any human within 
@@ -75,41 +78,44 @@ public class Zombie extends ZombieActor {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-		// has a chance to return a SpeakAction
-		if (Math.random() < 0.1) {
-			return new SpeakAction(zombieDialogue, dialogueChance);
-		}
-		// performs an attack if it can
-		Action attackAction = attackBehaviour.getAction(this,map);
-		if (attackAction != null) {
-			return attackAction;
-		}
+		assert (0 <= armsNumber & legsNumber <= 2) : "Arms and legs cannot be less than 0 or greater than 2";
 		
-		if (legsNumber == 0) {
-			return new DoNothingAction();
+		// has a chance to say something Zombie-like
+		if (Math.random() < 0.1) {
+			display.println(name + ":" + zombieDialogue);
 		}
-		// this block of code will run every time if the Zombie has both of its legs, and 
-		// every second turn if the Zombie has only 1 leg
-		else if (legsNumber == 2 | isSecondTurn == true) {
-			isSecondTurn = false;
-			for (Behaviour moveBehaviour : moveBehaviours) {
-				Action moveAction = moveBehaviour.getAction(this, map);
-				if (moveAction != null)
-					return moveAction;
+		else {
+			// performs an attack if it can
+			Action attackAction = attackBehaviour.getAction(this,map);
+			if (attackAction != null) {
+				return attackAction;
+			}
+
+			if (legsNumber == 0) {
+				return new DoNothingAction();
+			}
+			// this block of code will run every time if the Zombie has both of its legs, and 
+			// every second turn if the Zombie has only 1 leg
+			else if (legsNumber == 2 | isSecondTurn == true) {
+				isSecondTurn = false;
+				for (Behaviour moveBehaviour : moveBehaviours) {
+					Action moveAction = moveBehaviour.getAction(this, map);
+					if (moveAction != null)
+						return moveAction;
+				}
+			}
+			// skips turn if the Zombie only has 1 leg
+			else if (legsNumber == 1 & isSecondTurn == false) {
+				isSecondTurn = true;
 			}
 		}
-		// skips turn if the Zombie only has 1 leg
-		else if (legsNumber == 1 & isSecondTurn == false) {
-			isSecondTurn = true;
-		}
-		
 		return new DoNothingAction();	
 	}
 	
 	/**
 	 * Has a chance to randomly remove a limb from the Zombie. Drops the weapon
 	 * it was holding if it loses its arms. Drops the knocked off limb on the ground
-	 * randomly on any of the 8 blocks around the Zombie.
+	 * randomly on any of the 8 spaces around the Zombie.
 	 * 
 	 * @param map the map where the current Zombie is
 	 * @return String informing the result of knocking off the limb
@@ -153,6 +159,12 @@ public class Zombie extends ZombieActor {
 		return "";
 	}
 	
+	/**
+	 * Drops the weapon the Zombie is currently holding.
+	 * 
+	 * @param map The GameMap containing the Zombie
+	 * @return String containing the result 
+	 */
 	private String dropWeapon(GameMap map) {
 		String result = "";
 		if (this.getWeapon() instanceof IntrinsicWeapon == false) {
