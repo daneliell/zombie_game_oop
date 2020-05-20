@@ -20,7 +20,6 @@ import edu.monash.fit2099.engine.WeaponItem;
 public class ZombieArm extends WeaponItem{
 	private Item craftItem;
 	protected Actions allowableActions;
-	private boolean inInventory = false;
 	
 	public ZombieArm() {
 		super("zombie arm", '/', 15, "smacks");
@@ -32,21 +31,9 @@ public class ZombieArm extends WeaponItem{
 		return this.craftItem;
 	}
 	
-	public boolean isCraftable() {
-		return true;
-	}
-
-	@Override
-	public CraftingAction getCraftingAction() {
-		if(this.isCraftable()) {
-			return new CraftingAction(this);
-		}
-		return null;
-	}
-
-	
 	public void tick(Location currentLocation, Actor actor) {
-		super.allowableActions.add(getCraftingAction());
+		if(this.craftItem != null) {
+			this.allowableActions.add(new CraftingAction(this));
+			}
 		}
-
 }

@@ -30,22 +30,12 @@ public class ZombieLeg extends WeaponItem {
 	
 	public Item getCraftItem() {
 		return this.craftItem;
-	}
-	
-	public boolean isCraftable() {
-		return true;
-	}
-	
-	@Override
-	public CraftingAction getCraftingAction() {
-		if(this.isCraftable() == true) {
-			return new CraftingAction(this);
-		}
-		return null;
-	}
+	}	
 	
 	public void tick(Location currentLocation, Actor actor) {
-		super.allowableActions.add(getCraftingAction());
+		if(this.craftItem != null) {
+			this.allowableActions.add(new CraftingAction(this));
+			}
 		}
 	
 }

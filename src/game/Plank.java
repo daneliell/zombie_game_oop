@@ -21,19 +21,4 @@ public class Plank extends WeaponItem {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public boolean isCraftable() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public CraftingAction getCraftingAction() {
-		if(this.isCraftable()) {
-			return new CraftingAction(this);
-		}
-		return null;
-	}
-
 }

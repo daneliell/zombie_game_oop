@@ -10,8 +10,5 @@ import game.CraftingAction;
 public interface ItemInterface {
 	
 	public Item getCraftItem();
-	public boolean isCraftable();
-	public CraftingAction getCraftingAction();
 	
-
 }

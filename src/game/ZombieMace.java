@@ -19,20 +19,6 @@ public class ZombieMace extends WeaponItem {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public boolean isCraftable() {
-
-		return false;
-	}
-
-	@Override
-	public CraftingAction getCraftingAction() {
-		if(this.isCraftable()) {
-			return new CraftingAction(this);
-		}
-		return null;
-	}
 }
 
 
