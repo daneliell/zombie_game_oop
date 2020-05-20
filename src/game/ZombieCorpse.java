@@ -11,7 +11,7 @@ import java.util.Random;
 
 /**
  * An Item subclass which represents a corpse Item when an Actor is killed by
- * a Zombie. Turns into a Zombie Actor within 5-10 turns.
+ * a Zombie. Turns into a Zombie within 5-10 turns.
  * 
  * @author Daniel Yuen
  *
@@ -30,8 +30,7 @@ public class ZombieCorpse extends PortableItem {
 	 * @param name Name of the human that is killed
 	 */
 	public ZombieCorpse(String name) {
-		super(name, '%');
-		
+		super(name , '%');
 		Random rand = new Random();
 		conversionCounter = rand.nextInt((maxTurns - minTurns) + 1) + minTurns;
 	}
@@ -44,8 +43,12 @@ public class ZombieCorpse extends PortableItem {
 	@Override
 	public void tick(Location location) {
 		if (conversionCounter == 0) {
+			if (location.containsAnActor()) {
+				List<Exit> exits = new ArrayList<Exit>(location.getExits());
+				Collections.shuffle(exits);
+				exits.get(0).getDestination().addActor(new Zombie("Zombie " + name));
+			}
 			location.removeItem(this);
-			location.addActor(new Zombie("Zombie " + name));
 			System.out.println(name + " rises from the dead!");
 		}
 		else {
