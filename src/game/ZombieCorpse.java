@@ -17,11 +17,18 @@ import java.util.Random;
  *
  */
 public class ZombieCorpse extends PortableItem {
-	
 	private int conversionCounter;
 	private int minTurns = 5;
 	private int maxTurns = 10;
 	
+	/**
+	 * Constructor.
+	 * 
+	 * Sets the conversionCounter for each instance of ZombieCorpse to a
+	 * random integer between 5-10.
+	 * 
+	 * @param name Name of the human that is killed
+	 */
 	public ZombieCorpse(String name) {
 		super(name, '%');
 		
@@ -29,9 +36,13 @@ public class ZombieCorpse extends PortableItem {
 		conversionCounter = rand.nextInt((maxTurns - minTurns) + 1) + minTurns;
 	}
 	
+	/**
+	 * Tick method for when the corpse is on the ground. Removes the 
+	 * ZombieCorpse and adds a new Zombie in the location after
+	 * conversionCounter reaches 0.
+	 */
 	@Override
 	public void tick(Location location) {
-		// Tick for when the corpse is on the ground
 		if (conversionCounter == 0) {
 			location.removeItem(this);
 			location.addActor(new Zombie("Zombie " + name));
@@ -42,9 +53,14 @@ public class ZombieCorpse extends PortableItem {
 		}
 	}
 	
+	/**
+	 * Tick method for when the corpse is being carried. Removes the
+	 * ZombieCorpse from the inventory of the Actor carrying the corpse
+	 * and adds a new Zombie in a random location adjacent to the Actor
+	 * after conversionCounter reaches 0.
+	 */
 	@Override
 	public void tick(Location location, Actor actor) {
-		// Tick for when the corpse is being carried
 		if (conversionCounter == 0) {
 			actor.removeItemFromInventory(this);
 			List<Exit> exits = new ArrayList<Exit>(location.getExits());
