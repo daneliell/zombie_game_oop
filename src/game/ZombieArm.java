@@ -4,8 +4,10 @@ import java.util.List;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
+import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.DropItemAction;
 import edu.monash.fit2099.engine.Item;
+import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.PickUpItemAction;
 import edu.monash.fit2099.engine.WeaponItem;
 
@@ -18,15 +20,12 @@ import edu.monash.fit2099.engine.WeaponItem;
 public class ZombieArm extends WeaponItem{
 	private Item craftItem;
 	protected Actions allowableActions;
-	private boolean inInventory;
+	private boolean inInventory = false;
 	
 	public ZombieArm() {
 		super("zombie arm", '/', 15, "smacks");
 		this.allowableActions = new Actions();
-		this.craftItem = new ZombieClub();
-		this.addAction(this.getCraftingAction());
-		
-		
+		this.craftItem = new ZombieClub();	
 	}
 	
 	public Item getCraftItem() {
@@ -44,17 +43,10 @@ public class ZombieArm extends WeaponItem{
 		}
 		return null;
 	}
-	
-	private void addAction(Action action) {
-		List<Action> actions = super.getAllowableActions();
-		this.allowableActions.add(actions);
-		this.allowableActions.add(action);
-	}
-	
-	public List<Action> getAllowableActions() {
-		return allowableActions.getUnmodifiableActionList();
-	}
-	
 
+	
+	public void tick(Location currentLocation, Actor actor) {
+		super.allowableActions.add(getCraftingAction());
+		}
 
 }
