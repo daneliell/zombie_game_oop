@@ -14,12 +14,12 @@ import edu.monash.fit2099.engine.Item;
  */
 
 public class CraftingAction extends Action {
-	protected Item rawItem;
-	protected Item craftedItem;
+	private Item rawItem;
+	private Item craftedItem;
 	
 	public CraftingAction(Item rawItem) {
 			this.rawItem = rawItem;
-			this.craftedItem = this.rawItem.getCraftItem();
+			this.craftedItem = rawItem.getCraftItem();
 	}
 	
 	public boolean itemInInventory(Actor actor) {
@@ -33,13 +33,13 @@ public class CraftingAction extends Action {
 	}
 	
 	public String execute(Actor actor, GameMap map) {
-			actor.removeItemFromInventory(this.rawItem);
-			actor.addItemToInventory(this.craftedItem);
-			return menuDescription(actor);
+		actor.removeItemFromInventory(this.rawItem);
+		actor.addItemToInventory(this.craftedItem);
+		return menuDescription(actor);
 	}
 	
 	public String menuDescription(Actor actor) {
-		return actor + " crafted a " + this.craftedItem + "."; 
+		return actor + " crafts a " + this.craftedItem; 
 	}
 	
 }
