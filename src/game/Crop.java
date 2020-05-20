@@ -19,7 +19,6 @@ public class Crop extends Ground {
 		if(this.ripeAge == 0) {
 			return true;
 		}
-		
 		return false;
 	}
 	

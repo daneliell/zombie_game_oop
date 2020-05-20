@@ -81,7 +81,7 @@ public class Zombie extends ZombieActor {
 		assert (0 <= armsNumber & legsNumber <= 2) : "Arms and legs cannot be less than 0 or greater than 2";
 		
 		// has a chance to say something Zombie-like
-		if (Math.random() < 0.1) {
+		if (Math.random() < dialogueChance) {
 			display.println(name + ":" + zombieDialogue);
 		}
 		else {

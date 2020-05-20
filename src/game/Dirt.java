@@ -17,4 +17,10 @@ public class Dirt extends Ground {
 		return null;
 	}
 
+	@Override
+	public Boolean isRipe() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

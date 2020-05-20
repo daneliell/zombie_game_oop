@@ -21,4 +21,10 @@ public class Crater extends Ground {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Boolean isRipe() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

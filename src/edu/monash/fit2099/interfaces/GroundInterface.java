@@ -10,5 +10,5 @@ import game.Crop;
 
 public interface GroundInterface {
 	public Crop asCrop();
-
+	public Boolean isRipe();
 }

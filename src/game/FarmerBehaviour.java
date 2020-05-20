@@ -22,37 +22,37 @@ public class FarmerBehaviour implements Behaviour {
 	}
 	
 	public Action getAction(Actor actor, GameMap map) {
-		Location actorLocation = map.locationOf(actor);
-		
+		// Is there dirt next to me?
 		List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
 		Collections.shuffle(exits);
-		 
+
+		if (Math.random() < 0.33) {
 			for(Exit exit: exits) {
 				Ground ground = exit.getDestination().getGround();
-				if(ground == new Dirt()) {
-					if (Math.random()<33) {
-						return new SowAction(exit.getDestination());
-					}
-					else {
-						break;
-					}
+				if (ground instanceof Dirt) {
+					return new SowAction(exit.getDestination());
 				}
 			}
-		
-		
-		if(actorLocation.getGround().asCrop() != null) {
-			return new FertilizeAction(map.locationOf(actor).getGround().asCrop());
 		}
 		
-		
-		if(actorLocation.getGround().asCrop() != null & actorLocation.getGround().asCrop().isRipe()) {
-			return new HarvestAction(actorLocation.getGround().asCrop(), actorLocation);
+		Location actorLocation = map.locationOf(actor);
+		if (actorLocation.getGround().asCrop() != null) {
+			// Is there an unripe crop next to me?
+			if (!actorLocation.getGround().isRipe()) {
+				return new FertilizeAction(actorLocation.getGround().asCrop());
+			}
+			// Is there a ripe crop next to me?
+			else if (actorLocation.getGround().isRipe()) {
+				return new HarvestAction(actorLocation.getGround().asCrop(), actorLocation);
+			}
 		}
 		else {
 			for(Exit exit: exits) {
 				Ground ground = exit.getDestination().getGround();
-				if(ground.asCrop().isRipe()) {
-					return new HarvestAction(ground.asCrop(), exit.getDestination());
+				if (ground.asCrop() != null) {
+					if (ground.isRipe()) {
+						return new HarvestAction(ground.asCrop(), exit.getDestination());
+					}
 				}
 			}
 		}
