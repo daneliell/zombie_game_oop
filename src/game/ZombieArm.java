@@ -35,6 +35,7 @@ public class ZombieArm extends WeaponItem{
 	public void tick(Location currentLocation, Actor actor) {
 		if (this.canCraft == true && this.getCraftItem() != null) {
 			super.allowableActions.add(new CraftingAction(this));
+			this.canCraft = false;
 		}
 		}
 }
