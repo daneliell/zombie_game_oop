@@ -16,13 +16,15 @@ public class FertilizeAction extends Action{
 	}
 	
 	public String execute(Actor actor, GameMap map) {
+		
+		int Age = this.target.getAge();
 
-		if (this.target.getAge() < 10) {
+		if (Age < 10) {
 			this.target.setAge(0);
 			return actor + " fertilizes a crop";
 		}	
 		else {
-			int newAge = this.target.getAge() - 10;
+			int newAge = Age - 10;
 			this.target.setAge(newAge);
 			return actor + " fertilizes a crop";
 		}

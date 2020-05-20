@@ -36,18 +36,23 @@ public class Crop extends Ground {
 	
 	@Override
 	public void tick(Location location) {
-		super.tick(location);
-		this.ripeAge--;
-		
 		if(this.ripeAge == 0) {
 			displayChar = 'C';
 			allowableActions.add(new HarvestAction(this, location));
+		}
+		
+		if (this.ripeAge > 0) {
+			this.ripeAge--;
 		}
 	}
 	
 	@Override 
 	public Actions allowableActions(Actor actor, Location location, String direction){
 		return allowableActions;
+	}
+	
+	public boolean blocksThrownObjects() {
+		return true;
 	}
 
 	@Override

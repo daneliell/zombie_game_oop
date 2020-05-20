@@ -65,10 +65,19 @@ public class Application {
 			gameMap.at(x,  y).addActor(new Human(name));	
 		}
 		
+		String[] farmers = {"John", "Bob", "Dave", "Billy"};
+		for (String name : farmers) {
+			do {
+				x = (int) Math.floor(Math.random() * 20.0 + 30.0);
+				y = (int) Math.floor(Math.random() * 7.0 + 5.0);
+			} 
+			while (gameMap.at(x, y).containsAnActor());
+			gameMap.at(x,  y).addActor(new Farmer(name));	
+		}
 		// place a simple weapon
 		gameMap.at(74, 20).addItem(new Plank());
 		
-		// FIXME: Add more zombies!
+		 //FIXME: Add more zombies!
 		gameMap.at(30, 20).addActor(new Zombie("Groan"));
 		gameMap.at(30,  18).addActor(new Zombie("Boo"));
 		gameMap.at(10,  4).addActor(new Zombie("Uuuurgh"));
