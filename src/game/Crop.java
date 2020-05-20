@@ -2,6 +2,8 @@ package game;
 
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.Actions;
+import edu.monash.fit2099.engine.Actor;
 
 /**
  * 
@@ -10,9 +12,11 @@ import edu.monash.fit2099.engine.Location;
  */
 public class Crop extends Ground {
 	private int ripeAge = 20;
+	private Actions allowableActions;
 	
 	public Crop() {
 		super('c');
+		allowableActions = new Actions();
 	}
 	
 	public Boolean isRipe() {
@@ -30,14 +34,20 @@ public class Crop extends Ground {
 		this.ripeAge = Age;
 	}
 	
+	@Override
 	public void tick(Location location) {
 		super.tick(location);
 		this.ripeAge--;
 		
 		if(this.ripeAge == 0) {
 			displayChar = 'C';
+			allowableActions.add(new HarvestAction(this, location));
 		}
-		
+	}
+	
+	@Override 
+	public Actions allowableActions(Actor actor, Location location, String direction){
+		return allowableActions;
 	}
 
 	@Override

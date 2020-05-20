@@ -14,8 +14,7 @@ public class Farmer extends Human {
 	private Behaviour[] behaviours = {new FarmerBehaviour(),
 									  new WanderBehaviour()
 	};
-									 
-	
+
 	protected Farmer(String name) {
 		super(name, 'F', 50);
 	}

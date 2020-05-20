@@ -21,12 +21,12 @@ public class SowAction extends Action {
 	
 	public String execute(Actor actor, GameMap map) {
 		this.target.setGround(new Crop());
-		return actor + " sowed the patch of dirt";
+		return actor + " sows a patch of dirt";
 	}
 		
 	
 	public String menuDescription(Actor actor) {
-		return actor + " planted a crop";
+		return actor + " sows a patch of dirt";
 	}
 	
 

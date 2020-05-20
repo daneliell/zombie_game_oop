@@ -20,12 +20,17 @@ public class HarvestAction extends Action {
 	
 	public String execute(Actor actor, GameMap map) {
 			this.ground.setGround(new Dirt());
-			this.ground.addItem(new Food());
-			return actor + " harvested the ripe " + this.crop;
+			if (actor instanceof Player) {
+				actor.addItemToInventory(new Food());
+			}
+			else {
+				this.ground.addItem(new Food());
+			}
+			return actor + " harvests the ripe crop";
 	}
 	
 	public String menuDescription(Actor actor) {
-		return actor + " harvested food from the " + this.crop;
+		return actor + " harvests food from ripe crop";
 	}
 
 }

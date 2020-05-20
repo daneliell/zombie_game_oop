@@ -13,12 +13,12 @@ public class EatAction extends Action {
 	
 	public String execute(Actor actor, GameMap map) {
 		actor.removeItemFromInventory(this.food);
-		actor.heal(this.food.getNutrients());
-		return menuDescription(actor);
+		actor.heal(food.getNutrients());
+		return actor + " eats some " + this.food + " and restores " + food.getNutrients() + " hitpoints!";
 	}
 	
 	public String menuDescription(Actor actor) {
-		return actor + " ate some " + this.food;
+		return actor + " eats some " + this.food;
 	}
 
 }
