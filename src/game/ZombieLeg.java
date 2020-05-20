@@ -21,6 +21,7 @@ import edu.monash.fit2099.engine.PickUpItemAction;
 public class ZombieLeg extends WeaponItem {
 	private Item craftItem;
 	protected Actions allowableActions;
+	private boolean canCraft = true;
 	
 	public ZombieLeg() {
 		super("zombie leg", '}', 20, "whacks");
@@ -33,9 +34,10 @@ public class ZombieLeg extends WeaponItem {
 	}	
 	
 	public void tick(Location currentLocation, Actor actor) {
-		if(this.craftItem != null) {
-			this.allowableActions.add(new CraftingAction(this));
-			}
+		if (this.canCraft == true && this.getCraftItem() != null) {
+			super.allowableActions.add(new CraftingAction(this));
+			this.canCraft = false;
 		}
+	}
 	
 }
