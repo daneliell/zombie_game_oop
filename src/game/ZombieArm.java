@@ -19,12 +19,10 @@ import edu.monash.fit2099.engine.WeaponItem;
  */
 public class ZombieArm extends WeaponItem{
 	private Item craftItem;
-	protected Actions allowableActions;
 	private boolean canCraft = true;
 	
 	public ZombieArm() {
 		super("zombie arm", '/', 15, "smacks");
-		this.allowableActions = new Actions();
 		this.craftItem = new ZombieClub();	
 	}
 	
@@ -37,5 +35,5 @@ public class ZombieArm extends WeaponItem{
 			super.allowableActions.add(new CraftingAction(this));
 			this.canCraft = false;
 		}
-		}
+	}
 }

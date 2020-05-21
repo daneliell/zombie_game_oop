@@ -9,6 +9,12 @@ import game.CraftingAction;
  */
 public interface ItemInterface {
 	
+	/**
+	 * Returns the crafted form of an Item.
+	 * Returns null if the Item does not have a crafted form.
+	 * 
+	 * @return crafted form of an Item
+	 */
 	public Item getCraftItem();
 	
 }

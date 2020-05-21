@@ -4,6 +4,7 @@ package game;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.WeaponItem;
 /**
+ * Weapon obtained by crafting a Zombie Leg
  * 
  * @author Sravan
  *

@@ -9,6 +9,20 @@ import game.Crop;
  */
 
 public interface GroundInterface {
+	
+	/**
+	 * Returns the Ground instance an instance of the Crop class
+	 * if it is an instance of the Crop class.
+	 * Returns null otherwise.
+	 * 
+	 * @return an instance of the Crop class
+	 */
 	public Crop asCrop();
+	/**
+	 * Returns true is the ripeAge of the Crop is 0.
+	 * Returns false otherwise.
+	 * 
+	 * @return boolean if the Crop is ripe
+	 */
 	public Boolean isRipe();
 }

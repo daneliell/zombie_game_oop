@@ -12,15 +12,21 @@ import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
 
 /**
+ *A class that generates a HarvestAction if there is a ripe Crop  next to the Farmer, 
+ *generates a SowAction is there a is a patch of Dirt next to the Farmer 
+ *or generates a FertilizeAction is the Farmer is standing on an unripe crop.
  * 
  * @author Sravan
- *
+ * 
  */
 public class FarmerBehaviour implements Behaviour {
 	
-	public FarmerBehaviour() {
-	}
-	
+	/**
+	 * Returns the action done by the Farmer.
+	 * 
+	 * Prioritizes the Actions of the Farmer. Harvesting is given the highest priority, 
+	 * Sowing is given the second priority and Fertilizing is given the last priority.
+	 */
 	public Action getAction(Actor actor, GameMap map) {
 		// Is there dirt next to me?
 		List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
