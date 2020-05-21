@@ -3,7 +3,6 @@ package game;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Exit;
@@ -50,10 +49,11 @@ public class FarmerBehaviour implements Behaviour {
 					}
 			}
 		}
-		// Is there dirt next to the Farmer to sow?
+		// 1/3 chance to perform sowing action
 		if (Math.random() < 0.33) {
 			for(Exit exit: exits) {
 				Ground ground = exit.getDestination().getGround();
+				//Is there dirt next to the Farmer to sow?
 				if (ground instanceof Dirt) {
 					return new SowAction(exit.getDestination());
 				}

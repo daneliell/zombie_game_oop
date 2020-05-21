@@ -1,8 +1,6 @@
 package game;
 
-import java.util.List;
 
-import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Location;
@@ -25,7 +23,7 @@ public class Food extends Item {
 	 * @return the value of the nutrients of the food item
 	 */
 	public int getNutrients() {
-		return this.Nutrients;
+		return Nutrients;
 	}
 	
 	/**
