@@ -56,6 +56,7 @@ public class Crop extends Ground {
 	 * and Harvest action is added to the allowable actions of the crop.
 	 */
 	public void tick(Location location) {
+		assert(this.ripeAge>=0) : "Crop did not turn ripe in 20 turns";
 		// Is the crop ripe?
 		if(this.ripeAge == 0 && this.canHarvest == true) {
 			displayChar = 'C';

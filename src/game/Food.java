@@ -11,7 +11,7 @@ import edu.monash.fit2099.engine.Location;
  *
  */
 public class Food extends Item {
-	private static final int Nutrients = 10;
+	private static final int NUTRIENTS = 10;
 	private boolean canEat = true;
 	
 	public Food() {
@@ -23,7 +23,7 @@ public class Food extends Item {
 	 * @return the value of the nutrients of the food item
 	 */
 	public int getNutrients() {
-		return Nutrients;
+		return NUTRIENTS;
 	}
 	
 	/**
