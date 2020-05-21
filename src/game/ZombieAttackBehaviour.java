@@ -9,7 +9,6 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.PickUpItemAction;
 
 /**
  * A class that either generates a PickUpItemAction if there is an item 
@@ -59,8 +58,7 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 			}
 		}
 		// Is there an attackable Actor next to me?
-		List<Exit> exits = new ArrayList<Exit>(map.locationOf(actor).getExits());
-		Collections.shuffle(exits);
+		List<Exit> exits = generateExits(actor, map);
 
 		for (Exit e: exits) {
 			if (!(e.getDestination().containsAnActor()))
