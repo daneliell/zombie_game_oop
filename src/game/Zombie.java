@@ -35,13 +35,13 @@ public class Zombie extends ZombieActor {
 	};
 	
 	// attributes for producing Zombie dialogue
-	private String zombieDialogue = "Braaaaaaaains...";
-	private double dialogueChance = 0.1;
+	private static final String zombieDialogue = "Braaaaaaaains...";
+	private static final double dialogueChance = 0.1;
 	
 	// attributes for dropping limbs on hit
 	private int armsNumber;
 	private int legsNumber;
-	private double limbLostChance = 0.25;
+	private static final double limbLostChance = 0.25;
 	private Boolean isSecondTurn = false;
 	
 	/**
