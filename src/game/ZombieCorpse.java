@@ -59,7 +59,6 @@ public class ZombieCorpse extends PortableItem {
 				location.addActor(new Zombie("Zombie " + name));
 			}
 			location.removeItem(this);
-			System.out.println(name + " rises from the dead!");
 		}
 		else {
 			conversionCounter--;
@@ -84,7 +83,6 @@ public class ZombieCorpse extends PortableItem {
 					break;
 				}
 			}
-			System.out.println(name + " rises from the dead!");
 		}
 		else {
 			conversionCounter--;
