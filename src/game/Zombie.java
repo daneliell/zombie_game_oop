@@ -35,13 +35,13 @@ public class Zombie extends ZombieActor {
 	};
 	
 	// attributes for producing Zombie dialogue
-	private static final String zombieDialogue = "Braaaaaaaains...";
-	private static final double dialogueChance = 0.1;
+	private static final String ZOMBIE_DIALOGUE = "Braaaaaaaains...";
+	private static final double DIALOGUE_CHANCE = 0.1;
 	
 	// attributes for dropping limbs on hit
 	private int armsNumber;
 	private int legsNumber;
-	private static final double limbLostChance = 0.25;
+	private static final double LIMB_LOSS_CHANCE = 0.25;
 	private Boolean isSecondTurn = false;
 	
 	/**
@@ -81,8 +81,8 @@ public class Zombie extends ZombieActor {
 		assert (0 <= armsNumber & legsNumber <= 2) : "Arms and legs cannot be less than 0 or greater than 2";
 		
 		// has a chance to say something Zombie-like
-		if (Math.random() < dialogueChance) {
-			display.println(name + ": " + zombieDialogue);
+		if (Math.random() < DIALOGUE_CHANCE) {
+			display.println(name + ": " + ZOMBIE_DIALOGUE);
 		}
 		else {
 			// performs an attack if it can
@@ -121,7 +121,7 @@ public class Zombie extends ZombieActor {
 	 * @return String informing the result of knocking off the limb
 	 */
 	public String loseLimb(GameMap map) {
-		if (Math.random() <= limbLostChance) {
+		if (Math.random() <= LIMB_LOSS_CHANCE) {
 			// Random locations around the Zombie to drop limb
 			List<Exit> exits = new ArrayList<Exit>(map.locationOf(this).getExits());
 			Collections.shuffle(exits);

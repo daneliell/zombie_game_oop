@@ -14,10 +14,10 @@ import edu.monash.fit2099.engine.Weapon;
  */
 public class ZombieAttackAction extends AttackAction{
 	
-	private static final double missChance = 0.5;
-	private static final double biteMissChance = 0.6;
-	private static final int biteDamage = 15;
-	private static final int healthRestored = 5;
+	private static final double MISS_CHANCE = 0.5;
+	private static final double BITE_MISS_CHANCE = 0.6;
+	private static final int BITE_DAMAGE = 15;
+	private static final int HEALTH_RESTORED = 5;
 	private int armsNumber;
 	
 	/**
@@ -80,7 +80,7 @@ public class ZombieAttackAction extends AttackAction{
 	private String normalAttack(Actor actor, GameMap map) {
 		Weapon weapon = actor.getWeapon();
 		
-		if (Math.random() < missChance) {
+		if (Math.random() < MISS_CHANCE) {
 			return actor + " misses " + target + ".";
 		}
 
@@ -101,16 +101,16 @@ public class ZombieAttackAction extends AttackAction{
 	 * @return String result of the attack
 	 */
 	private String biteAttack(Actor actor, GameMap map) {
-		if (Math.random() < biteMissChance) {
+		if (Math.random() < BITE_MISS_CHANCE) {
 			return actor + " misses " + target + ".";
 		}
 
-		String result = actor + " bites " + target + " for " + biteDamage + " damage and restores " + healthRestored
+		String result = actor + " bites " + target + " for " + BITE_DAMAGE + " damage and restores " + HEALTH_RESTORED
 				+ " health.";
 		
-		actor.heal(healthRestored);
+		actor.heal(HEALTH_RESTORED);
 		ZombieCorpse zombieCorpse = new ZombieCorpse(target.toString());
-		result += performAttack(biteDamage, map, zombieCorpse);
+		result += performAttack(BITE_DAMAGE, map, zombieCorpse);
 		return result;
 	}
 }
