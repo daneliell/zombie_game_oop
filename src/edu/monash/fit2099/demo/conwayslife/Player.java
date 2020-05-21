@@ -61,4 +61,10 @@ public class Player extends Actor {
 			return null;
 		}
 	}
+
+	@Override
+	public String loseLimb(GameMap map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

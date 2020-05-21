@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.IntrinsicWeapon;
-import edu.monash.fit2099.engine.WeaponItem;
+import edu.monash.fit2099.engine.Item;
 import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -82,7 +82,7 @@ public class Zombie extends ZombieActor {
 		
 		// has a chance to say something Zombie-like
 		if (Math.random() < dialogueChance) {
-			display.println(name + ":" + zombieDialogue);
+			display.println(name + ": " + zombieDialogue);
 		}
 		else {
 			// performs an attack if it can
@@ -122,16 +122,12 @@ public class Zombie extends ZombieActor {
 	 */
 	public String loseLimb(GameMap map) {
 		if (Math.random() <= limbLostChance) {
+			// Random locations around the Zombie to drop limb
 			List<Exit> exits = new ArrayList<Exit>(map.locationOf(this).getExits());
 			Collections.shuffle(exits);
-
-			/*double index = Math.floor(Math.random()*dropLocation.length);
-	        int randomX = dropLocation[(int)index][0];
-	        int randomY = dropLocation[(int)index][1];
-			int x = map.locationOf(this).x()+randomX;
-			int y = map.locationOf(this).y()+randomY;*/
 			
 			if ((armsNumber | legsNumber) != 0) {
+				// 50/50 chance to either drop an arm or a leg
 				if (Math.random() < 50 & armsNumber > 0) {
 					String result = "";
 					armsNumber--;
@@ -166,12 +162,12 @@ public class Zombie extends ZombieActor {
 	 * @return String containing the result 
 	 */
 	private String dropWeapon(GameMap map) {
-		String result = "";
-		if (this.getWeapon() instanceof IntrinsicWeapon == false) {
-			WeaponItem weapon = (WeaponItem) this.getWeapon();
-			weapon.getDropAction().execute(this, map);
-			result = " and drops the " + weapon + " that it was holding.";
+		for (Item item : inventory) {
+			if (item.asWeapon() != null)
+				item.getDropAction().execute(this, map);
+				return " and drops the " + item + " that it was holding.";
 		}
-		return result;
+		return "";
 	}
+
 }

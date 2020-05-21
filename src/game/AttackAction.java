@@ -48,11 +48,11 @@ public class AttackAction extends Action {
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
 		
 		target.hurt(damage);
-		
+
 		// Calls the loseLimb method if the attacked Actor is a Zombie
-		if (target instanceof Zombie == true) {
-			Zombie zombie = (Zombie) target;
-			result += zombie.loseLimb(map);
+		String limb = target.loseLimb(map);
+		if (limb != null) {
+			result += limb;
 		}
 
 		Item corpse = new PortableItem("dead " + target, '%');
@@ -63,7 +63,7 @@ public class AttackAction extends Action {
 
 	@Override
 	public String menuDescription(Actor actor) {
-		return actor + " attacks " + target;
+		return actor + " attacks " + target; 
 	}
 	
 	/**

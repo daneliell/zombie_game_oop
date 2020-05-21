@@ -29,4 +29,10 @@ public class Player extends Actor {
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		return menu.showMenu(this, actions, display);
 	}
+
+	@Override
+	public String loseLimb(GameMap map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

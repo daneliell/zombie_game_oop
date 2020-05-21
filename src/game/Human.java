@@ -42,4 +42,10 @@ public class Human extends ZombieActor {
 		return behaviour.getAction(this, map);
 	}
 
+	@Override
+	public String loseLimb(GameMap map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
