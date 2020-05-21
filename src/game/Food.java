@@ -13,6 +13,7 @@ import edu.monash.fit2099.engine.Location;
  */
 public class Food extends Item {
 	protected int nutrients = 10;
+	private boolean canEat = true;
 	
 	public Food() {
 		super("food", 'f', true);
@@ -23,7 +24,10 @@ public class Food extends Item {
 	}
 	
 	public void tick(Location currentLocation, Actor actor) {
-		super.allowableActions.add(new EatAction(this));
+		if (this.canEat == true) {
+			super.allowableActions.add(new EatAction(this));
+			this.canEat = false;
+		}
 		}
 
 	@Override

@@ -13,6 +13,7 @@ import edu.monash.fit2099.engine.Actor;
 public class Crop extends Ground {
 	private int ripeAge = 20;
 	private Actions allowableActions;
+	private boolean canHarvest = true;
 	
 	public Crop() {
 		super('c');
@@ -36,9 +37,10 @@ public class Crop extends Ground {
 	
 	@Override
 	public void tick(Location location) {
-		if(this.ripeAge == 0) {
+		if(this.ripeAge == 0 && this.canHarvest == true) {
 			displayChar = 'C';
 			allowableActions.add(new HarvestAction(this, location));
+			this.canHarvest = false;
 		}
 		
 		if (this.ripeAge > 0) {
