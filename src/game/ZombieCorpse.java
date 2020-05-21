@@ -20,6 +20,7 @@ public class ZombieCorpse extends PortableItem {
 	private int conversionCounter;
 	private int minTurns = 5;
 	private int maxTurns = 10;
+	private Zombie zombie;
 	
 	/**
 	 * Constructor.
@@ -33,6 +34,7 @@ public class ZombieCorpse extends PortableItem {
 		super(name , '%');
 		Random rand = new Random();
 		conversionCounter = rand.nextInt((maxTurns - minTurns) + 1) + minTurns;
+		zombie = new Zombie("Zombie " + name);
 	}
 	
 	/**
@@ -46,7 +48,15 @@ public class ZombieCorpse extends PortableItem {
 			if (location.containsAnActor()) {
 				List<Exit> exits = new ArrayList<Exit>(location.getExits());
 				Collections.shuffle(exits);
-				exits.get(0).getDestination().addActor(new Zombie("Zombie " + name));
+				for (Exit exit : exits) {
+					if (exit.getDestination().canActorEnter(zombie)) {
+						exit.getDestination().addActor(zombie);
+						break;
+					}
+				}
+			}
+			else {
+				location.addActor(new Zombie("Zombie " + name));
 			}
 			location.removeItem(this);
 			System.out.println(name + " rises from the dead!");
@@ -68,7 +78,12 @@ public class ZombieCorpse extends PortableItem {
 			actor.removeItemFromInventory(this);
 			List<Exit> exits = new ArrayList<Exit>(location.getExits());
 			Collections.shuffle(exits);
-			exits.get(0).getDestination().addActor(new Zombie("Zombie " + name));
+			for (Exit exit : exits) {
+				if (exit.getDestination().canActorEnter(zombie)) {
+					exit.getDestination().addActor(zombie);
+					break;
+				}
+			}
 			System.out.println(name + " rises from the dead!");
 		}
 		else {
