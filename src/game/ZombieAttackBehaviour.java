@@ -68,7 +68,6 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 			}
 		}
 		return null;
-		//return getAttackAction(actor, map);
 	}
 	
 	/**

@@ -54,7 +54,6 @@ public class AttackBehaviour implements Behaviour {
 			}
 		}
 		return null;
-		//return getAttackAction(actor, map);
 	}
 	
 	/**
