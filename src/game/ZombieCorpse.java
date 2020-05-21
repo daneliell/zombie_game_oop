@@ -18,8 +18,8 @@ import java.util.Random;
  */
 public class ZombieCorpse extends PortableItem {
 	private int conversionCounter;
-	private int minTurns = 5;
-	private int maxTurns = 10;
+	private static final int MIN_TURNS = 5;
+	private static final int MAX_TURNS = 10;
 	private Zombie zombie;
 	
 	/**
@@ -33,7 +33,8 @@ public class ZombieCorpse extends PortableItem {
 	public ZombieCorpse(String name) {
 		super(name , '%');
 		Random rand = new Random();
-		conversionCounter = rand.nextInt((maxTurns - minTurns) + 1) + minTurns;
+		conversionCounter = rand.nextInt((MAX_TURNS - MIN_TURNS) + 1) + MIN_TURNS;
+		assert (conversionCounter >= 5 & conversionCounter <= 11) : "Zombie corpse did not rise in 5-10 turns";
 		zombie = new Zombie("Zombie " + name);
 	}
 	
@@ -56,7 +57,7 @@ public class ZombieCorpse extends PortableItem {
 				}
 			}
 			else {
-				location.addActor(new Zombie("Zombie " + name));
+				location.addActor(zombie);
 			}
 			location.removeItem(this);
 		}
