@@ -47,16 +47,6 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 	 */
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		// Only can pick up Weapons if Zombie has at least 1 arm
-		if (armsNumber != 0) {
-			// Is there a weapon at my location for me to use?
-			List<Item> items = new ArrayList<Item>(map.locationOf(actor).getItems());
-			for (Item item : items) {
-				if (item.asWeapon() != null) {
-					return item.getPickUpAction();
-				}
-			}
-		}
 		// Is there an attackable Actor next to me?
 		List<Exit> exits = generateExits(actor, map);
 

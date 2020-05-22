@@ -85,6 +85,16 @@ public class Zombie extends ZombieActor {
 			display.println(name + ": " + ZOMBIE_DIALOGUE);
 		}
 		else {
+			// Only can pick up Weapons if Zombie has at least 1 arm
+			if (armsNumber != 0) {
+				// Is there a weapon at my location for me to use?
+				List<Item> items = new ArrayList<Item>(map.locationOf(this).getItems());
+				for (Item item : items) {
+					if (item.asWeapon() != null) {
+						return item.getPickUpAction();
+					}
+				}
+			}
 			// performs an attack if it can
 			Action attackAction = attackBehaviour.getAction(this,map);
 			if (attackAction != null) {
