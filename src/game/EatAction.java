@@ -16,7 +16,7 @@ public class EatAction extends Action {
 	/**
 	 * Constructor.
 	 * 
-	 * @param food the Food item that is to  be consumed
+	 * @param food the Food item that is to be consumed
 	 */
 	public EatAction(Food food) {
 		this.food = food;

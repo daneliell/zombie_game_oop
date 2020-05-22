@@ -1,18 +1,14 @@
 package game;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Item;
 
 /**
- * A class that either generates a PickUpItemAction if there is an item 
- * where current Zombie is standing or a ZombieAttackAction if there is an
+ * A class that generates a ZombieAttackAction if there is an
  * attackable Actor standing beside it.
  * 
  * @author Daniel Yuen
@@ -36,12 +32,7 @@ public class ZombieAttackBehaviour extends AttackBehaviour{
 	}
 	
 	/**
-	 * If Zombie has at least 1 arm:
-	 * Calls the getPickUpAction() method in Item class to return a PickUpItemAction 
-	 * that picks up the item at the location of the Zombie if the Item is
-	 * a Weapon.
-	 * 
-	 * If no Item is at location, looks for attackable Actors next to the Zombie and
+ 	 * Looks for attackable Actors next to the Zombie and
 	 * returns an AttackAction that attacks the Actor.
 	 * 
 	 */

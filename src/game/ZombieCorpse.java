@@ -47,14 +47,7 @@ public class ZombieCorpse extends PortableItem {
 	public void tick(Location location) {
 		if (conversionCounter == 0) {
 			if (location.containsAnActor()) {
-				List<Exit> exits = new ArrayList<Exit>(location.getExits());
-				Collections.shuffle(exits);
-				for (Exit exit : exits) {
-					if (exit.getDestination().canActorEnter(zombie)) {
-						exit.getDestination().addActor(zombie);
-						break;
-					}
-				}
+				placeZombie(location);
 			}
 			else {
 				location.addActor(zombie);
@@ -76,20 +69,23 @@ public class ZombieCorpse extends PortableItem {
 	public void tick(Location location, Actor actor) {
 		if (conversionCounter == 0) {
 			actor.removeItemFromInventory(this);
-			List<Exit> exits = new ArrayList<Exit>(location.getExits());
-			Collections.shuffle(exits);
-			for (Exit exit : exits) {
-				if (exit.getDestination().canActorEnter(zombie)) {
-					exit.getDestination().addActor(zombie);
-					break;
-				}
-			}
+			placeZombie(location);
 		}
 		else {
 			conversionCounter--;
 		}
 	}
-
+	
+	private void placeZombie(Location location) {
+		List<Exit> exits = new ArrayList<Exit>(location.getExits());
+		Collections.shuffle(exits);
+		for (Exit exit : exits) {
+			if (exit.getDestination().canActorEnter(zombie)) {
+				exit.getDestination().addActor(zombie);
+				break;
+			}
+		}
+	}
 
 	@Override
 	public Item getCraftItem() {
