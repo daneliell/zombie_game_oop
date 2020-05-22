@@ -50,9 +50,8 @@ public class AttackAction extends Action {
 		target.hurt(damage);
 
 		// Calls the loseLimb method if the attacked Actor is a Zombie
-		String limb = target.loseLimb(map);
-		if (limb != null) {
-			result += limb;
+		if (target.hasCapability(ZombieCapability.UNDEAD)) {
+			result += target.loseLimb(map);
 		}
 
 		Item corpse = new PortableItem("dead " + target, '%');
