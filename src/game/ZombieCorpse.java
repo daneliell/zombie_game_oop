@@ -76,6 +76,12 @@ public class ZombieCorpse extends PortableItem {
 		}
 	}
 	
+	/**
+	 * Private method to place the Zombie Actor at an exit which is 
+	 * a location adjacent to the ZombieCorpse location.
+	 * 
+	 * @param location Location of the ZombieCorpse
+	 */
 	private void placeZombie(Location location) {
 		List<Exit> exits = new ArrayList<Exit>(location.getExits());
 		Collections.shuffle(exits);
