@@ -46,13 +46,16 @@ public class Human extends ZombieActor {
 		// Is there food at my location for me to eat?
 		List<Item> items = new ArrayList<Item>(map.locationOf(this).getItems());
 		for (Item item : items) {
-			if (item instanceof Food) {
+			if (item.asFood() != null) {
 				return item.getPickUpAction();
 			}
 		}
+		// Am I injured?
 		if (this.hitPoints < this.maxHitPoints) {
 			for (Item food : this.getInventory()) {
-				return new EatAction((Food) food);
+				if(food.asFood() != null) {
+					return new EatAction(food.asFood());
+				}
 			}
 		}
 		return behaviour.getAction(this, map);
@@ -63,5 +66,4 @@ public class Human extends ZombieActor {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

@@ -45,6 +45,9 @@ public class FarmerBehaviour implements Behaviour {
 				Ground ground = exit.getDestination().getGround();
 				if(ground.asCrop() != null)
 					if(ground.isRipe()) {
+						if(ground.asCrop() == null) {
+							throw new IllegalArgumentException("Only a rop can be harvested");
+						}
 						return new HarvestAction(ground.asCrop(), exit.getDestination());
 					}
 			}
@@ -63,6 +66,9 @@ public class FarmerBehaviour implements Behaviour {
 		if (actorLocation.getGround().asCrop() != null) {
 			// Is there an unripe crop next to me?
 			if (actorLocation.getGround().isRipe() == false) {
+				if(actorLocation.getGround().isRipe() == true) {
+					throw new IllegalArgumentException("A ripe crop can't be fertilized");
+				}
 				return new FertilizeAction(actorLocation.getGround().asCrop());
 			}
 		}
