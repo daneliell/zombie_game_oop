@@ -8,12 +8,14 @@ import edu.monash.fit2099.engine.GameMap;
 public class MamboMarie extends ZombieActor {
 	private Behaviour behaviour = new WanderBehaviour();
 	private int chantCounter = 0;
+	private int spawnCounter = 0;
 	
 	public MamboMarie() {
 		super("Mambo Marie", 'M', 100, ZombieCapability.UNDEAD);
 	}
 	
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+		this.spawnCounter++;
 		if(this.chantCounter == 10) {
 			return new ChantAction();
 		}
@@ -21,6 +23,10 @@ public class MamboMarie extends ZombieActor {
 			this.chantCounter++;
 			return behaviour.getAction(this, map);
 		}
+	}
+	
+	public int getSpawnCounter() {
+		return this.spawnCounter;
 	}
 
 	@Override
