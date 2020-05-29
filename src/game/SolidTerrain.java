@@ -3,12 +3,12 @@ package game;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Ground;
 
-public class Wall extends Ground{
-	
-	public Wall() {
-		super('=');
+public abstract class SolidTerrain extends Ground {
+
+	public SolidTerrain(char displayChar) {
+		super(displayChar);
 	}
-	
+
 	@Override
 	public boolean canActorEnter(Actor actor) {
 		return false;
@@ -18,16 +18,14 @@ public class Wall extends Ground{
 	public boolean blocksThrownObjects() {
 		return true;
 	}
-
+	
 	@Override
 	public Crop asCrop() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Boolean isRipe() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
