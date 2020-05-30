@@ -1,13 +1,9 @@
 package game;
 
-public class ShotgunShells extends Ammo{
+public class ShotgunShells extends PortableItem {
 	
 	public ShotgunShells() {
 		super("shotgun shells", '*');
 	}
 	
-	@Override
-	public Ammo getAmmoType() {
-		return this;
-	}
 }

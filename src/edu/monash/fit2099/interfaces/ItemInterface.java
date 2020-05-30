@@ -28,11 +28,4 @@ public interface ItemInterface {
 		return this instanceof Food ? (Food) this : null;
 	}
 	
-	default Boolean asAmmo() {
-		if (this instanceof Ammo) {
-			return true;
-		}
-		return false;
-	}
-	
 }
