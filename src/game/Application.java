@@ -74,6 +74,9 @@ public class Application {
 		
 		// place a simple weapon
 		gameMap.at(74, 20).addItem(new Plank());
+		//place test shotgun
+		gameMap.at(43, 15).addItem(new Shotgun());
+		gameMap.at(43,16).addItem(new ShotgunShells());
 		
 		 //FIXME: Add more zombies!
 		gameMap.at(30, 20).addActor(new Zombie("Groan"));
@@ -119,14 +122,14 @@ public class Application {
 		GameMap townGameMap = new GameMap(townGroundFactory, townMap);
 		world.addGameMap(townGameMap);
 
-        Vehicle carToTown = new Vehicle("Car", '&');
+        Vehicle carToTown = new Vehicle("Car", '^');
         carToTown.addAction(new MoveActorAction(townGameMap.at(3,14), "to Town!"));
         gameMap.at(73,2).addItem(carToTown);
         
         //testcar
         gameMap.at(42,16).addItem(carToTown);
         
-        Vehicle carToBack = new Vehicle("Car", '&');
+        Vehicle carToBack = new Vehicle("Car", '^');
         carToBack.addAction(new MoveActorAction(gameMap.at(72,2), "back!"));
         townGameMap.at(2,14).addItem(carToBack);
         
@@ -134,6 +137,7 @@ public class Application {
         //townGameMap.at(72, 11).addItem(carToTown);
         //townGameMap.at(46, 3).addItem(carToTown);
         
+        /*
         String[] townHumans = {"Sheriff Bill", "Policeman Jerry", "Firefighter Jenny", "Doctor Aaron", 
         		"Baker Andrea", "Normal Guy Bill", "Teacher Robin"};
 		for (String name : townHumans) {
@@ -158,7 +162,7 @@ public class Application {
 			while (townGameMap.at(x, y).containsAnActor());
 			townGameMap.at(x,  y).addActor(new Zombie(name));
 		}
-
+		*/
 		
 		world.run();
 		boolean spawn = false;
