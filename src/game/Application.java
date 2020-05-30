@@ -2,7 +2,6 @@ package game;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
@@ -165,19 +164,5 @@ public class Application {
 		*/
 		
 		world.run();
-		boolean spawn = false;
-		MamboMarie mambo = new MamboMarie();
-		if(spawn) {
-			if (mambo.getSpawnCounter()%10==0) {
-				gameMap.removeActor(mambo);
-				spawn = false;
-			}
-		}
-		else {
-			if(Math.random()<0.05) {
-				gameMap.addActor(mambo, gameMap.at(0, 0));
-				spawn = true;
-			}
-		}
 	}
 }

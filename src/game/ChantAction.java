@@ -11,8 +11,8 @@ public class ChantAction extends Action {
 	public String execute(Actor actor, GameMap map) {
 		int i = 0;
 		while(i<5) {
-			int x = (int) ((Math.random()*((80-0)+1))+0);
-			int y = (int) ((Math.random()*((25-0)+1))+0);
+			int x = (int) ((Math.random()*((map.getXRange().max()-map.getXRange().min())+1))+map.getXRange().min());
+			int y = (int) ((Math.random()*((map.getYRange().max()-map.getYRange().min())+1))+map.getYRange().min());
 			if(!map.isAnActorAt(map.at(x, y))) {
 				map.addActor(new Zombie(zombies[i]), map.at(x, y));
 				i++;
