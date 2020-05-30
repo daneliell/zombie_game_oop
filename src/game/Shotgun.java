@@ -21,7 +21,7 @@ public class Shotgun extends WeaponItem {
 		List<Item> inventory = actor.getInventory();
 		
 		for (Item item : inventory) {
-			if (item instanceof ShotgunShells) {
+			if (item.asAmmo()) {
 				directions = new ArrayList<Exit>(currentLocation.getExits());
 				for (Exit e : directions) {
 					if (e.getName() == "North" | e.getName() == "East" | e.getName() == "West" | e.getName() == "South") {

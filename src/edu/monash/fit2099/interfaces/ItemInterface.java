@@ -1,8 +1,7 @@
 package edu.monash.fit2099.interfaces;
 
 import edu.monash.fit2099.engine.Item;
-import game.CraftingAction;
-import game.Crop;
+import game.Ammo;
 import game.Food;
 
 /**
@@ -27,6 +26,13 @@ public interface ItemInterface {
 	 */
 	default Food asFood() {
 		return this instanceof Food ? (Food) this : null;
+	}
+	
+	default Boolean asAmmo() {
+		if (this instanceof Ammo) {
+			return true;
+		}
+		return false;
 	}
 	
 }
