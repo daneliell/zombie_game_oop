@@ -28,9 +28,9 @@ public class Shotgun extends WeaponItem {
 				for (int i = 0; i < exits.size(); i++) {
 					left = i - 1;
 					if (left < 0) {
-						left = 7;
+						left = exits.size() - 1;
 					}
-					right = (i + 1) % 7;
+					right = (i + 1) % (exits.size() - 1);
 					this.allowableActions.add(new ShootAction(exits.get(left), exits.get(i), exits.get(right)));
 				}
 			}

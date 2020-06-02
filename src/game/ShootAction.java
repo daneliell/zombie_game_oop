@@ -36,8 +36,8 @@ public class ShootAction extends Action{
 		directions.add(left);
 		directions.add(middle);
 		directions.add(right);
-		Weapon weapon = actor.getWeapon();
-		int damage = weapon.damage();
+		//Weapon weapon = actor.getWeapon();
+		//int damage = weapon.damage();
 		String result = "";
 		for (Exit direction : directions) {
 			String name = direction.getName();
@@ -51,17 +51,17 @@ public class ShootAction extends Action{
 				}
 			}
 		}
-		/*for (int i = 0; i < area.size(); i++) {
+		for (int i = 0; i < area.size(); i++) {
 			System.out.println(area.get(i).getDestination().x());
 			System.out.println(area.get(i).getDestination().y());
-		}*/
+		}
 		for (int i = 0; i < area.size(); i++) {
 			Location location = area.get(i).getDestination();
 			if (location.containsAnActor()) {
 				Actor target = location.getActor();
-				System.out.println("YES");
-				target.hurt(damage);
-				result += actor + " " + weapon.verb() + " " + target + " for 50 damage.";
+				AttackAction attackAction = new AttackAction(target);
+				result += attackAction.execute(actor, map);
+				//result += actor + " " + weapon.verb() + " " + target + " for 50 damage.";
 			}
 		}
 		// area contains left, middle, right, left1, left2, middle1, middle2, right1, right2
