@@ -13,11 +13,9 @@ import edu.monash.fit2099.engine.Location;
 public class Food extends Item {
 	private static final int NUTRIENTS = 10;
 	private boolean canEat = true;
-	private EatAction eat;
-	
+
 	public Food() {
 		super("food", 'f', true);
-		this.eat = new EatAction(this);
 	}
 	
 	/**
@@ -37,13 +35,13 @@ public class Food extends Item {
 	public void tick(Location currentLocation, Actor actor) {
 		//Allows the player to eat the food item once held
 		if (this.canEat == true) {
-			super.allowableActions.add(eat);
+			super.allowableActions.add(new EatAction(this));
 			this.canEat = false;
 		}
 	}
 	
 	public void tick(Location currentLocation) {
-		super.allowableActions.remove(this.eat);
+		super.allowableActions.clear();
 		this.canEat = true;
 	}
 	
