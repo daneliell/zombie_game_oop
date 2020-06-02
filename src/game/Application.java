@@ -70,7 +70,7 @@ public class Application {
 				gameMap.at(x,  y).addActor(new Human(name));
 			}
 		}
-		
+
 		// place a simple weapon
 		gameMap.at(74, 20).addItem(new Plank());
 		//place test shotgun
