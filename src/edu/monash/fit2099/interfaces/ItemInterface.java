@@ -1,7 +1,6 @@
 package edu.monash.fit2099.interfaces;
 
 import edu.monash.fit2099.engine.Item;
-import game.Ammo;
 import game.Food;
 
 /**

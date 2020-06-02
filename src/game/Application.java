@@ -73,6 +73,7 @@ public class Application {
 		
 		// place a simple weapon
 		gameMap.at(74, 20).addItem(new Plank());
+		gameMap.at(42, 15).addItem(new ZombieArm());
 		//place test shotgun
 		gameMap.at(43, 15).addItem(new Shotgun());
 		gameMap.at(43,16).addItem(new ShotgunShells());
