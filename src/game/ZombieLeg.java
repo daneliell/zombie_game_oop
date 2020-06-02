@@ -15,12 +15,10 @@ import edu.monash.fit2099.engine.Location;
 public class ZombieLeg extends WeaponItem {
 	private Item craftItem;
 	private boolean canCraft = true;
-	private CraftingAction craft;
 	
 	public ZombieLeg() {
 		super("zombie leg", '}', 20, "whacks");
 		this.craftItem = new ZombieMace();
-		this.craft = new CraftingAction(this);
 	}
 	
 	public Item getCraftItem() {
@@ -29,13 +27,13 @@ public class ZombieLeg extends WeaponItem {
 	
 	public void tick(Location currentLocation, Actor actor) {
 		if (this.canCraft == true && this.getCraftItem() != null) {
-			super.allowableActions.add(craft);
+			super.allowableActions.add(new CraftingAction(this));
 			this.canCraft = false;
 		}
 	}	
 	
 	public void tick(Location currentLocation) {
 		this.canCraft = true;
-		super.allowableActions.remove(this.craft);
+		super.allowableActions.clear();
 	}
 }
