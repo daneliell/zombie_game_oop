@@ -25,6 +25,6 @@ public class ChantAction extends Action {
 	}
 	
 	public String menuDescription(Actor actor) {
-		return actor + "chants a spell";
+		return actor + " chants a spell";
 	}
 }

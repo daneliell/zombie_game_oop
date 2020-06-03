@@ -20,6 +20,7 @@ public class MamboMarie extends ZombieActor {
 		currentMap = map;
 		this.spawnCounter++;
 		if(this.chantCounter == 10) {
+			this.chantCounter = 0;
 			return new ChantAction();
 		}
 		else {
