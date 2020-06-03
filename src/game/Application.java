@@ -86,6 +86,8 @@ public class Application {
 		gameMap.at(1, 10).addActor(new Zombie("Gaaaah"));
 		gameMap.at(62, 12).addActor(new Zombie("Aaargh"));	
 		
+		gameMap.at(0, 0).addItem(new MamboSpawner());
+		
 		
 		FancyGroundFactory townGroundFactory = new FancyGroundFactory(new Dirt(), new HorizontalWall(), new Path(), 
 				new Floor(), new Water(), new VerticalWall(), new Fence(), new Tree());

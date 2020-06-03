@@ -13,18 +13,19 @@ public class MamboSpawner extends Item {
 	}
 	
 	public void tick(Location currentLocation) {
-		if(spawned) {
-			if (marie.getSpawnCounter()%10==0) {
-				GameMap currentMap = marie.getCurrentMap();
-				currentMap.removeActor(marie);
-				spawned = false;
-			}
-		}
-		else {
-			if(Math.random()<0.05) {
-				currentLocation.addActor(marie);
-				spawned = true;
-			}
+		if (marie.isConscious()) {
+			if (spawned) {
+				if (marie.getSpawnCounter() % 30 == 0) {
+					GameMap currentMap = marie.getCurrentMap();
+					currentMap.removeActor(marie);
+					spawned = false;
+				}
+			} else {
+				if (Math.random() < 0.05) {
+					currentLocation.addActor(marie);
+					spawned = true;
+				}
+			} 
 		}
 	}
 
