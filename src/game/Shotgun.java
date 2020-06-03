@@ -26,7 +26,7 @@ public class Shotgun extends WeaponItem {
 		List<Item> inventory = actor.getInventory();
 		
 		for (Item item : inventory) {
-			if (item instanceof ShotgunShells) {
+			if (item.asShotgunAmmo() != null) {
 				List<Exit> exits = currentLocation.getExits();
 				/*int left;
 				int right;

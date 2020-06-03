@@ -106,16 +106,17 @@ public class ShotgunAction extends Action{
 				}
 			}
 		}
-		for (int i = 0; i < area.size(); i++) {
-			Location location = area.get(i).getDestination();
+		for (int k = 0; k < area.size(); k++) {
+			Location location = area.get(k).getDestination();
 			if (location.containsAnActor()) {
 				Actor target = location.getActor();
 				AttackAction attackAction = new AttackAction(target);
 				result += attackAction.execute(actor, map);
-				//result += actor + " " + weapon.verb() + " " + target + " for 50 damage.";
+			}
+			if (location.getGround().blocksThrownObjects()) {
+				location.setGround(new Path());
 			}
 		}
-		// area contains left, middle, right, left1, left2, middle1, middle2, right1, right2
 		return result;
 	}
 	

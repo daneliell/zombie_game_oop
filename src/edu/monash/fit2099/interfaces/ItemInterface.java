@@ -2,6 +2,7 @@ package edu.monash.fit2099.interfaces;
 
 import edu.monash.fit2099.engine.Item;
 import game.Food;
+import game.ShotgunAmmo;
 
 /**
  * This interface provides the ability to add methods to Ground, without modifying code in the engine,
@@ -25,6 +26,10 @@ public interface ItemInterface {
 	 */
 	default Food asFood() {
 		return this instanceof Food ? (Food) this : null;
+	}
+	
+	default ShotgunAmmo asShotgunAmmo() {
+		return this instanceof ShotgunAmmo ? (ShotgunAmmo) this : null;
 	}
 	
 }
