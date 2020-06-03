@@ -11,9 +11,9 @@ import java.util.List;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Exit;
 
-public class ShootAction extends Action{
+public class ShotgunAction extends Action{
 	
-	private Exit left;
+	/*private Exit left;
 	private Exit middle;
 	private Exit right;
 	private ArrayList<Exit> directions = new ArrayList<Exit>();
@@ -51,6 +51,16 @@ public class ShootAction extends Action{
 				}
 			}
 		}
+		String name = middle.getName();
+		List<Exit> exits = middle.getDestination().getExits();
+		for (int i = 0; i < 1; i++) {
+			for (Exit e : exits) {
+				if (e.getName() == name) {
+					area.add(e);
+					
+				}
+			}
+		}
 		for (int i = 0; i < area.size(); i++) {
 			System.out.println(area.get(i).getDestination().x());
 			System.out.println(area.get(i).getDestination().y());
@@ -66,11 +76,52 @@ public class ShootAction extends Action{
 		}
 		// area contains left, middle, right, left1, left2, middle1, middle2, right1, right2
 		return result;
+	}*/
+	
+	private Exit direction;
+	private ArrayList<Exit> area = new ArrayList<Exit>();
+	
+	public ShotgunAction(Exit direction) {
+		this.direction = direction;
 	}
-
+	
+	@Override
+	public String execute(Actor actor, GameMap map) {
+		String result = "";
+		String name = direction.getName();
+		List<Exit> exits = map.locationOf(actor).getExits();
+		
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < exits.size(); j++) {
+				if (exits.get(j).getName() == name) {
+					int left = j - 1;
+					if (left < 0) {
+						left = exits.size() - 1;
+					}
+					int right = (j + 1) % (exits.size() - 1);
+					area.add(exits.get(left));
+					area.add(exits.get(j));
+					area.add(exits.get(right));
+					exits = exits.get(j).getDestination().getExits();
+				}
+			}
+		}
+		for (int i = 0; i < area.size(); i++) {
+			Location location = area.get(i).getDestination();
+			if (location.containsAnActor()) {
+				Actor target = location.getActor();
+				AttackAction attackAction = new AttackAction(target);
+				result += attackAction.execute(actor, map);
+				//result += actor + " " + weapon.verb() + " " + target + " for 50 damage.";
+			}
+		}
+		// area contains left, middle, right, left1, left2, middle1, middle2, right1, right2
+		return result;
+	}
+	
 	@Override
 	public String menuDescription(Actor actor) {
-		return actor + " shoots " + directions.get(1).getName(); 
+		return actor + " shoots " + direction.getName(); 
 	}
 	
 }

@@ -1,15 +1,20 @@
 package game;
 
 import java.util.List;
+
+import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.Menu;
 import edu.monash.fit2099.engine.WeaponItem;
 
 public class Shotgun extends WeaponItem {
 	
 	private List<Exit> directions;
+	private Menu subMenu = new Menu();
+	private Actions actions = new Actions();
 	
 	public Shotgun() {
 		super("shotgun", '>', 40, "blasts");
@@ -23,7 +28,7 @@ public class Shotgun extends WeaponItem {
 		for (Item item : inventory) {
 			if (item instanceof ShotgunShells) {
 				List<Exit> exits = currentLocation.getExits();
-				int left;
+				/*int left;
 				int right;
 				for (int i = 0; i < exits.size(); i++) {
 					left = i - 1;
@@ -31,7 +36,9 @@ public class Shotgun extends WeaponItem {
 						left = exits.size() - 1;
 					}
 					right = (i + 1) % (exits.size() - 1);
-					this.allowableActions.add(new ShootAction(exits.get(left), exits.get(i), exits.get(right)));
+					this.allowableActions.add(new ShootAction(exits.get(left), exits.get(i), exits.get(right)));*/
+				for (Exit e : exits) {
+					this.allowableActions.add(new ShotgunAction(e));
 				}
 			}
 		}
