@@ -44,7 +44,7 @@ public class ShotgunShootAction extends Action {
 			if (location.containsAnActor()) {
 				Actor target = location.getActor();
 				ShotgunAttackAction attackAction = new ShotgunAttackAction(target);
-				result += attackAction.execute(actor, map);
+				result += System.lineSeparator() + attackAction.execute(actor, map);
 			}
 			if (location.getGround().blocksThrownObjects()) {
 				location.setGround(new Path());
