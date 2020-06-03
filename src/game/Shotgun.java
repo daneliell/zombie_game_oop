@@ -18,6 +18,7 @@ public class Shotgun extends WeaponItem {
 	
 	public Shotgun() {
 		super("shotgun", '>', 40, "blasts");
+		this.addCapability(ItemCapability.CAN_SHOOT);
 	}
 	
 	@Override

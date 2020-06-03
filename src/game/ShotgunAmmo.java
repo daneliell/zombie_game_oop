@@ -9,9 +9,9 @@ public class ShotgunAmmo extends PortableItem {
 	}
 	
 	public Boolean getAmmo() {
-		
+		return null;
 	}
 	public void reduceAmmo() {
-		if (rounds)
+		
 	}
 }

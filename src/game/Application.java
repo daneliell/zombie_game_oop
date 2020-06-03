@@ -76,7 +76,7 @@ public class Application {
 		gameMap.at(42, 15).addItem(new ZombieArm());
 		//place test shotgun
 		gameMap.at(43, 15).addItem(new Shotgun());
-		gameMap.at(43,16).addItem(new ShotgunShells());
+		gameMap.at(43,16).addItem(new ShotgunAmmo());
 		
 		 //FIXME: Add more zombies!
 		gameMap.at(30, 20).addActor(new Zombie("Groan"));

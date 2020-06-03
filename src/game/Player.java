@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Menu;
 
 /**
@@ -12,6 +13,7 @@ import edu.monash.fit2099.engine.Menu;
 public class Player extends Human {
 
 	private Menu menu = new Menu();
+	private Menu subMenu = new Menu();
 
 	/**
 	 * Constructor.
@@ -29,6 +31,12 @@ public class Player extends Human {
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
+		for (Item item : this.getInventory()) {
+			if (item.hasCapability(ItemCapability.CAN_SHOOT)) {
+				map.locationOf(this).getExits();
+				actions.add(subMenu.showMenu(this, actions, display));
+			}
+		}
 		return menu.showMenu(this, actions, display);
 	}
 }
