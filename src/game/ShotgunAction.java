@@ -4,13 +4,8 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.Menu;
-import edu.monash.fit2099.engine.Weapon;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Exit;
@@ -96,10 +91,14 @@ public class ShotgunAction extends Action{
 
 		for (Item item : inventory) {
 			if (item.asShotgunAmmo() != null) {
-				actor.removeItemFromInventory(item);
+				ShotgunAmmo ammo = item.asShotgunAmmo();
+				ammo.reduceRounds();
+				if (ammo.getRounds() == false) {
+					actor.removeItemFromInventory(item);
+				}
 				List<Exit> exits = map.locationOf(actor).getExits();
 				for (Exit e : exits) {
-					actions.add(new ShootAction(e));
+					actions.add(new ShotgunShootAction(e));
 				}
 				Action selectedAction = menu.showMenu(actor, actions, display);
 				return selectedAction.execute(actor,map);

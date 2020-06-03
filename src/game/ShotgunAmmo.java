@@ -8,10 +8,13 @@ public class ShotgunAmmo extends PortableItem {
 		super("shotgun ammo", '*');
 	}
 	
-	public Boolean getAmmo() {
-		return null;
+	public boolean getRounds() {
+		if (rounds == 0) {
+			return false;
+		}
+		return true;
 	}
-	public void reduceAmmo() {
-		
+	public void reduceRounds() {
+		rounds -= 1;
 	}
 }

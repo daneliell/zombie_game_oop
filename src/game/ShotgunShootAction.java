@@ -9,12 +9,12 @@ import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
 
-public class ShootAction extends Action {
+public class ShotgunShootAction extends Action {
 	
 	private Exit direction;
 	private ArrayList<Exit> area = new ArrayList<Exit>();
 	
-	public ShootAction(Exit direction) {
+	public ShotgunShootAction(Exit direction) {
 		this.direction = direction;
 	}
 	
@@ -43,7 +43,7 @@ public class ShootAction extends Action {
 			Location location = area.get(k).getDestination();
 			if (location.containsAnActor()) {
 				Actor target = location.getActor();
-				AttackAction attackAction = new AttackAction(target);
+				ShotgunAttackAction attackAction = new ShotgunAttackAction(target);
 				result += attackAction.execute(actor, map);
 			}
 			if (location.getGround().blocksThrownObjects()) {

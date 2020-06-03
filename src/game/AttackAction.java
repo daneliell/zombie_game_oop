@@ -46,13 +46,6 @@ public class AttackAction extends Action {
 
 		int damage = weapon.damage();
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
-		
-		target.hurt(damage);
-
-		// Calls the loseLimb method if the attacked Actor is a Zombie
-		if (target.hasCapability(ZombieCapability.UNDEAD)) {
-			result += target.loseLimb(map);
-		}
 
 		Item corpse = new PortableItem("dead " + target, '%');
 		result += performAttack(damage, map, corpse);
@@ -75,7 +68,14 @@ public class AttackAction extends Action {
 	 * @return String with the result if the target is killed
 	 */
 	protected String performAttack(int damage, GameMap map, Item corpse) {
+		String result = "";
 		target.hurt(damage);
+		
+		// Calls the loseLimb method if the attacked Actor is a Zombie
+		if (target.hasCapability(ZombieCapability.UNDEAD)) {
+			result += target.loseLimb(map);
+		}
+		
 		if (!target.isConscious()) {
 			map.locationOf(target).addItem(corpse);
 			
@@ -86,8 +86,9 @@ public class AttackAction extends Action {
 				drop.execute(target, map);
 			map.removeActor(target);	
 			
-			return System.lineSeparator() + target + " is killed.";
+			result += System.lineSeparator() + target + " is killed.";
+			return result;
 		}
-		return "";
+		return result;
 	}
 }

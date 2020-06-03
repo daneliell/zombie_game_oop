@@ -6,18 +6,13 @@ import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.Menu;
 import edu.monash.fit2099.engine.WeaponItem;
 
 public class Shotgun extends WeaponItem {
 	
-	private List<Exit> directions;
-	private Menu subMenu = new Menu();
-	private Actions actions = new Actions();
-	
 	public Shotgun() {
-		super("shotgun", '>', 40, "blasts");
+		super("shotgun", '>', 10, "smacks");
 		this.addCapability(ItemCapability.CAN_SHOOT);
 	}
 	
