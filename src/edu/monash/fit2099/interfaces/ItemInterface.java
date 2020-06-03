@@ -2,6 +2,7 @@ package edu.monash.fit2099.interfaces;
 
 import edu.monash.fit2099.engine.Item;
 import game.Food;
+import game.Shotgun;
 import game.ShotgunAmmo;
 
 /**
@@ -32,4 +33,7 @@ public interface ItemInterface {
 		return this instanceof ShotgunAmmo ? (ShotgunAmmo) this : null;
 	}
 	
+	default Shotgun asShotgun() {
+		return this instanceof Shotgun ? (Shotgun) this : null;
+	}
 }

@@ -1,14 +1,18 @@
 package game;
 
 import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.Menu;
 import edu.monash.fit2099.engine.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.monash.fit2099.engine.Action;
+import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Exit;
 
 public class ShotgunAction extends Action{
@@ -78,51 +82,35 @@ public class ShotgunAction extends Action{
 		return result;
 	}*/
 	
-	private Exit direction;
-	private ArrayList<Exit> area = new ArrayList<Exit>();
+	private Actions actions = new Actions();
+	Display display;
+	Menu menu = new Menu();
 	
-	public ShotgunAction(Exit direction) {
-		this.direction = direction;
+	public ShotgunAction(Display display) {
+		this.display = display;
 	}
 	
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		String result = "";
-		String name = direction.getName();
-		List<Exit> exits = map.locationOf(actor).getExits();
-		
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < exits.size(); j++) {
-				if (exits.get(j).getName() == name) {
-					int left = j - 1;
-					if (left < 0) {
-						left = exits.size() - 1;
-					}
-					int right = (j + 1) % (exits.size() - 1);
-					area.add(exits.get(left));
-					area.add(exits.get(j));
-					area.add(exits.get(right));
-					exits = exits.get(j).getDestination().getExits();
+		List<Item> inventory = actor.getInventory();
+
+		for (Item item : inventory) {
+			if (item.asShotgunAmmo() != null) {
+				actor.removeItemFromInventory(item);
+				List<Exit> exits = map.locationOf(actor).getExits();
+				for (Exit e : exits) {
+					actions.add(new ShootAction(e));
 				}
+				Action selectedAction = menu.showMenu(actor, actions, display);
+				return selectedAction.execute(actor,map);
 			}
 		}
-		for (int k = 0; k < area.size(); k++) {
-			Location location = area.get(k).getDestination();
-			if (location.containsAnActor()) {
-				Actor target = location.getActor();
-				AttackAction attackAction = new AttackAction(target);
-				result += attackAction.execute(actor, map);
-			}
-			if (location.getGround().blocksThrownObjects()) {
-				location.setGround(new Path());
-			}
-		}
-		return result;
+		return null;
 	}
 	
 	@Override
 	public String menuDescription(Actor actor) {
-		return actor + " shoots " + direction.getName(); 
+		return actor + " aims the shotgun"; 
 	}
 	
 }
