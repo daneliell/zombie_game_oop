@@ -73,7 +73,6 @@ public class Application {
 
 		// place a simple weapon
 		gameMap.at(74, 20).addItem(new Plank());
-		gameMap.at(42, 15).addItem(new ZombieArm());
 		//place test shotgun
 		gameMap.at(43, 15).addItem(new Shotgun());
 		gameMap.at(43,16).addItem(new ShotgunAmmo());
@@ -90,7 +89,7 @@ public class Application {
 		
 		
 		FancyGroundFactory townGroundFactory = new FancyGroundFactory(new Dirt(), new HorizontalWall(), new Path(), 
-				new Floor(), new Water(), new VerticalWall(), new Fence(), new Tree());
+				new Floor(), new VerticalWall(), new Fence(), new Tree());
 		List<String> townMap = Arrays.asList(
 				"......................................................................................",
 				"......................................................................................",
@@ -111,12 +110,12 @@ public class Application {
 				".........=====,,=====...::..............#######.##################.#..#######.........",
 				".........|.,,..,,,..|...::..........................+++.....................#.........",
 				".........|...,,,,,,,|...::.....++..+++............++++++....................#.........",
-				".........=========,==...::......++++...............++........~~~~~~~~.......#.........",
-				".........#..........#...::.......++.........+++...........~~~~.+++..~~~~~.............",
-				".........#..........#...::................+++.+++++.....~~~~~~~.++++.~~~~~~...........",
-				".........#..........#...::...............++++....++.........~~~~.++.~~~~~~............",
-				".........#..........#...:.......+++........+++++.+++.......~~~~~~~~~~.......#.........",
-				".........############....:.....++++++++.....................~~~~............#.........",
+				".........=========,==...::......++++...............++........++++++++.......#.........",
+				".........#..........#...::.......++.........+++...........++++.+++..+++++.............",
+				".........#..........#...::................+++.+++++.....+++++++.++++.++++++...........",
+				".........#..........#...::...............++++....++.........++++.++.++++++............",
+				".........#..........#...:.......+++........+++++.+++.......++++++++++.......#.........",
+				".........############....:.....++++++++.....................++++............#.........",
 				"........................::........++........................................#.........",
 				".................................#######..######################..###########.........",
 				".........................:............................................................",
@@ -132,12 +131,24 @@ public class Application {
         gameMap.at(42,16).addItem(carToTown);
         
         Vehicle carToBack = new Vehicle("Car", '^');
-        carToBack.addAction(new MoveActorAction(gameMap.at(72,2), "back!"));
+        carToBack.addAction(new MoveActorAction(gameMap.at(72,2), "to Compound!"));
         townGameMap.at(2,14).addItem(carToBack);
         
         //testing the map
         //townGameMap.at(72, 11).addItem(carToTown);
         //townGameMap.at(46, 3).addItem(carToTown);
+        
+		//place shotgun and ammo
+		townGameMap.at(19, 9).addItem(new Shotgun());
+		townGameMap.at(18, 9).addItem(new ShotgunAmmo());
+		townGameMap.at(36, 5).addItem(new ShotgunAmmo());
+		townGameMap.at(72, 4).addItem(new ShotgunAmmo());
+		
+		// place a simple weapon
+		townGameMap.at(37, 5).addItem(new Plank());
+		
+		//place food
+		townGameMap.at(13, 4).addItem(new Food());
         
         /*
         String[] townHumans = {"Sheriff Bill", "Policeman Jerry", "Firefighter Jenny", "Doctor Aaron", 

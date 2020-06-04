@@ -7,12 +7,10 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Location;
 
 public class ShotgunShootAction extends Action {
 	
 	private Exit direction;
-	private ArrayList<Exit> area = new ArrayList<Exit>();
 	
 	public ShotgunShootAction(Exit direction) {
 		this.direction = direction;
@@ -23,6 +21,7 @@ public class ShotgunShootAction extends Action {
 		String result = "";
 		String name = direction.getName();
 		List<Exit> exits = map.locationOf(actor).getExits();
+		ArrayList<Exit> area = new ArrayList<Exit>();
 		
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < exits.size(); j++) {
@@ -40,14 +39,13 @@ public class ShotgunShootAction extends Action {
 			}
 		}
 		for (int k = 0; k < area.size(); k++) {
-			Location location = area.get(k).getDestination();
-			if (location.containsAnActor()) {
-				Actor target = location.getActor();
+			if (area.get(k).getDestination().containsAnActor()) {
+				Actor target = area.get(k).getDestination().getActor();
 				ShotgunAttackAction attackAction = new ShotgunAttackAction(target);
 				result += System.lineSeparator() + attackAction.execute(actor, map);
 			}
-			if (location.getGround().blocksThrownObjects()) {
-				location.setGround(new Path());
+			if (area.get(k).getDestination().getGround().blocksThrownObjects()) {
+				area.get(k).getDestination().setGround(new Path());
 			}
 		}
 		return result;

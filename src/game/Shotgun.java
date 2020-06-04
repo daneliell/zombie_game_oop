@@ -2,11 +2,8 @@ package game;
 
 import java.util.List;
 
-import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.Menu;
 import edu.monash.fit2099.engine.WeaponItem;
 
 public class Shotgun extends WeaponItem {
