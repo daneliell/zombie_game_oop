@@ -29,24 +29,35 @@ public class NewWorld extends World {
 			GameMap playersMap = actorLocations.locationOf(player).map();
 			playersMap.draw(display);
 			
-			if(getHumanNumber(playersMap) == 0) {
-				gameStatus = 1;
-				break;
+			if (playersMap instanceof CompoundMap) {
+				if (getHumanNumber(playersMap) == 0) {
+					gameStatus = 1;
+					break;
+				} 
+				else if (getZombieNumber(playersMap) == 0 && !getMamboStatus((CompoundMap) playersMap)) {
+					gameStatus = 2;
+					break;
+				}
+				// Process all the actors.
+				for (Actor actor : actorLocations) {
+					if (stillRunning())
+						processActorTurn(actor);
+				}
+				// Tick over all the maps. For the map stuff.
+				for (GameMap gameMap : gameMaps) {
+					gameMap.tick();
+				} 
 			}
-			else if(getZombieNumber(playersMap) == 0) {
-				gameStatus = 2;
-				break;
-			}
-
-			// Process all the actors.
-			for (Actor actor : actorLocations) {
-				if (stillRunning())
-					processActorTurn(actor);
-			}
-
-			// Tick over all the maps. For the map stuff.
-			for (GameMap gameMap : gameMaps) {
-				gameMap.tick();
+			else {
+				// Process all the actors.
+				for (Actor actor : actorLocations) {
+					if (stillRunning())
+						processActorTurn(actor);
+				}
+				// Tick over all the maps. For the map stuff.
+				for (GameMap gameMap : gameMaps) {
+					gameMap.tick();
+				} 
 			}
 
 		}
@@ -82,5 +93,9 @@ public class NewWorld extends World {
 			return "Game Over";
 		}
 
+	}
+	
+	private boolean getMamboStatus(CompoundMap map) {
+		return map.getMamboStatus();
 	}
 }

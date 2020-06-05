@@ -3,10 +3,10 @@ package game;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.GroundFactory;
 
-public class CompundMap extends GameMap {
+public class CompoundMap extends GameMap {
 	private boolean MamboStatus;
 	
-	public CompundMap(GroundFactory groundFactory, char groundChar, int width, int height) {
+	public CompoundMap(GroundFactory groundFactory, char groundChar, int width, int height) {
 		super(groundFactory, groundChar, width, height);
 		this.MamboStatus = true;
 	}
