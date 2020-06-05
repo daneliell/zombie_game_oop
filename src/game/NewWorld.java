@@ -22,11 +22,21 @@ public class NewWorld extends World {
 		for (Actor actor : actorLocations) {
 			lastActionMap.put(actor, new DoNothingAction());
 		}
-
+		
+		int gameStatus = 0;
 		// This loop is basically the whole game
 		while (stillRunning()) {
 			GameMap playersMap = actorLocations.locationOf(player).map();
 			playersMap.draw(display);
+			
+			if(getHumanNumber(playersMap) == 0) {
+				gameStatus = 1;
+				break;
+			}
+			else if(getZombieNumber(playersMap) == 0) {
+				gameStatus = 2;
+				break;
+			}
 
 			// Process all the actors.
 			for (Actor actor : actorLocations) {
@@ -40,7 +50,7 @@ public class NewWorld extends World {
 			}
 
 		}
-		display.println(endGameMessage());
+		display.println(endingMessage(gameStatus));
 	}
 	
 	private int getZombieNumber(GameMap map) {
@@ -59,5 +69,18 @@ public class NewWorld extends World {
 			}
 		}
 		return humans;
+	}
+	
+	protected String endingMessage(int cond) {
+		if(cond == 1) {
+			return "Player Loses";
+		}
+		else if(cond == 2) {
+			return "Player Wins";
+		}
+		else {
+			return "Game Over";
+		}
+
 	}
 }
