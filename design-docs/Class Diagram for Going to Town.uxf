@@ -29,7 +29,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>639</x>
+      <x>531</x>
       <y>396</y>
       <w>90</w>
       <h>27</h>
@@ -65,18 +65,6 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>522</x>
-      <y>396</y>
-      <w>90</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>Water
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
       <x>639</x>
       <y>315</y>
       <w>90</w>
@@ -101,24 +89,13 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>675</x>
+      <x>567</x>
       <y>333</y>
-      <w>27</w>
+      <w>135</w>
       <h>81</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>558</x>
-      <y>333</y>
-      <w>144</w>
-      <h>81</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;40.0;140.0;40.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;40.0;130.0;40.0;130.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -307,17 +284,6 @@ layer=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
-      <y>414</y>
-      <w>27</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>441</x>
       <y>414</y>
       <w>27</w>
@@ -329,7 +295,7 @@ layer=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>675</x>
+      <x>567</x>
       <y>414</y>
       <w>27</w>
       <h>90</h>

@@ -31,10 +31,16 @@ public class Player extends Human {
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
 		for (Item item : this.getInventory()) {
-			if (item.hasCapability(ItemCapability.CAN_SHOOT)){
+			if (item.asShotgun() != null) {
 				Shotgun shotgun = item.asShotgun();
 				if (shotgun.isLoaded(this)) {
 					actions.add(new ShotgunAction(display));
+				}
+			}
+			else if (item.asSniper() != null) {
+				SniperRifle sniper = item.asSniper();
+				if (sniper.isLoaded(this)) {
+					actions.add(new SniperAction(display));
 				}
 			}
 		}

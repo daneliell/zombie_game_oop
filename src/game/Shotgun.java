@@ -9,7 +9,7 @@ import edu.monash.fit2099.engine.WeaponItem;
 public class Shotgun extends WeaponItem {
 	
 	public Shotgun() {
-		super("shotgun", '>', 10, "smacks");
+		super("shotgun", '>', 15, "smacks");
 		this.addCapability(ItemCapability.CAN_SHOOT);
 	}
 	
