@@ -13,7 +13,9 @@ public class MamboSpawner extends Item {
 	}
 	
 	public void tick(Location currentLocation) {
+		//CompoundMap map = (CompoundMap) currentLocation.map();
 		if (marie.isConscious()) {
+			//map.setMamboStatus(true);
 			if (spawned) {
 				if (marie.getSpawnCounter() % 30 == 0) {
 					GameMap currentMap = marie.getCurrentMap();
@@ -21,12 +23,15 @@ public class MamboSpawner extends Item {
 					spawned = false;
 				}
 			} else {
-				if (Math.random() < 0.05) {
+				if (Math.random() < 0.5) {
 					currentLocation.addActor(marie);
 					spawned = true;
 				}
 			} 
 		}
+		else {
+			//map.setMamboStatus(false);
+			}
 	}
 
 	@Override

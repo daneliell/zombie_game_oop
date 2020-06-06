@@ -1,5 +1,7 @@
 package game;
 
+import java.util.List;
+
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.GroundFactory;
 
@@ -8,6 +10,11 @@ public class CompoundMap extends GameMap {
 	
 	public CompoundMap(GroundFactory groundFactory, char groundChar, int width, int height) {
 		super(groundFactory, groundChar, width, height);
+		this.MamboStatus = true;
+	}
+	
+	public CompoundMap(GroundFactory groundFactory, List<String> lines) {
+		super(groundFactory, lines);
 		this.MamboStatus = true;
 	}
 	
