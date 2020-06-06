@@ -90,12 +90,9 @@ public class ShotgunAction extends Action{
 		List<Item> inventory = actor.getInventory();
 
 		for (Item item : inventory) {
-			if (item.asShotgunAmmo() != null) {
-				ShotgunAmmo ammo = item.asShotgunAmmo();
-				ammo.reduceRounds();
-				if (ammo.getRounds() == false) {
-					actor.removeItemFromInventory(item);
-				}
+			if (item.asShotgun() != null) {
+				item.asShotgun().reduceAmmo(actor);
+				
 				List<Exit> exits = map.locationOf(actor).getExits();
 				for (Exit e : exits) {
 					actions.add(new ShotgunShootAction(e));

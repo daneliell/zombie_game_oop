@@ -1,26 +1,30 @@
 package game;
 
-import java.util.List;
 
+import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.Item;
-import edu.monash.fit2099.engine.WeaponItem;
 
-public class SniperRifle extends WeaponItem {
+public class SniperRifle extends GunItem {
 	
 	public SniperRifle() {
 		super("sniper rifle", '!', 15, "smacks");
 		this.addCapability(ItemCapability.CAN_SHOOT);
 	}
 	
-	public boolean isLoaded(Actor actor) {
-		List<Item> inventory = actor.getInventory();
-		for (Item item : inventory) {
-			if (item.asSniperAmmo() != null) {
-				return true;
-			}
+	@Override
+	public Ammo isLoaded(Actor actor) {
+		Ammo ammo = this.isLoaded(actor);
+		if (ammo.asSniperAmmo() != null) {
+			return ammo.asSniperAmmo();
 		}
-		return false;
+		return null;
+	}
+	
+	@Override
+	public Action getAction(Display display) {
+		return new SniperAction(display);
 	}
 
 	@Override

@@ -181,21 +181,9 @@ public class Zombie extends ZombieActor {
 	}
 
 	@Override
-	public void addAim() {
+	public GunItem getGunItem() {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void clearAim() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int getAim() {
-		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 }

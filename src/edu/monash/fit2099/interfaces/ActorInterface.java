@@ -1,6 +1,8 @@
 package edu.monash.fit2099.interfaces;
 
 import edu.monash.fit2099.engine.GameMap;
+import game.GunItem;
+import game.Player;
 
 /**
  * This interface provides the ability to add methods to Actor, without modifying code in the engine,
@@ -9,7 +11,9 @@ import edu.monash.fit2099.engine.GameMap;
 
 public interface ActorInterface {
 	public String loseLimb(GameMap map);
-	public void addAim();
-	public void clearAim();
-	public int getAim();
+	public GunItem getGunItem();
+	
+	default Player asPlayer() {
+		return this instanceof Player ? (Player) this : null;
+	}
 }

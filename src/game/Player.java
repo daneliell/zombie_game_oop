@@ -14,7 +14,7 @@ public class Player extends Human {
 
 	private Menu menu = new Menu();
 	private int aims = 0;
-	int prevHitPoints = this.hitPoints;
+	private int prevHitPoints = this.hitPoints;
 
 	/**
 	 * Constructor.
@@ -44,7 +44,7 @@ public class Player extends Human {
 				this.clearAim();
 			}
 		}
-		for (Item item : this.getInventory()) {
+		/*for (Item item : this.getInventory()) {
 			if (item.asShotgun() != null) {
 				Shotgun shotgun = item.asShotgun();
 				if (shotgun.isLoaded(this)) {
@@ -53,25 +53,40 @@ public class Player extends Human {
 			}
 			if (item.asSniper() != null) {
 				SniperRifle sniper = item.asSniper();
-				if (sniper.isLoaded(this)) {
+				if (sniper.getAmmo(this) != null) {
 					actions.add(new SniperAction(display));
 				}
+			}
+		}*/
+		for (Item item : this.getInventory()) {
+			if (item.asGunItem() != null) {
+				actions.add(item.asGunItem().getAction(display));
 			}
 		}
 		return menu.showMenu(this, actions, display);
 	}
 	
-	@Override
+	/*public GunItem getGunItem() {
+		for (Item item : this.getInventory()) {
+			if (item.asGunItem() != null) {
+				return item.asGunItem();
+			}
+		}
+		return null;
+	}*/
+	
+	public Ammo getAmmo() {
+		return getGunItem().isLoaded(this);
+	}
+	
 	public int getAim() {
 		return aims;
 	}
 	
-	@Override
 	public void addAim() {
 		aims++;
 	}
 	
-	@Override
 	public void clearAim() {
 		aims = 0;
 	}

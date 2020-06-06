@@ -21,13 +21,14 @@ public class SniperShootAction extends AttackAction {
 	public String execute(Actor actor, GameMap map) {
 		String result = "";
 		Item corpse = new PortableItem("dead " + target, '%');
-		if (actor.getAim() == 0) {
+		int aims = actor.asPlayer().getAim();
+		if (aims == 0) {
 			if (Math.random() < 0.75) {
 				result = actor + " snipes " + target + " for " + DAMAGE + " damage.";
 				result += performAttack(DAMAGE, map, corpse);
 			}
 		}
-		else if (actor.getAim() == 1) {
+		else if (aims == 1) {
 			if (Math.random() < 90) {
 				result = actor + " snipes " + target + " for " + DAMAGE*2 + " damage.";
 				result += performAttack(DAMAGE*2, map, corpse);
@@ -37,15 +38,11 @@ public class SniperShootAction extends AttackAction {
 			result = actor + " snipes " + target + " for an instakill!";
 			result += killTarget(map, corpse);
 		}
-		actor.clearAim();
+		actor.asPlayer().clearAim();
 		List<Item> inventory = actor.getInventory();
 		for (Item item : inventory) {
-			if (item.asSniperAmmo() != null) {
-				SniperAmmo ammo = item.asSniperAmmo();
-				ammo.reduceRounds();
-				if (ammo.getRounds() == false) {
-					actor.removeItemFromInventory(item);
-				}
+			if (item.asSniper() != null) {
+				item.asSniper().reduceAmmo(actor);
 			}
 		}
 		return result;

@@ -14,7 +14,7 @@ public class SniperAimAction extends Action {
 	
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		actor.addAim();
+		actor.asPlayer().addAim();
 		return actor + " aims at " + target;
 	}
 

@@ -1,7 +1,9 @@
 package edu.monash.fit2099.interfaces;
 
 import edu.monash.fit2099.engine.Item;
+import game.Ammo;
 import game.Food;
+import game.GunItem;
 import game.Shotgun;
 import game.ShotgunAmmo;
 import game.SniperAmmo;
@@ -47,5 +49,12 @@ public interface ItemInterface {
 		return this instanceof SniperRifle ? (SniperRifle) this : null;
 	}
 	
+	default Ammo asAmmo() {
+		return this instanceof Ammo ? (Ammo) this : null;
+	}
+	
+	default GunItem asGunItem() {
+		return this instanceof GunItem ? (GunItem) this : null;
+	}
 	
 }

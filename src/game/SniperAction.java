@@ -1,14 +1,11 @@
 package game;
 
-import java.util.List;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
-import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Menu;
 import edu.monash.fit2099.engine.NumberRange;
 
@@ -27,7 +24,7 @@ public class SniperAction extends Action {
 	public String execute(Actor actor, GameMap map) {
 		if (selectedAction != null) {
 			actions.clear();
-			if (actor.getAim() < 3) {
+			if (actor.asPlayer().getAim() < 3) {
 				actions.add(selectedAction);
 			}
 			actions.add(selectedAction.getNextAction());
