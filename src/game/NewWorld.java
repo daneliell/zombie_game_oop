@@ -42,6 +42,9 @@ public class NewWorld extends World {
 				for (Actor actor : actorLocations) {
 					if (stillRunning())
 						processActorTurn(actor);
+					if(lastActionMap.get(actor) instanceof QuitGameAction) {
+						break;
+					}
 				}
 				// Tick over all the maps. For the map stuff.
 				for (GameMap gameMap : gameMaps) {
@@ -53,6 +56,9 @@ public class NewWorld extends World {
 				for (Actor actor : actorLocations) {
 					if (stillRunning())
 						processActorTurn(actor);
+						if(lastActionMap.get(actor) instanceof QuitGameAction) {
+							break;
+						}
 				}
 				// Tick over all the maps. For the map stuff.
 				for (GameMap gameMap : gameMaps) {
