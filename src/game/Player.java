@@ -13,6 +13,7 @@ import edu.monash.fit2099.engine.Menu;
 public class Player extends Human {
 
 	private Menu menu = new Menu();
+	private int aims = 0;
 
 	/**
 	 * Constructor.
@@ -28,8 +29,10 @@ public class Player extends Human {
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		// Handle multi-turn Actions
-		if (lastAction.getNextAction() != null)
-			return lastAction.getNextAction();
+		if (aims > 0) {
+			if (lastAction.getNextAction() != null)
+				return lastAction.getNextAction();
+		}
 		for (Item item : this.getInventory()) {
 			if (item.asShotgun() != null) {
 				Shotgun shotgun = item.asShotgun();
@@ -45,5 +48,20 @@ public class Player extends Human {
 			}
 		}
 		return menu.showMenu(this, actions, display);
+	}
+	
+	@Override
+	public int getAim() {
+		return aims;
+	}
+	
+	@Override
+	public void addAim() {
+		aims++;
+	}
+	
+	@Override
+	public void clearAim() {
+		aims = 0;
 	}
 }

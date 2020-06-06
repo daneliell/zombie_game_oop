@@ -9,4 +9,7 @@ import edu.monash.fit2099.engine.GameMap;
 
 public interface ActorInterface {
 	public String loseLimb(GameMap map);
+	public void addAim();
+	public void clearAim();
+	public int getAim();
 }

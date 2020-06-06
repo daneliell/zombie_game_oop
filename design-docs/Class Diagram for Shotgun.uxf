@@ -611,7 +611,7 @@ bg=light_gray</panel_attributes>
       <w>70</w>
       <h>21</h>
     </coordinates>
-    <panel_attributes>Ammo
+    <panel_attributes>/Ammo/
 bg=yellow
 layer=1</panel_attributes>
     <additional_attributes/>

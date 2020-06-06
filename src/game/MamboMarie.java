@@ -42,4 +42,22 @@ public class MamboMarie extends ZombieActor {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void addAim() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clearAim() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getAim() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -10,12 +10,14 @@ import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
 import edu.monash.fit2099.engine.Menu;
+import edu.monash.fit2099.engine.NumberRange;
 
 public class SniperAction extends Action {
 	
 	private Actions actions = new Actions();
 	Display display;
 	Menu menu = new Menu();
+	Action selectedAction;
 	
 	public SniperAction(Display display) {
 		this.display = display;
@@ -24,7 +26,12 @@ public class SniperAction extends Action {
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		List<Item> inventory = actor.getInventory();
-
+		
+		if (selectedAction instanceof SniperAimAction) {
+			selectedAction = menu.showMenu(actor, actions, display);
+			return selectedAction.execute(actor, map);
+		}
+		
 		for (Item item : inventory) {
 			if (item.asSniperAmmo() != null) {
 				SniperAmmo ammo = item.asSniperAmmo();
@@ -33,13 +40,19 @@ public class SniperAction extends Action {
 					actor.removeItemFromInventory(item);
 				}
 				
+				NumberRange xRange = map.getXRange();
+				NumberRange yRange = map.getYRange();
 				
-				List<Exit> exits = map.locationOf(actor).getExits();
-				for (Exit e : exits) {
-					actions.add(new ShotgunShootAction(e));
+				for (int x : xRange) {
+					for (int y : yRange) {
+						if ((map.at(x, y).containsAnActor()) && (map.at(x, y).getActor().hasCapability(ZombieCapability.UNDEAD))) {
+							actions.add(new SniperAimAction(map.at(x, y).getActor()));
+							actions.add(new SniperShootAction(map.at(x, y).getActor()));
+						}
+					}
 				}
-				Action selectedAction = menu.showMenu(actor, actions, display);
-				return selectedAction.execute(actor,map);
+				selectedAction = menu.showMenu(actor, actions, display);
+				return selectedAction.execute(actor, map);
 			}
 		}
 		return null;
@@ -47,7 +60,12 @@ public class SniperAction extends Action {
 	
 	@Override
 	public String menuDescription(Actor actor) {
-		return actor + " aims the shotgun"; 
+		return actor + " aims the sniper"; 
+	}
+	
+	@Override
+	public Action getNextAction() {
+		return this;
 	}
 
 }
