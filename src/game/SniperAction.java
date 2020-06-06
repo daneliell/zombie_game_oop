@@ -28,8 +28,13 @@ public class SniperAction extends Action {
 		List<Item> inventory = actor.getInventory();
 		
 		if (selectedAction instanceof SniperAimAction) {
-			selectedAction = menu.showMenu(actor, actions, display);
-			return selectedAction.execute(actor, map);
+			actions.clear();
+			if (actor.getAim() < 3) {
+				actions.add(selectedAction);
+			}
+			actions.add(selectedAction.getNextAction());
+			Action action = menu.showMenu(actor, actions, display);
+			return action.execute(actor, map);
 		}
 		
 		for (Item item : inventory) {

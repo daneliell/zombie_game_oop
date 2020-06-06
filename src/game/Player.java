@@ -14,6 +14,7 @@ public class Player extends Human {
 
 	private Menu menu = new Menu();
 	private int aims = 0;
+	int prevHitPoints = this.hitPoints;
 
 	/**
 	 * Constructor.
@@ -29,6 +30,11 @@ public class Player extends Human {
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		// Handle multi-turn Actions
+		if (prevHitPoints > this.hitPoints) {
+			this.clearAim();
+		}
+		prevHitPoints = this.hitPoints;
+		
 		if (aims > 0) {
 			if (lastAction.getNextAction() != null)
 				return lastAction.getNextAction();
