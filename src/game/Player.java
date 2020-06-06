@@ -36,8 +36,13 @@ public class Player extends Human {
 		prevHitPoints = this.hitPoints;
 		
 		if (aims > 0) {
-			if (lastAction.getNextAction() != null)
-				return lastAction.getNextAction();
+			if (lastAction.getNextAction() != null) {
+				actions.add(lastAction.getNextAction());
+				return menu.showMenu(this, actions, display);
+			}
+			else {
+				this.clearAim();
+			}
 		}
 		for (Item item : this.getInventory()) {
 			if (item.asShotgun() != null) {
@@ -46,7 +51,7 @@ public class Player extends Human {
 					actions.add(new ShotgunAction(display));
 				}
 			}
-			else if (item.asSniper() != null) {
+			if (item.asSniper() != null) {
 				SniperRifle sniper = item.asSniper();
 				if (sniper.isLoaded(this)) {
 					actions.add(new SniperAction(display));

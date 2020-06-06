@@ -25,9 +25,7 @@ public class SniperAction extends Action {
 	
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		List<Item> inventory = actor.getInventory();
-		
-		if (selectedAction instanceof SniperAimAction) {
+		if (selectedAction != null) {
 			actions.clear();
 			if (actor.getAim() < 3) {
 				actions.add(selectedAction);
@@ -36,31 +34,20 @@ public class SniperAction extends Action {
 			Action action = menu.showMenu(actor, actions, display);
 			return action.execute(actor, map);
 		}
-		
-		for (Item item : inventory) {
-			if (item.asSniperAmmo() != null) {
-				SniperAmmo ammo = item.asSniperAmmo();
-				ammo.reduceRounds();
-				if (ammo.getRounds() == false) {
-					actor.removeItemFromInventory(item);
+
+		NumberRange xRange = map.getXRange();
+		NumberRange yRange = map.getYRange();
+
+		for (int x : xRange) {
+			for (int y : yRange) {
+				if ((map.at(x, y).containsAnActor()) && (map.at(x, y).getActor().hasCapability(ZombieCapability.UNDEAD))) {
+					actions.add(new SniperAimAction(map.at(x, y).getActor()));
+					actions.add(new SniperShootAction(map.at(x, y).getActor()));
 				}
-				
-				NumberRange xRange = map.getXRange();
-				NumberRange yRange = map.getYRange();
-				
-				for (int x : xRange) {
-					for (int y : yRange) {
-						if ((map.at(x, y).containsAnActor()) && (map.at(x, y).getActor().hasCapability(ZombieCapability.UNDEAD))) {
-							actions.add(new SniperAimAction(map.at(x, y).getActor()));
-							actions.add(new SniperShootAction(map.at(x, y).getActor()));
-						}
-					}
-				}
-				selectedAction = menu.showMenu(actor, actions, display);
-				return selectedAction.execute(actor, map);
 			}
 		}
-		return null;
+		selectedAction = menu.showMenu(actor, actions, display);
+		return selectedAction.execute(actor, map);
 	}
 	
 	@Override

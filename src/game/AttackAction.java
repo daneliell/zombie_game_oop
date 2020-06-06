@@ -77,18 +77,21 @@ public class AttackAction extends Action {
 		}
 		
 		if (!target.isConscious()) {
-			map.locationOf(target).addItem(corpse);
-			
-			Actions dropActions = new Actions();
-			for (Item item : target.getInventory())
-				dropActions.add(item.getDropAction());
-			for (Action drop : dropActions)		
-				drop.execute(target, map);
-			map.removeActor(target);	
-			
-			result += System.lineSeparator() + target + " is killed.";
-			return result;
+			result += killTarget(map, corpse);
 		}
 		return result;
+	}
+	
+	protected String killTarget(GameMap map, Item corpse) {
+		map.locationOf(target).addItem(corpse);
+		
+		Actions dropActions = new Actions();
+		for (Item item : target.getInventory())
+			dropActions.add(item.getDropAction());
+		for (Action drop : dropActions)		
+			drop.execute(target, map);
+		map.removeActor(target);	
+		
+		return System.lineSeparator() + target + " is killed.";
 	}
 }

@@ -40,7 +40,7 @@ public class MamboMarie extends ZombieActor {
 	@Override
 	public String loseLimb(GameMap map) {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override
