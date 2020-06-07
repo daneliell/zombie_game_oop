@@ -13,7 +13,7 @@ public class MamboMarie extends ZombieActor {
 	private GameMap currentMap;
 	
 	public MamboMarie() {
-		super("Mambo Marie", 'M', 100, ZombieCapability.UNDEAD);
+		super("Mambo Marie", 'M', 10, ZombieCapability.UNDEAD);
 	}
 	
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
