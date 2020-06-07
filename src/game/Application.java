@@ -71,6 +71,7 @@ public class Application {
 				gameMap.at(x,  y).addActor(new Human(name));
 			}
 		}
+		gameMap.at(42, 15).addItem(new BraceletOfKyo());
 
 		// place a simple weapon
 		gameMap.at(74, 20).addItem(new Plank());
@@ -155,6 +156,9 @@ public class Application {
 		townGameMap.at(66, 20).addItem(new SniperAmmo());
 		gameMap.at(17, 6).addItem(new SniperAmmo());
 		gameMap.at(71, 3).addItem(new SniperAmmo());
+		
+		// place bracelet
+		townGameMap.at(74, 9).addItem(new BraceletOfKyo());
 		
 		// place a simple weapon
 		townGameMap.at(37, 5).addItem(new Plank());

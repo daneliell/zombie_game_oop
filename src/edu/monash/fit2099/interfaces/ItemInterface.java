@@ -1,13 +1,10 @@
 package edu.monash.fit2099.interfaces;
 
 import edu.monash.fit2099.engine.Item;
-import game.Ammo;
 import game.Food;
 import game.GunItem;
-import game.Shotgun;
 import game.ShotgunAmmo;
 import game.SniperAmmo;
-import game.SniperRifle;
 
 /**
  * This interface provides the ability to add methods to Ground, without modifying code in the engine,

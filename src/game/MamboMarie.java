@@ -4,7 +4,6 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Location;
 
 public class MamboMarie extends ZombieActor {
 	private Behaviour behaviour = new WanderBehaviour();
