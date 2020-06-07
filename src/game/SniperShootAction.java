@@ -1,8 +1,5 @@
 package game;
 
-import java.util.List;
-
-import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Item;
@@ -11,10 +8,14 @@ public class SniperShootAction extends AttackAction {
 	
 	private Actor target;
 	private static final int DAMAGE = 30;
+	private static final double NO_AIM_CHANCE = 0.75;
+	private static final double AIM_CHANCE = 0.9;
+	private SniperRifle sniper;
 	
-	public SniperShootAction(Actor target) {
+	public SniperShootAction(Actor target, SniperRifle sniper) {
 		super(target);
 		this.target = target;
+		this.sniper = sniper;
 	}
 	
 	@Override
@@ -22,30 +23,29 @@ public class SniperShootAction extends AttackAction {
 		String result = "";
 		Item corpse = new PortableItem("dead " + target, '%');
 		int aims = actor.asPlayer().getAim();
+		sniper.reduceAmmo(actor);
 		if (aims == 0) {
-			if (Math.random() < 0.75) {
-				result = actor + " snipes " + target + " for " + DAMAGE + " damage.";
-				result += performAttack(DAMAGE, map, corpse);
-			}
+			result += shootTarget(NO_AIM_CHANCE, DAMAGE, map, corpse, actor, target);
 		}
 		else if (aims == 1) {
-			if (Math.random() < 90) {
-				result = actor + " snipes " + target + " for " + DAMAGE*2 + " damage.";
-				result += performAttack(DAMAGE*2, map, corpse);
-			}
+			result += shootTarget(AIM_CHANCE, DAMAGE*2, map, corpse, actor, target);
 		}
 		else {
-			result = actor + " snipes " + target + " for an instakill!";
+			result = actor + " snipes " + target + " for an instant kill!";
 			result += killTarget(map, corpse);
 		}
-		actor.asPlayer().clearAim();
-		List<Item> inventory = actor.getInventory();
-		for (Item item : inventory) {
-			if (item.asSniper() != null) {
-				item.asSniper().reduceAmmo(actor);
-			}
-		}
 		return result;
+	}
+	
+	private String shootTarget(double aimChance, int damage, GameMap map, Item corpse, Actor actor, Actor target) {
+		if (Math.random() < aimChance) {
+			String result = actor + " snipes " + target + " for " + damage + " damage.";
+			result += performAttack(damage, map, corpse);
+			return result;
+		}
+		else {
+			return actor + " misses " + target;
+		}
 	}
 
 	@Override

@@ -6,13 +6,11 @@ public abstract class Ammo extends PortableItem{
 	
 	public Ammo(String name, char displayChar, int rounds) {
 		super(name, displayChar);
+		this.rounds = rounds;
 	}
 	
-	public boolean getRounds() {
-		if (rounds == 0) {
-			return false;
-		}
-		return true;
+	public int getRounds() {
+		return rounds;
 	}
 	
 	public void reduceRounds() {

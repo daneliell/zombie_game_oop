@@ -12,24 +12,45 @@ import edu.monash.fit2099.engine.NumberRange;
 public class SniperAction extends Action {
 	
 	private Actions actions = new Actions();
-	Display display;
-	Menu menu = new Menu();
-	Action selectedAction;
+	private Display display;
+	private SniperRifle sniper;
+	private Menu menu = new Menu();
+	private Action selectedAction;
 	
-	public SniperAction(Display display) {
+	public SniperAction(Display display, SniperRifle sniper) {
 		this.display = display;
+		this.sniper = sniper;
 	}
 	
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		if (selectedAction != null) {
+		// Checks if previous Action is a Snipe action
+		/*if (selectedAction != null) {
 			actions.clear();
-			if (actor.asPlayer().getAim() < 3) {
+			if (actor.asPlayer().getAim() < 2) {
 				actions.add(selectedAction);
 			}
 			actions.add(selectedAction.getNextAction());
 			Action action = menu.showMenu(actor, actions, display);
 			return action.execute(actor, map);
+		}*/
+		
+		// Checks if Player has aimed before this
+		if (actor.asPlayer().getAim() > 0) {
+			// Remove the aim Action if reached 2 aims against same target
+			/*if (actor.asPlayer().getAim() >= 2) {
+				actions.remove(selectedAction);
+			}*/
+			Action nextAction = menu.showMenu(actor, actions, display);
+			// If next Action is not an aim or shoot Action on target, clear all aims
+			if ((nextAction != selectedAction) & (nextAction != selectedAction.getNextAction())) {
+				/*actions.remove(selectedAction.getNextAction());
+				actions.add(selectedAction);
+				actions.add(selectedAction.getNextAction());*/
+				actor.asPlayer().clearAim();
+			}
+			selectedAction = nextAction;
+			return nextAction.execute(actor, map);
 		}
 
 		NumberRange xRange = map.getXRange();
@@ -38,8 +59,9 @@ public class SniperAction extends Action {
 		for (int x : xRange) {
 			for (int y : yRange) {
 				if ((map.at(x, y).containsAnActor()) && (map.at(x, y).getActor().hasCapability(ZombieCapability.UNDEAD))) {
-					actions.add(new SniperAimAction(map.at(x, y).getActor()));
-					actions.add(new SniperShootAction(map.at(x, y).getActor()));
+					SniperAimAction aimAction = new SniperAimAction(map.at(x, y).getActor(), sniper);
+					actions.add(aimAction);
+					actions.add(aimAction.getNextAction());
 				}
 			}
 		}

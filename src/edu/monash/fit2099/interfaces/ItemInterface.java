@@ -37,20 +37,8 @@ public interface ItemInterface {
 		return this instanceof ShotgunAmmo ? (ShotgunAmmo) this : null;
 	}
 	
-	default Shotgun asShotgun() {
-		return this instanceof Shotgun ? (Shotgun) this : null;
-	}
-	
 	default SniperAmmo asSniperAmmo() {
 		return this instanceof SniperAmmo ? (SniperAmmo) this : null;
-	}
-	
-	default SniperRifle asSniper() {
-		return this instanceof SniperRifle ? (SniperRifle) this : null;
-	}
-	
-	default Ammo asAmmo() {
-		return this instanceof Ammo ? (Ammo) this : null;
 	}
 	
 	default GunItem asGunItem() {

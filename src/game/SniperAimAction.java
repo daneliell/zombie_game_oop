@@ -7,9 +7,11 @@ import edu.monash.fit2099.engine.GameMap;
 public class SniperAimAction extends Action {
 	
 	private Actor target;
+	private SniperShootAction shootAction;
 	
-	public SniperAimAction(Actor target) {
+	public SniperAimAction(Actor target, SniperRifle sniper) {
 		this.target = target;
+		this.shootAction = new SniperShootAction(target, sniper);
 	}
 	
 	@Override
@@ -25,7 +27,7 @@ public class SniperAimAction extends Action {
 	
 	@Override
 	public Action getNextAction() {
-		return new SniperShootAction(target);
+		return shootAction;
 	}
 
 }

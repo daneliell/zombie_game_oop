@@ -180,10 +180,5 @@ public class Zombie extends ZombieActor {
 		return "";
 	}
 
-	@Override
-	public GunItem getGunItem() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

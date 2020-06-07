@@ -15,7 +15,7 @@ import edu.monash.fit2099.engine.Weapon;
 public class ZombieAttackAction extends AttackAction{
 	
 	private static final double MISS_CHANCE = 0.5;
-	private static final double BITE_MISS_CHANCE = 0.6;
+	private static final double BITE_MISS_CHANCE = 0.4;
 	private static final int BITE_DAMAGE = 15;
 	private static final int HEALTH_RESTORED = 5;
 	private int armsNumber;

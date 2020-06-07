@@ -1,5 +1,6 @@
 package game;
 
+
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Display;
@@ -30,53 +31,32 @@ public class Player extends Human {
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		// Handle multi-turn Actions
+		// If Player takes damage or chooses a non-aim Action, clear aims
 		if (prevHitPoints > this.hitPoints) {
 			this.clearAim();
 		}
 		prevHitPoints = this.hitPoints;
 		
-		if (aims > 0) {
-			if (lastAction.getNextAction() != null) {
-				actions.add(lastAction.getNextAction());
-				return menu.showMenu(this, actions, display);
-			}
-			else {
-				this.clearAim();
-			}
-		}
-		/*for (Item item : this.getInventory()) {
-			if (item.asShotgun() != null) {
-				Shotgun shotgun = item.asShotgun();
-				if (shotgun.isLoaded(this)) {
-					actions.add(new ShotgunAction(display));
-				}
-			}
-			if (item.asSniper() != null) {
-				SniperRifle sniper = item.asSniper();
-				if (sniper.getAmmo(this) != null) {
-					actions.add(new SniperAction(display));
-				}
-			}
-		}*/
+		// Checks if Player is holding a GunItem which is loaded, then add
+		// the respective Action
 		for (Item item : this.getInventory()) {
 			if (item.asGunItem() != null) {
-				actions.add(item.asGunItem().getAction(display));
+				if (item.asGunItem().getAmmo(this) != null) {
+					if (aims > 0 ) {
+						if (lastAction.getNextAction() != null) {
+							actions.add(lastAction.getNextAction());
+							return menu.showMenu(this, actions, display);
+						}
+						else {
+							this.clearAim();
+						}
+					}
+					actions.add(item.asGunItem().getAction(display));
+				}
 			}
 		}
+		
 		return menu.showMenu(this, actions, display);
-	}
-	
-	/*public GunItem getGunItem() {
-		for (Item item : this.getInventory()) {
-			if (item.asGunItem() != null) {
-				return item.asGunItem();
-			}
-		}
-		return null;
-	}*/
-	
-	public Ammo getAmmo() {
-		return getGunItem().isLoaded(this);
 	}
 	
 	public int getAim() {

@@ -11,7 +11,6 @@ import game.Player;
 
 public interface ActorInterface {
 	public String loseLimb(GameMap map);
-	public GunItem getGunItem();
 	
 	default Player asPlayer() {
 		return this instanceof Player ? (Player) this : null;

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>4</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>252</x>
-      <y>92</y>
-      <w>40</w>
-      <h>12</h>
+      <x>306</x>
+      <y>30</y>
+      <w>60</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>:Player</panel_attributes>
     <additional_attributes/>
@@ -15,22 +15,22 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>224</x>
-      <y>140</y>
-      <w>52</w>
-      <h>32</h>
+      <x>282</x>
+      <y>102</y>
+      <w>66</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 getInventory()</panel_attributes>
-    <additional_attributes>110.0;60.0;10.0;60.0;10.0;10.0;110.0;10.0</additional_attributes>
+    <additional_attributes>80.0;60.0;10.0;60.0;10.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>268</x>
-      <y>124</y>
-      <w>8</w>
-      <h>308</h>
+      <x>330</x>
+      <y>78</y>
+      <w>12</w>
+      <h>462</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -38,10 +38,10 @@ getInventory()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>336</x>
-      <y>92</y>
-      <w>40</w>
-      <h>12</h>
+      <x>414</x>
+      <y>30</y>
+      <w>60</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>:Shotgun</panel_attributes>
     <additional_attributes/>
@@ -49,10 +49,10 @@ getInventory()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>352</x>
-      <y>164</y>
-      <w>8</w>
-      <h>36</h>
+      <x>438</x>
+      <y>138</y>
+      <w>12</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -60,10 +60,10 @@ getInventory()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>436</x>
-      <y>172</y>
-      <w>8</w>
-      <h>28</h>
+      <x>552</x>
+      <y>150</y>
+      <w>12</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -71,22 +71,22 @@ getInventory()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>272</x>
-      <y>164</y>
-      <w>88</w>
-      <h>16</h>
+      <x>336</x>
+      <y>138</y>
+      <w>114</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 isLoaded(this : Actor)</panel_attributes>
-    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>192</x>
-      <y>176</y>
-      <w>264</w>
-      <h>20</h>
+      <x>234</x>
+      <y>156</y>
+      <w>348</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>optional
 --
@@ -96,10 +96,10 @@ isLoaded(this : Actor)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>416</x>
-      <y>92</y>
-      <w>48</w>
-      <h>12</h>
+      <x>522</x>
+      <y>30</y>
+      <w>72</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>actions:Actions</panel_attributes>
     <additional_attributes/>
@@ -107,10 +107,10 @@ isLoaded(this : Actor)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>436</x>
-      <y>100</y>
-      <w>12</w>
-      <h>80</h>
+      <x>552</x>
+      <y>42</y>
+      <w>18</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
@@ -118,22 +118,22 @@ isLoaded(this : Actor)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>356</x>
-      <y>180</y>
-      <w>88</w>
-      <h>16</h>
+      <x>444</x>
+      <y>162</y>
+      <w>120</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 add(: ShotgunAction)</panel_attributes>
-    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>140</x>
-      <y>92</y>
-      <w>40</w>
-      <h>12</h>
+      <x>156</x>
+      <y>30</y>
+      <w>60</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>:World</panel_attributes>
     <additional_attributes/>
@@ -141,10 +141,10 @@ add(: ShotgunAction)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>156</x>
-      <y>100</y>
-      <w>12</w>
-      <h>28</h>
+      <x>180</x>
+      <y>42</y>
+      <w>18</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>11.0;10.0;10.0;50.0</additional_attributes>
@@ -152,10 +152,10 @@ add(: ShotgunAction)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>156</x>
-      <y>120</y>
-      <w>8</w>
-      <h>264</h>
+      <x>180</x>
+      <y>72</y>
+      <w>12</w>
+      <h>396</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -163,48 +163,48 @@ add(: ShotgunAction)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>120</y>
-      <w>116</w>
-      <h>24</h>
+      <x>186</x>
+      <y>72</y>
+      <w>156</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 playTurn(actions: Actions, 
 lastAction: Action, map: GameMap, 
 display: Display)</panel_attributes>
-    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>212</y>
-      <w>340</w>
-      <h>16</h>
+      <x>186</x>
+      <y>210</y>
+      <w>456</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 execute(actor: Actor, map: GameMap)</panel_attributes>
-    <additional_attributes>830.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>740.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>200</y>
-      <w>116</w>
-      <h>16</h>
+      <x>186</x>
+      <y>192</y>
+      <w>156</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 menu</panel_attributes>
-    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>476</x>
-      <y>180</y>
-      <w>40</w>
-      <h>12</h>
+      <x>606</x>
+      <y>162</y>
+      <w>60</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>:ShotgunAction</panel_attributes>
     <additional_attributes/>
@@ -212,10 +212,10 @@ menu</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>492</x>
-      <y>188</y>
-      <w>12</w>
-      <h>28</h>
+      <x>630</x>
+      <y>174</y>
+      <w>18</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -223,10 +223,10 @@ menu</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>492</x>
-      <y>208</y>
-      <w>8</w>
-      <h>220</h>
+      <x>630</x>
+      <y>204</y>
+      <w>12</w>
+      <h>330</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -234,34 +234,34 @@ menu</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>272</x>
-      <y>224</y>
-      <w>228</w>
-      <h>16</h>
+      <x>336</x>
+      <y>228</y>
+      <w>306</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 getInventory()</panel_attributes>
-    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;490.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>272</x>
-      <y>236</y>
-      <w>228</w>
-      <h>16</h>
+      <x>336</x>
+      <y>246</y>
+      <w>306</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 ammo: ShotgunAmmo</panel_attributes>
-    <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>490.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>208</x>
-      <y>252</y>
-      <w>676</w>
-      <h>184</h>
+      <x>258</x>
+      <y>270</y>
+      <w>1002</w>
+      <h>492</h>
     </coordinates>
     <panel_attributes>optional
 --
@@ -275,10 +275,10 @@ ammo: ShotgunAmmo</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>236</x>
-      <y>268</y>
-      <w>352</w>
-      <h>24</h>
+      <x>282</x>
+      <y>294</y>
+      <w>462</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>optional</panel_attributes>
     <additional_attributes/>
@@ -286,10 +286,10 @@ ammo: ShotgunAmmo</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>540</x>
-      <y>92</y>
-      <w>60</w>
-      <h>12</h>
+      <x>672</x>
+      <y>30</y>
+      <w>90</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>ammo :ShotgunAmmo</panel_attributes>
     <additional_attributes/>
@@ -297,10 +297,10 @@ ammo: ShotgunAmmo</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>100</y>
-      <w>12</w>
-      <h>156</h>
+      <x>714</x>
+      <y>42</y>
+      <w>18</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;370.0</additional_attributes>
@@ -308,10 +308,10 @@ ammo: ShotgunAmmo</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>568</x>
-      <y>248</y>
-      <w>8</w>
-      <h>184</h>
+      <x>714</x>
+      <y>264</y>
+      <w>12</w>
+      <h>276</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -319,34 +319,34 @@ ammo: ShotgunAmmo</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
-      <y>256</y>
-      <w>80</w>
-      <h>16</h>
+      <x>636</x>
+      <y>276</y>
+      <w>90</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 reduceRounds()</panel_attributes>
-    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>272</x>
-      <y>276</y>
-      <w>304</w>
-      <h>16</h>
+      <x>336</x>
+      <y>306</y>
+      <w>390</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 removeItemFromInventory(item : ShotgunAmmo)</panel_attributes>
-    <additional_attributes>10.0;20.0;740.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>636</x>
-      <y>92</y>
-      <w>60</w>
-      <h>12</h>
+      <x>792</x>
+      <y>30</y>
+      <w>90</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>map: GameMap</panel_attributes>
     <additional_attributes/>
@@ -354,10 +354,10 @@ removeItemFromInventory(item : ShotgunAmmo)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>660</x>
-      <y>100</y>
-      <w>12</w>
-      <h>200</h>
+      <x>828</x>
+      <y>42</y>
+      <w>18</w>
+      <h>300</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;480.0</additional_attributes>
@@ -365,10 +365,10 @@ removeItemFromInventory(item : ShotgunAmmo)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>660</x>
-      <y>292</y>
-      <w>8</w>
-      <h>32</h>
+      <x>828</x>
+      <y>330</y>
+      <w>12</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -376,34 +376,34 @@ removeItemFromInventory(item : ShotgunAmmo)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>572</x>
-      <y>296</y>
-      <w>96</w>
-      <h>16</h>
+      <x>720</x>
+      <y>336</y>
+      <w>120</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 locationOf(actor).getExits()</panel_attributes>
-    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>572</x>
-      <y>308</y>
-      <w>96</w>
-      <h>16</h>
+      <x>720</x>
+      <y>354</y>
+      <w>120</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 exits : List&lt;Exit&gt;</panel_attributes>
-    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>436</x>
-      <y>196</y>
-      <w>12</w>
-      <h>132</h>
+      <x>552</x>
+      <y>186</y>
+      <w>18</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>
@@ -411,10 +411,10 @@ exits : List&lt;Exit&gt;</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>308</x>
-      <y>324</y>
-      <w>288</w>
-      <h>20</h>
+      <x>408</x>
+      <y>378</y>
+      <w>336</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>loop</panel_attributes>
     <additional_attributes/>
@@ -422,10 +422,10 @@ exits : List&lt;Exit&gt;</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>436</x>
-      <y>320</y>
-      <w>8</w>
-      <h>28</h>
+      <x>552</x>
+      <y>372</y>
+      <w>12</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -433,22 +433,22 @@ exits : List&lt;Exit&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
-      <y>328</y>
-      <w>136</w>
-      <h>16</h>
+      <x>558</x>
+      <y>384</y>
+      <w>168</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 add(: ShotgunShootAction(e))</panel_attributes>
-    <additional_attributes>10.0;20.0;320.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>352</x>
-      <y>100</y>
-      <w>12</w>
-      <h>72</h>
+      <x>438</x>
+      <y>42</y>
+      <w>18</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
@@ -456,10 +456,10 @@ add(: ShotgunShootAction(e))</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>268</x>
-      <y>100</y>
-      <w>12</w>
-      <h>32</h>
+      <x>330</x>
+      <y>42</y>
+      <w>18</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -467,34 +467,34 @@ add(: ShotgunShootAction(e))</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>352</y>
-      <w>340</w>
-      <h>16</h>
+      <x>186</x>
+      <y>420</y>
+      <w>456</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 menu</panel_attributes>
-    <additional_attributes>10.0;20.0;830.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;740.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>368</y>
-      <w>584</w>
-      <h>16</h>
+      <x>186</x>
+      <y>444</y>
+      <w>750</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 execute(actor: Actor, map: GameMap)</panel_attributes>
-    <additional_attributes>1440.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>1230.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>708</x>
-      <y>328</y>
-      <w>60</w>
-      <h>12</h>
+      <x>882</x>
+      <y>384</y>
+      <w>90</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>:ShotgunShootAction</panel_attributes>
     <additional_attributes/>
@@ -502,10 +502,10 @@ execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>736</x>
-      <y>336</y>
-      <w>12</w>
-      <h>36</h>
+      <x>924</x>
+      <y>396</y>
+      <w>18</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -513,10 +513,10 @@ execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>736</x>
-      <y>364</y>
-      <w>8</w>
-      <h>64</h>
+      <x>924</x>
+      <y>438</y>
+      <w>12</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -524,25 +524,58 @@ execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>572</x>
-      <y>380</y>
-      <w>172</w>
-      <h>16</h>
+      <x>720</x>
+      <y>462</y>
+      <w>216</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 locationOf(actor).getExits()</panel_attributes>
-    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>572</x>
-      <y>392</y>
-      <w>172</w>
-      <h>16</h>
+      <x>720</x>
+      <y>480</y>
+      <w>216</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 exits : List&lt;Exit&gt;</panel_attributes>
-    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>720</x>
+      <y>546</y>
+      <w>108</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>loop</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1104</x>
+      <y>510</y>
+      <w>90</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>ShotgunAttackAction</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1140</x>
+      <y>78</y>
+      <w>18</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
 </diagram>

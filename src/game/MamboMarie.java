@@ -42,10 +42,4 @@ public class MamboMarie extends ZombieActor {
 		// TODO Auto-generated method stub
 		return "";
 	}
-
-	@Override
-	public GunItem getGunItem() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
