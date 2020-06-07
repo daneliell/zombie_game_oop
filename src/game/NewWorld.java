@@ -86,6 +86,7 @@ public class NewWorld extends World {
 				humans++;
 			}
 		}
+		humans = humans - 1;
 		return humans;
 	}
 	
