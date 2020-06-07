@@ -71,4 +71,8 @@ public class Player extends Human {
 	public void clearAim() {
 		aims = 0;
 	}
+	
+	public void incMaxHealth(int points) {
+		this.maxHitPoints += points;
+	}
 }

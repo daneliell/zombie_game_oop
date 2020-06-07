@@ -1,7 +1,6 @@
 package edu.monash.fit2099.interfaces;
 
 import edu.monash.fit2099.engine.GameMap;
-import game.GunItem;
 import game.Player;
 
 /**
