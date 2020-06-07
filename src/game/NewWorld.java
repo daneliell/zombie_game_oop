@@ -34,7 +34,7 @@ public class NewWorld extends World {
 					gameStatus = 1;
 					break;
 				} 
-				else if (getZombieNumber(playersMap) == 0 && !getMamboStatus((CompoundMap) playersMap)) {
+				else if (!getMamboStatus((CompoundMap) playersMap) && getZombieNumber(playersMap) == 0) {
 					gameStatus = 2;
 					break;
 				}

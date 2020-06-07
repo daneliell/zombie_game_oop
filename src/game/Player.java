@@ -29,7 +29,6 @@ public class Player extends Human {
 
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-		actions.add(new QuitGameAction());
 		// Handle multi-turn Actions
 		if (prevHitPoints > this.hitPoints) {
 			this.clearAim();

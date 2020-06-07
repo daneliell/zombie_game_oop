@@ -22,11 +22,7 @@ public class CompoundMap extends GameMap {
 		super(groundFactory, lines);
 		this.MamboStatus = true;
 	}
-	
-	public void setMamboStatus(boolean status) {
-		this.MamboStatus = status;
-	}
-	
+
 	public boolean getMamboStatus() {
 		return this.MamboStatus;
 	}
@@ -46,25 +42,24 @@ public class CompoundMap extends GameMap {
 				this.at(x, y).tick();
 			}
 		}
+		
 		if (marie.isConscious()) {
-			if (spawned) {
-				this.setMamboStatus(true);
-				if (!actorLocations.contains(marie)) {
-					this.setMamboStatus(false);
-				}
+			if (this.spawned) {
+				this.MamboStatus = true;
 				if (marie.getSpawnCounter() % 30 == 0) {
 					this.removeActor(marie);
 					spawned = false;
 				}
-			} else {
-				if (Math.random() < 0.5) {
+			} 
+			else {
+				if (Math.random() < 0.05) {
 					this.at(this.getXRange().min(), this.getXRange().min()).addActor(marie);
 					spawned = true;
 				}
 			} 
 		}
-		if(!marie.isConscious()) {
-			this.setMamboStatus(false);
+		if(spawned && !this.contains(marie)) {
+			this.MamboStatus = false;
 		}
 	}
 }

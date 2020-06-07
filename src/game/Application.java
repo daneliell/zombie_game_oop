@@ -52,8 +52,7 @@ public class Application {
 		world.addGameMap(gameMap);
 		
 		Actor player = new Player("Player", '@', 100);
-		world.addPlayer(player, gameMap.at(0, 1));
-		gameMap.at(0, 1).addItem(new ZombieMace());
+		world.addPlayer(player, gameMap.at(42, 15));
 		
 	    // Place some random humans
 		String[] humans = {"Carlton", "May", "Vicente", "Andrea", "Wendy",
@@ -83,12 +82,12 @@ public class Application {
 		gameMap.at(41,16).addItem(new SniperAmmo());
 		
 		 //FIXME: Add more zombies!
-		//gameMap.at(30, 20).addActor(new Zombie("Groan"));
-		//gameMap.at(30,  18).addActor(new Zombie("Boo"));
-		//gameMap.at(10,  4).addActor(new Zombie("Uuuurgh"));
-		//gameMap.at(50, 18).addActor(new Zombie("Mortalis"));
-		//gameMap.at(1, 10).addActor(new Zombie("Gaaaah"));
-		//gameMap.at(62, 12).addActor(new Zombie("Aaargh"));	
+		gameMap.at(30, 20).addActor(new Zombie("Groan"));
+		gameMap.at(30,  18).addActor(new Zombie("Boo"));
+		gameMap.at(10,  4).addActor(new Zombie("Uuuurgh"));
+		gameMap.at(50, 18).addActor(new Zombie("Mortalis"));
+		gameMap.at(1, 10).addActor(new Zombie("Gaaaah"));
+		gameMap.at(62, 12).addActor(new Zombie("Aaargh"));	
 		
 		//gameMap.at(0, 0).addItem(new MamboSpawner());
 		
