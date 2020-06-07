@@ -2,6 +2,7 @@ package game;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
@@ -105,7 +106,7 @@ public class Application {
 				".........|,,,,,,,,,,|...:.......++++++..........|,,,,,,,|,,,,,,,,,,,,|,,,,,,|.........",
 				".........|,,,,,,,,,,|...::........+++.....+++...|,,,,,,,|,,,,,,,,,,,,|,,,,,,|.........",
 				".........|,,,,,,,,,,|....:.....++++.....++++++..|,,,,,,,|,,,,,,,,,,,,|,,,,,,|.........",
-				".........=====,,=====...::...............++.....=============,,==============.........",
+				".........=====,,=====...::...............++.....=============##==============.........",
 				"..............::........::...................................::.......................",
 				"...::::::::::::::::::::::::::::.::::::::.::::::::::::::::::::::::::::.::::::..........",
 				"..............::........::............................................................",
@@ -133,18 +134,27 @@ public class Application {
         gameMap.at(42,16).addItem(carToTown);
         
         Vehicle carToBack = new Vehicle("Car", '^');
-        carToBack.addAction(new MoveActorAction(gameMap.at(72,2), "to Compound!"));
+        carToBack.addAction(new MoveActorAction(gameMap.at(72,2), "to the Compound!"));
         townGameMap.at(2,14).addItem(carToBack);
         
         //testing the map
         //townGameMap.at(72, 11).addItem(carToTown);
         //townGameMap.at(46, 3).addItem(carToTown);
         
-		//place shotgun and ammo
+		// place shotgun and ammo
 		townGameMap.at(19, 9).addItem(new Shotgun());
 		townGameMap.at(18, 9).addItem(new ShotgunAmmo());
 		townGameMap.at(36, 5).addItem(new ShotgunAmmo());
 		townGameMap.at(72, 4).addItem(new ShotgunAmmo());
+		gameMap.at(14, 16).addItem(new ShotgunAmmo());
+		
+		// place sniper and ammo 
+		townGameMap.at(50, 4).addItem(new SniperRifle());
+		townGameMap.at(51, 5).addItem(new SniperAmmo());
+		townGameMap.at(50, 5).addItem(new SniperAmmo());
+		townGameMap.at(66, 20).addItem(new SniperAmmo());
+		gameMap.at(17, 6).addItem(new SniperAmmo());
+		gameMap.at(71, 3).addItem(new SniperAmmo());
 		
 		// place a simple weapon
 		townGameMap.at(37, 5).addItem(new Plank());
@@ -152,7 +162,7 @@ public class Application {
 		//place food
 		townGameMap.at(13, 4).addItem(new Food());
         
-        /*
+        
         String[] townHumans = {"Sheriff Bill", "Policeman Jerry", "Firefighter Jenny", "Doctor Aaron", 
         		"Baker Andrea", "Normal Guy Bill", "Teacher Robin"};
 		for (String name : townHumans) {
@@ -177,7 +187,7 @@ public class Application {
 			while (townGameMap.at(x, y).containsAnActor());
 			townGameMap.at(x,  y).addActor(new Zombie(name));
 		}
-		*/
+		
 		
 		world.run();
 	}

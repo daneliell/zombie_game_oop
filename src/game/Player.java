@@ -32,7 +32,7 @@ public class Player extends Human {
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		actions.add(new QuitGameAction());
 		// Handle multi-turn Actions
-		// If Player takes damage or chooses a non-aim Action, clear aims
+		// If Player takes damage or chooses a non-aim Action, clear aims 
 		if (prevHitPoints > this.hitPoints) {
 			this.clearAim();
 		}
@@ -43,7 +43,7 @@ public class Player extends Human {
 		for (Item item : this.getInventory()) {
 			if (item.asGunItem() != null) {
 				if (item.asGunItem().getAmmo(this) != null) {
-					if (aims > 0 ) {
+					if (aims > 0) {
 						if (lastAction.getNextAction() != null) {
 							actions.add(lastAction.getNextAction());
 							return menu.showMenu(this, actions, display);

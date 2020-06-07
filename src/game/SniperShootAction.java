@@ -32,6 +32,7 @@ public class SniperShootAction extends AttackAction {
 		}
 		else {
 			result = actor + " snipes " + target + " for an instant kill!";
+			actor.asPlayer().clearAim();
 			result += killTarget(map, corpse);
 		}
 		return result;
@@ -41,6 +42,9 @@ public class SniperShootAction extends AttackAction {
 		if (Math.random() < aimChance) {
 			String result = actor + " snipes " + target + " for " + damage + " damage.";
 			result += performAttack(damage, map, corpse);
+			if (target.isConscious() == false) {
+				actor.asPlayer().clearAim();
+			}
 			return result;
 		}
 		else {

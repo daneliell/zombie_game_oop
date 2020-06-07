@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
+import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Menu;
 import edu.monash.fit2099.engine.NumberRange;
@@ -55,15 +56,20 @@ public class SniperAction extends Action {
 
 		NumberRange xRange = map.getXRange();
 		NumberRange yRange = map.getYRange();
-
+		boolean hasActor = false;
+		
 		for (int x : xRange) {
 			for (int y : yRange) {
 				if ((map.at(x, y).containsAnActor()) && (map.at(x, y).getActor().hasCapability(ZombieCapability.UNDEAD))) {
 					SniperAimAction aimAction = new SniperAimAction(map.at(x, y).getActor(), sniper);
 					actions.add(aimAction);
 					actions.add(aimAction.getNextAction());
+					hasActor = true;
 				}
 			}
+		}
+		if (hasActor == false) {
+			actions.add(new DoNothingAction());
 		}
 		selectedAction = menu.showMenu(actor, actions, display);
 		return selectedAction.execute(actor, map);

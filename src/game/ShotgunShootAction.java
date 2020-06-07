@@ -31,26 +31,36 @@ public class ShotgunShootAction extends Action {
 						left = exits.size() - 1;
 					}
 					int right = (j + 1) % (exits.size() - 1);
-					area.add(exits.get(left));
+					result += hitArea(exits.get(left), actor, map);
+					result += hitArea(exits.get(j), actor, map);
+					result += hitArea(exits.get(right), actor, map);
+					/*area.add(exits.get(left));
 					area.add(exits.get(j));
-					area.add(exits.get(right));
+					area.add(exits.get(right));*/
 					exits = exits.get(j).getDestination().getExits();
+
 				}
 			}
 		}
-		for (int k = 0; k < area.size(); k++) {
-			if (area.get(k).getDestination().containsAnActor()) {
-				Actor target = area.get(k).getDestination().getActor();
-				ShotgunAttackAction attackAction = new ShotgunAttackAction(target);
-				result += System.lineSeparator() + attackAction.execute(actor, map);
-			}
-			if (area.get(k).getDestination().getGround().blocksThrownObjects()) {
-				area.get(k).getDestination().setGround(new Path());
-			}
-		}
+		/*for (Exit exit : area) {
+			System.out.println("(" + exit.getDestination().x() + ", " + exit.getDestination().y() + ")");
+		}*/
+		
 		return result;
 	}
 	
+	private String hitArea(Exit area, Actor actor, GameMap map) {
+		String result = "";
+		if (area.getDestination().getGround().blocksThrownObjects()) {
+			area.getDestination().setGround(new Path());
+		}
+		if (area.getDestination().containsAnActor()) {
+			Actor target = area.getDestination().getActor();
+			ShotgunAttackAction attackAction = new ShotgunAttackAction(target);
+			result += System.lineSeparator() + attackAction.execute(actor, map);
+		}
+		return result;
+	}
 	@Override
 	public String menuDescription(Actor actor) {
 		return actor + " shoots " + direction.getName(); 
