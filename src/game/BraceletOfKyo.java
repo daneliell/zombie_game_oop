@@ -22,7 +22,6 @@ public class BraceletOfKyo extends PortableItem {
 	
 	@Override
 	public void tick(Location currentLocation) {
-		System.out.println(this.onGround);
 		if (onGround == false) {
 			currentLocation.getActor().asPlayer().decMaxHealth(HEALTH);
 		}

@@ -56,8 +56,6 @@ public class Player extends Human {
 				}
 			}
 		}
-		System.out.println(this.maxHitPoints);
-		System.out.println(this.hitPoints);
 		
 		return menu.showMenu(this, actions, display);
 	}
@@ -76,14 +74,12 @@ public class Player extends Human {
 	
 	public void incMaxHealth(int points) {
 		maxHitPoints += points;
-		hitPoints += points;
 	}
 	
 	public void decMaxHealth(int points) {
 		maxHitPoints -= points;
-		hitPoints -= points;
-		if (hitPoints <= 0) {
-			hitPoints = 1;
+		if (hitPoints > maxHitPoints) {
+			hitPoints = maxHitPoints;
 		}
 	}
 }
