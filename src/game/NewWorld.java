@@ -29,6 +29,10 @@ public class NewWorld extends World {
 			GameMap playersMap = actorLocations.locationOf(player).map();
 			playersMap.draw(display);
 			
+			if(super.lastActionMap.get(player) instanceof QuitGameAction) {
+				break;
+			}
+			
 			if (playersMap instanceof CompoundMap) {
 				if (getHumanNumber(playersMap) == 0) {
 					gameStatus = 1;
@@ -56,9 +60,6 @@ public class NewWorld extends World {
 				for (Actor actor : actorLocations) {
 					if (stillRunning())
 						processActorTurn(actor);
-						if(lastActionMap.get(actor) instanceof QuitGameAction) {
-							break;
-						}
 				}
 				// Tick over all the maps. For the map stuff.
 				for (GameMap gameMap : gameMaps) {

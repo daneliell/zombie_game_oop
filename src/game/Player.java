@@ -30,6 +30,7 @@ public class Player extends Human {
 
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+		actions.add(new QuitGameAction());
 		// Handle multi-turn Actions
 		// If Player takes damage or chooses a non-aim Action, clear aims
 		if (prevHitPoints > this.hitPoints) {
