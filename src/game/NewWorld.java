@@ -92,10 +92,10 @@ public class NewWorld extends World {
 	
 	protected String endingMessage(int cond) {
 		if(cond == 1) {
-			return "Player Loses";
+			return "Player Loses. Game Over";
 		}
 		else if(cond == 2) {
-			return "Player Wins";
+			return "Player Wins. Game Over";
 		}
 		else {
 			return "Game Over";
