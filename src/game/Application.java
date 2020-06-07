@@ -77,7 +77,7 @@ public class Application {
 		gameMap.at(43, 15).addItem(new Shotgun());
 		gameMap.at(43,16).addItem(new ShotgunAmmo());
 		
-		//places test sniper
+		//places test sniper 
 		gameMap.at(41, 15).addItem(new SniperRifle());
 		gameMap.at(41,16).addItem(new SniperAmmo());
 		
@@ -88,8 +88,6 @@ public class Application {
 		gameMap.at(50, 18).addActor(new Zombie("Mortalis"));
 		gameMap.at(1, 10).addActor(new Zombie("Gaaaah"));
 		gameMap.at(62, 12).addActor(new Zombie("Aaargh"));	
-		
-		//gameMap.at(0, 0).addItem(new MamboSpawner());
 		
 		
 		FancyGroundFactory townGroundFactory = new FancyGroundFactory(new Dirt(), new HorizontalWall(), new Path(), 
