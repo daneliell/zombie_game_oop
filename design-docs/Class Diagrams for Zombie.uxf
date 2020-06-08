@@ -194,10 +194,10 @@ bg=white</panel_attributes>
     </coordinates>
     <panel_attributes>ZombieCorpse
 -
-conversionCounter: int
-MIN_TURNS : int
-MAX_TURNS : int
-zombie : Zombie
+- conversionCounter: int
+- MIN_TURNS : int
+- MAX_TURNS : int
+- zombie : Zombie
 bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
