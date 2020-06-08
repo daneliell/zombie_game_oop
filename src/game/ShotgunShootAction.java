@@ -11,6 +11,7 @@ import edu.monash.fit2099.engine.GameMap;
 public class ShotgunShootAction extends Action {
 	
 	private Exit direction;
+	ArrayList<Exit> area = new ArrayList<Exit>();
 	
 	public ShotgunShootAction(Exit direction) {
 		this.direction = direction;
@@ -21,7 +22,6 @@ public class ShotgunShootAction extends Action {
 		String result = "";
 		String name = direction.getName();
 		List<Exit> exits = map.locationOf(actor).getExits();
-		ArrayList<Exit> area = new ArrayList<Exit>();
 		
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < exits.size(); j++) {
@@ -31,22 +31,62 @@ public class ShotgunShootAction extends Action {
 						left = exits.size() - 1;
 					}
 					int right = (j + 1) % (exits.size() - 1);
-					result += hitArea(exits.get(left), actor, map);
-					result += hitArea(exits.get(j), actor, map);
-					result += hitArea(exits.get(right), actor, map);
-					/*area.add(exits.get(left));
+					Exit middleExit = exits.get(j);
+					Exit leftExit = exits.get(left);
+					Exit rightExit = exits.get(right);
+					String leftName = getAdjacentDirection(middleExit, leftExit);
+					String rightName = getAdjacentDirection(middleExit, rightExit);
+					System.out.println(leftName);
+					System.out.println(rightName);
+					for (int k = 0; k < i; k++) {
+						leftExit = addAdjacentArea(leftExit, leftName);
+						rightExit = addAdjacentArea(rightExit, rightName);
+					}
+					
+					area.add(leftExit);
+					area.add(rightExit);
 					area.add(exits.get(j));
-					area.add(exits.get(right));*/
+					/*result += hitArea(exits.get(left), actor, map);
+					result += hitArea(exits.get(j), actor, map);
+					result += hitArea(exits.get(right), actor, map)*/
 					exits = exits.get(j).getDestination().getExits();
-
 				}
 			}
 		}
+		for (Exit area : area) {
+			System.out.println("(" + area.getDestination().x() + ", " + area.getDestination().y() + ")");
+			if (area.getDestination().getGround().blocksThrownObjects()) {
+				area.getDestination().setGround(new Path());
+			}
+			if (area.getDestination().containsAnActor()) {
+				Actor target = area.getDestination().getActor();
+				ShotgunAttackAction attackAction = new ShotgunAttackAction(target);
+				result += System.lineSeparator() + attackAction.execute(actor, map);
+			}
+		}
+		return result;
 		/*for (Exit exit : area) {
 			System.out.println("(" + exit.getDestination().x() + ", " + exit.getDestination().y() + ")");
 		}*/
-		
-		return result;
+	}
+	
+	private String getAdjacentDirection(Exit middle, Exit adjacent) {
+		for (Exit exit : middle.getDestination().getExits()) {
+			if (exit.getDestination() == adjacent.getDestination()) {
+				return exit.getName();
+			}
+		}
+		return "";
+	}
+	
+	private Exit addAdjacentArea(Exit e, String direction) {
+		for (Exit exit : e.getDestination().getExits()) {
+			if (exit.getName() == direction) {
+				area.add(e);
+				return exit;
+			}
+		}
+		return null;
 	}
 	
 	private String hitArea(Exit area, Actor actor, GameMap map) {
