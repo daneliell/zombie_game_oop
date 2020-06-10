@@ -30,11 +30,8 @@ public class Player extends Human {
 
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-		System.out.println(hitPoints);
-		System.out.println(maxHitPoints);
 		actions.add(new QuitGameAction());
-		// Handle multi-turn Actions
-		// If Player takes damage or chooses a non-aim Action, clear aims 
+		// If Player takes damage, clear aims 
 		if (prevHitPoints > this.hitPoints) {
 			this.clearAim();
 		}
@@ -46,10 +43,13 @@ public class Player extends Human {
 			if (item.asGunItem() != null) {
 				if (item.asGunItem().getAmmo(this) != null) {
 					if (aims > 0) {
+						// Handle multi-turn Actions
+						// Adds the previous SniperAction that was used
 						if (lastAction.getNextAction() != null) {
 							actions.add(lastAction.getNextAction());
 							return menu.showMenu(this, actions, display);
 						}
+						// If Player does not use any SniperAction, clear aims
 						else {
 							this.clearAim();
 						}
@@ -62,28 +62,57 @@ public class Player extends Human {
 		return menu.showMenu(this, actions, display);
 	}
 	
+	/**
+	 * Public getter method to get number of aims.
+	 * 
+	 * @return number of turns spent aiming by the Player
+	 */
 	public int getAim() {
 		return aims;
 	}
 	
+	/**
+	 * Public mutator method to add number of aims.
+	 */
 	public void addAim() {
 		aims++;
 	}
 	
+	/**
+	 * Public mutator method to clear number of aims.
+	 */
 	public void clearAim() {
 		aims = 0;
 	}
 	
+	/**
+	 * Public mutator method to increase maximum hitpoints.
+	 * 
+	 * @param points Number of hitpoints to increase max life.
+	 */
 	public void incMaxHealth(int points) {
 		convertPercentage(hitPoints, maxHitPoints, (maxHitPoints+points));
 		maxHitPoints += points;
 	}
 	
+	/**
+	 * Public mutator method to decrease maximum hitpoints.
+	 * 
+	 * @param points Number of hitpoints to decrease max life.
+	 */
 	public void decMaxHealth(int points) {
 		convertPercentage(hitPoints, maxHitPoints, (maxHitPoints-points));
 		maxHitPoints -= points;
 	}
 	
+	/**
+	 * Internal method to convert hitpoints percentage and change the hitpoints
+	 * accordingly.
+	 * 
+	 * @param hitPoints Current hitpoints of the Player
+	 * @param maxHitPoints Maximum hitpoints of the Player before change
+	 * @param newMaxHitPoints Maximum hitpoints of the Player after change
+	 */
 	private void convertPercentage(int hitPoints, int maxHitPoints, int newMaxHitPoints) {
 		int healthPercentage = (hitPoints*100)/maxHitPoints;
 		this.hitPoints = (newMaxHitPoints*healthPercentage/100);
