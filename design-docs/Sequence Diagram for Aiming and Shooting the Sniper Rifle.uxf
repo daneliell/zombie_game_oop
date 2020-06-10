@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>288</x>
+      <y>78</y>
+      <w>12</w>
+      <h>474</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>264</x>
+      <y>30</y>
+      <w>60</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>: World</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>42</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>96</y>
+      <w>222</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+execute(actor: Actor, map: GameMap)</panel_attributes>
+    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>378</x>
+      <y>78</y>
+      <w>12</w>
+      <h>462</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>42</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>354</x>
+      <y>30</y>
+      <w>60</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>: Player</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>456</x>
+      <y>30</y>
+      <w>108</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>aimAction: SniperAimAction</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>504</x>
+      <y>78</y>
+      <w>12</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>120</y>
+      <w>132</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+addAim()</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>144</y>
+      <w>132</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+result: String</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>42</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>582</x>
+      <y>30</y>
+      <w>132</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>shootAction: SniperShootAction</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>642</x>
+      <y>78</y>
+      <w>12</w>
+      <h>444</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>162</y>
+      <w>96</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+result: String</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>204</x>
+      <y>84</y>
+      <w>636</w>
+      <h>486</h>
+    </coordinates>
+    <panel_attributes>alt
+--
+halign=left
+if Player chooses to 
+aim at target for 
+one turn
+
+
+
+
+
+
+
+-.
+if Player chooses 
+to shoot target</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>642</x>
+      <y>42</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>210</y>
+      <w>360</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+execute(actor: Actor, map: GameMap)</panel_attributes>
+    <additional_attributes>580.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>234</y>
+      <w>270</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+getAim()</panel_attributes>
+    <additional_attributes>10.0;20.0;430.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>258</y>
+      <w>270</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+int aims</panel_attributes>
+    <additional_attributes>430.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>738</x>
+      <y>30</y>
+      <w>60</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>:SniperRifle</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>762</x>
+      <y>42</y>
+      <w>18</w>
+      <h>246</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;390.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>762</x>
+      <y>276</y>
+      <w>12</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>282</y>
+      <w>126</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;
+reduceAmmo(actor: Actor)</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>468</x>
+      <y>300</y>
+      <w>222</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>alt
+--
+if aims == 0
+halign=left
+
+
+
+
+-.
+if aims == 1
+
+
+
+
+
+-.
+if aims == 2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>306</y>
+      <w>126</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+result += ShootTarget()
+with parameters for no aims</panel_attributes>
+    <additional_attributes>190.0;70.0;10.0;70.0;10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>372</y>
+      <w>126</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+result += ShootTarget()
+with parameters for 1 aim</panel_attributes>
+    <additional_attributes>190.0;70.0;10.0;70.0;10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>438</y>
+      <w>126</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+result += killTarget(map: 
+GameMap, corpse:  Item)</panel_attributes>
+    <additional_attributes>190.0;70.0;10.0;70.0;10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>504</y>
+      <w>270</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+result: String</panel_attributes>
+    <additional_attributes>10.0;20.0;430.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>642</x>
+      <y>516</y>
+      <w>18</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>642</x>
+      <y>540</y>
+      <w>12</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>type=termination</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>522</y>
+      <w>96</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+result: String</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>546</y>
+      <w>18</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>534</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>240</x>
+      <y>0</y>
+      <w>541</w>
+      <h>19</h>
+    </coordinates>
+    <panel_attributes>Sequence Diagram to Model Scenario where a Player choose to aim or shoot the Sniper Rifle
+bg=black</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=textHeight();
+
+for(String textline : textlines) {
+	y += printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>762</x>
+      <y>306</y>
+      <w>18</w>
+      <h>276</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;440.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>162</y>
+      <w>18</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>504</x>
+      <y>180</y>
+      <w>12</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>type=termination</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
