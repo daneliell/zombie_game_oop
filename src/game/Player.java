@@ -30,6 +30,8 @@ public class Player extends Human {
 
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+		System.out.println(hitPoints);
+		System.out.println(maxHitPoints);
 		actions.add(new QuitGameAction());
 		// Handle multi-turn Actions
 		// If Player takes damage or chooses a non-aim Action, clear aims 
@@ -73,13 +75,17 @@ public class Player extends Human {
 	}
 	
 	public void incMaxHealth(int points) {
+		convertPercentage(hitPoints, maxHitPoints, (maxHitPoints+points));
 		maxHitPoints += points;
 	}
 	
 	public void decMaxHealth(int points) {
+		convertPercentage(hitPoints, maxHitPoints, (maxHitPoints-points));
 		maxHitPoints -= points;
-		if (hitPoints > maxHitPoints) {
-			hitPoints = maxHitPoints;
-		}
+	}
+	
+	private void convertPercentage(int hitPoints, int maxHitPoints, int newMaxHitPoints) {
+		int healthPercentage = (hitPoints*100)/maxHitPoints;
+		this.hitPoints = (newMaxHitPoints*healthPercentage/100);
 	}
 }
