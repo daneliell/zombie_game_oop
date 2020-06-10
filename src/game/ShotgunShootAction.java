@@ -34,18 +34,16 @@ public class ShotgunShootAction extends Action {
 					Exit middleExit = exits.get(j);
 					Exit leftExit = exits.get(left);
 					Exit rightExit = exits.get(right);
-					String leftName = getAdjacentDirection(middleExit, leftExit);
-					String rightName = getAdjacentDirection(middleExit, rightExit);
-					System.out.println(leftName);
-					System.out.println(rightName);
+					String leftDirection = getAdjacentDirection(middleExit, leftExit);
+					String rightDirection = getAdjacentDirection(middleExit, rightExit);
 					for (int k = 0; k < i; k++) {
-						leftExit = addAdjacentArea(leftExit, leftName);
-						rightExit = addAdjacentArea(rightExit, rightName);
+						leftExit = addAdjacentArea(leftExit, leftDirection);
+						rightExit = addAdjacentArea(rightExit, rightDirection);
 					}
 					
 					area.add(leftExit);
 					area.add(rightExit);
-					area.add(exits.get(j));
+					area.add(middleExit);
 					/*result += hitArea(exits.get(left), actor, map);
 					result += hitArea(exits.get(j), actor, map);
 					result += hitArea(exits.get(right), actor, map)*/
@@ -54,7 +52,6 @@ public class ShotgunShootAction extends Action {
 			}
 		}
 		for (Exit area : area) {
-			System.out.println("(" + area.getDestination().x() + ", " + area.getDestination().y() + ")");
 			if (area.getDestination().getGround().blocksThrownObjects()) {
 				area.getDestination().setGround(new Path());
 			}
@@ -89,7 +86,7 @@ public class ShotgunShootAction extends Action {
 		return null;
 	}
 	
-	private String hitArea(Exit area, Actor actor, GameMap map) {
+	/*private String hitArea(Exit area, Actor actor, GameMap map) {
 		String result = "";
 		if (area.getDestination().getGround().blocksThrownObjects()) {
 			area.getDestination().setGround(new Path());
@@ -100,7 +97,8 @@ public class ShotgunShootAction extends Action {
 			result += System.lineSeparator() + attackAction.execute(actor, map);
 		}
 		return result;
-	}
+	}*/
+	
 	@Override
 	public String menuDescription(Actor actor) {
 		return actor + " shoots " + direction.getName(); 

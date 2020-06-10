@@ -21,7 +21,6 @@ public class ShotgunAttackAction extends AttackAction {
 		}
 		
 		String result = actor + " blasts " + target + " for " + DAMAGE + " damage.";
-		target.hurt(DAMAGE);
 		
 		Item corpse = new PortableItem("dead " + target, '%');
 		result += performAttack(DAMAGE, map, corpse);
