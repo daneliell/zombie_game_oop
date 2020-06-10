@@ -1,6 +1,5 @@
 package game;
 
-
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
@@ -10,6 +9,13 @@ import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Menu;
 import edu.monash.fit2099.engine.NumberRange;
 
+/**
+ * Action class that is used as a menu option to use the Sniper Rifle.
+ * Brings up a submenu to choose which Actor to use the Sniper Rifle on.
+ * 
+ * @author Daniel Yuen
+ *
+ */
 public class SniperAction extends Action {
 	
 	private Actions actions = new Actions();
@@ -18,36 +24,36 @@ public class SniperAction extends Action {
 	private Menu menu = new Menu();
 	private Action selectedAction;
 	
+	/**
+	 * Constructor.
+	 * 
+	 * @param display Display that will draw the state of the game
+	 * @param sniper SniperRifle item instance in the Player's inventory
+	 */
 	public SniperAction(Display display, SniperRifle sniper) {
 		this.display = display;
 		this.sniper = sniper;
 	}
 	
+	/**
+	 * Scans the map the Actor is on to obtain all Actors that have UNDEAD
+	 * ZombieCapability. Shows the submenu to allow Players to choose the
+	 * Actor they wish to aim or shoot at. Creates a new SniperAimAction
+	 * and respective SniperShootAction for every Actor detected. If no
+	 * valid Actors are present on the map, a DoNothingAction is returned.
+	 * 
+	 * @return the result of aiming or shooting at the selected target
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		// Checks if previous Action is a Snipe action
-		/*if (selectedAction != null) {
-			actions.clear();
-			if (actor.asPlayer().getAim() < 2) {
-				actions.add(selectedAction);
-			}
-			actions.add(selectedAction.getNextAction());
-			Action action = menu.showMenu(actor, actions, display);
-			return action.execute(actor, map);
-		}*/
-		
 		// Checks if Player has aimed before this
 		if (actor.asPlayer().getAim() > 0) {
-			// Remove the aim Action if reached 2 aims against same target
 			/*if (actor.asPlayer().getAim() >= 2) {
 				actions.remove(selectedAction);
 			}*/
 			Action nextAction = menu.showMenu(actor, actions, display);
-			// If next Action is not an aim or shoot Action on target, clear all aims
+			// If next Action is not an aim or shoot Action on the same target, clear all aims
 			if ((nextAction != selectedAction) & (nextAction != selectedAction.getNextAction())) {
-				/*actions.remove(selectedAction.getNextAction());
-				actions.add(selectedAction);
-				actions.add(selectedAction.getNextAction());*/
 				actor.asPlayer().clearAim();
 			}
 			selectedAction = nextAction;
@@ -62,6 +68,7 @@ public class SniperAction extends Action {
 			for (int y : yRange) {
 				if ((map.at(x, y).containsAnActor()) && (map.at(x, y).getActor().hasCapability(ZombieCapability.UNDEAD))) {
 					SniperAimAction aimAction = new SniperAimAction(map.at(x, y).getActor(), sniper);
+					// Adds the aim and respective shoot actions on the target
 					actions.add(aimAction);
 					actions.add(aimAction.getNextAction());
 					hasActor = true;
@@ -80,6 +87,9 @@ public class SniperAction extends Action {
 		return actor + " aims the sniper"; 
 	}
 	
+	/**
+	 * Allows the same action to be returned in the following turn.
+	 */
 	@Override
 	public Action getNextAction() {
 		return this;
