@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>295</x>
+      <x>195</x>
       <y>30</y>
       <w>50</w>
       <h>15</h>
@@ -15,7 +15,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
+      <x>160</x>
       <y>90</y>
       <w>65</w>
       <h>40</h>
@@ -27,7 +27,7 @@ getInventory()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>315</x>
+      <x>215</x>
       <y>70</y>
       <w>10</w>
       <h>835</h>
@@ -38,7 +38,7 @@ getInventory()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>385</x>
+      <x>285</x>
       <y>30</y>
       <w>50</w>
       <h>15</h>
@@ -49,7 +49,7 @@ getInventory()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>405</x>
+      <x>305</x>
       <y>120</y>
       <w>10</w>
       <h>45</h>
@@ -60,7 +60,7 @@ getInventory()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>500</x>
+      <x>400</x>
       <y>130</y>
       <w>10</w>
       <h>35</h>
@@ -71,7 +71,7 @@ getInventory()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
+      <x>220</x>
       <y>120</y>
       <w>95</w>
       <h>20</h>
@@ -83,7 +83,7 @@ getAmmo(this : Actor)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>475</x>
+      <x>375</x>
       <y>30</y>
       <w>60</w>
       <h>15</h>
@@ -94,7 +94,7 @@ getAmmo(this : Actor)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
+      <x>400</x>
       <y>40</y>
       <w>15</w>
       <h>100</h>
@@ -105,7 +105,7 @@ getAmmo(this : Actor)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
+      <x>280</x>
       <y>140</y>
       <w>160</w>
       <h>20</h>
@@ -117,7 +117,7 @@ add(getAction(display: Display): ShotgunAction)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>170</x>
+      <x>70</x>
       <y>30</y>
       <w>50</w>
       <h>15</h>
@@ -128,7 +128,7 @@ add(getAction(display: Display): ShotgunAction)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
+      <x>90</x>
       <y>40</y>
       <w>15</w>
       <h>35</h>
@@ -139,7 +139,7 @@ add(getAction(display: Display): ShotgunAction)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>190</x>
+      <x>90</x>
       <y>65</y>
       <w>10</w>
       <h>855</h>
@@ -150,7 +150,7 @@ add(getAction(display: Display): ShotgunAction)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
+      <x>95</x>
       <y>65</y>
       <w>130</w>
       <h>30</h>
@@ -164,7 +164,7 @@ display: Display)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
+      <x>95</x>
       <y>180</y>
       <w>380</w>
       <h>20</h>
@@ -176,7 +176,7 @@ execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
+      <x>95</x>
       <y>165</y>
       <w>130</w>
       <h>20</h>
@@ -188,7 +188,7 @@ menu</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>545</x>
+      <x>445</x>
       <y>145</y>
       <w>50</w>
       <h>15</h>
@@ -199,7 +199,7 @@ menu</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>565</x>
+      <x>465</x>
       <y>155</y>
       <w>15</w>
       <h>40</h>
@@ -210,7 +210,7 @@ menu</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>565</x>
+      <x>465</x>
       <y>185</y>
       <w>10</w>
       <h>205</h>
@@ -221,7 +221,7 @@ menu</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>515</x>
+      <x>415</x>
       <y>200</y>
       <w>60</w>
       <h>45</h>
@@ -234,7 +234,7 @@ reduceAmmo
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>100</x>
+      <x>0</x>
       <y>135</y>
       <w>1035</w>
       <h>825</h>
@@ -251,7 +251,7 @@ if getAmmo(this) != null
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>225</x>
+      <x>125</x>
       <y>250</y>
       <w>435</w>
       <h>30</h>
@@ -265,7 +265,7 @@ if ammo.getRounds() == 0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>600</x>
+      <x>500</x>
       <y>30</y>
       <w>75</w>
       <h>15</h>
@@ -276,7 +276,7 @@ if ammo.getRounds() == 0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>635</x>
+      <x>535</x>
       <y>40</y>
       <w>15</w>
       <h>195</h>
@@ -287,7 +287,7 @@ if ammo.getRounds() == 0</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>635</x>
+      <x>535</x>
       <y>225</y>
       <w>10</w>
       <h>125</h>
@@ -298,7 +298,7 @@ if ammo.getRounds() == 0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
+      <x>470</x>
       <y>235</y>
       <w>75</w>
       <h>20</h>
@@ -310,7 +310,7 @@ reduceRounds()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
+      <x>220</x>
       <y>260</y>
       <w>325</w>
       <h>20</h>
@@ -322,7 +322,7 @@ removeItemFromInventory(item : ShotgunAmmo)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>700</x>
+      <x>600</x>
       <y>30</y>
       <w>75</w>
       <h>15</h>
@@ -333,7 +333,7 @@ removeItemFromInventory(item : ShotgunAmmo)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>730</x>
+      <x>630</x>
       <y>40</y>
       <w>15</w>
       <h>250</h>
@@ -344,7 +344,7 @@ removeItemFromInventory(item : ShotgunAmmo)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>730</x>
+      <x>630</x>
       <y>280</y>
       <w>10</w>
       <h>40</h>
@@ -355,7 +355,7 @@ removeItemFromInventory(item : ShotgunAmmo)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
+      <x>540</x>
       <y>285</y>
       <w>100</w>
       <h>20</h>
@@ -367,7 +367,7 @@ locationOf(actor).getExits()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
+      <x>540</x>
       <y>300</y>
       <w>100</w>
       <h>20</h>
@@ -379,7 +379,7 @@ exits : List&lt;Exit&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
+      <x>400</x>
       <y>160</y>
       <w>15</w>
       <h>165</h>
@@ -390,7 +390,7 @@ exits : List&lt;Exit&gt;</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>440</x>
+      <x>340</x>
       <y>320</y>
       <w>220</w>
       <h>25</h>
@@ -404,7 +404,7 @@ for (Exit e: exits)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>500</x>
+      <x>400</x>
       <y>315</y>
       <w>10</w>
       <h>35</h>
@@ -415,7 +415,7 @@ for (Exit e: exits)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>505</x>
+      <x>405</x>
       <y>325</y>
       <w>140</w>
       <h>20</h>
@@ -427,7 +427,7 @@ add(: ShotgunShootAction(e))</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
+      <x>305</x>
       <y>40</y>
       <w>15</w>
       <h>90</h>
@@ -438,7 +438,7 @@ add(: ShotgunShootAction(e))</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>315</x>
+      <x>215</x>
       <y>40</y>
       <w>15</w>
       <h>40</h>
@@ -449,7 +449,7 @@ add(: ShotgunShootAction(e))</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
+      <x>95</x>
       <y>355</y>
       <w>380</w>
       <h>20</h>
@@ -461,7 +461,7 @@ menu</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
+      <x>95</x>
       <y>370</y>
       <w>625</w>
       <h>20</h>
@@ -473,7 +473,7 @@ selectedAction = execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>775</x>
+      <x>675</x>
       <y>325</y>
       <w>75</w>
       <h>15</h>
@@ -484,7 +484,7 @@ selectedAction = execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
+      <x>710</x>
       <y>335</y>
       <w>15</w>
       <h>45</h>
@@ -495,7 +495,7 @@ selectedAction = execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>810</x>
+      <x>710</x>
       <y>370</y>
       <w>10</w>
       <h>525</h>
@@ -506,7 +506,7 @@ selectedAction = execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
+      <x>220</x>
       <y>390</y>
       <w>500</w>
       <h>20</h>
@@ -518,7 +518,7 @@ locationOf(actor).getExits()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
+      <x>220</x>
       <y>405</y>
       <w>500</w>
       <h>20</h>
@@ -530,7 +530,7 @@ exits : List&lt;Exit&gt;</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>610</x>
+      <x>510</x>
       <y>425</y>
       <w>300</w>
       <h>260</h>
@@ -544,7 +544,7 @@ for int i = 0 &lt; 3</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>925</x>
+      <x>825</x>
       <y>625</y>
       <w>70</w>
       <h>15</h>
@@ -555,7 +555,7 @@ for int i = 0 &lt; 3</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>955</x>
+      <x>855</x>
       <y>635</y>
       <w>15</w>
       <h>65</h>
@@ -566,7 +566,7 @@ for int i = 0 &lt; 3</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>660</x>
+      <x>560</x>
       <y>435</y>
       <w>245</w>
       <h>240</h>
@@ -582,7 +582,7 @@ halign=left
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>705</x>
+      <x>605</x>
       <y>445</y>
       <w>195</w>
       <h>220</h>
@@ -598,7 +598,7 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>735</x>
+      <x>635</x>
       <y>500</y>
       <w>85</w>
       <h>50</h>
@@ -612,7 +612,7 @@ rightExit : Exit)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>715</x>
+      <x>615</x>
       <y>550</y>
       <w>140</w>
       <h>105</h>
@@ -626,7 +626,7 @@ for int k = 0 &lt; i</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
+      <x>660</x>
       <y>555</y>
       <w>80</w>
       <h>50</h>
@@ -640,7 +640,7 @@ leftDirection : String)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>730</x>
+      <x>630</x>
       <y>605</y>
       <w>90</w>
       <h>50</h>
@@ -654,10 +654,10 @@ rightDirection : String)</panel_attributes>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>435</x>
+      <x>335</x>
       <y>0</y>
-      <w>450</w>
-      <h>20</h>
+      <w>451</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Sequence Diagram to Model Scenario where a Player Actor uses a Shotgun to shoot other Actors
 bg=black</panel_attributes>
@@ -679,7 +679,7 @@ for(String textline : textlines) {
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>115</x>
+      <x>15</x>
       <y>175</y>
       <w>71</w>
       <h>26</h>
@@ -705,7 +705,7 @@ for(String textline : textlines) {
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>825</x>
+      <x>725</x>
       <y>460</y>
       <w>71</w>
       <h>81</h>
@@ -735,7 +735,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>745</x>
+      <x>645</x>
       <y>455</y>
       <w>80</w>
       <h>50</h>
@@ -749,7 +749,7 @@ leftExit : Exit)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>610</x>
+      <x>510</x>
       <y>695</y>
       <w>500</w>
       <h>225</h>
@@ -764,7 +764,7 @@ halign=left
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>955</x>
+      <x>855</x>
       <y>690</y>
       <w>10</w>
       <h>110</h>
@@ -775,7 +775,7 @@ halign=left
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>680</x>
+      <x>580</x>
       <y>700</y>
       <w>300</w>
       <h>35</h>
@@ -790,7 +790,7 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>815</x>
+      <x>715</x>
       <y>710</y>
       <w>150</w>
       <h>20</h>
@@ -802,7 +802,7 @@ getDestination().setGround(new Path())</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>680</x>
+      <x>580</x>
       <y>740</y>
       <w>425</w>
       <h>170</h>
@@ -817,7 +817,7 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>815</x>
+      <x>715</x>
       <y>750</y>
       <w>150</w>
       <h>20</h>
@@ -829,7 +829,7 @@ getDestination().getActor()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1015</x>
+      <x>915</x>
       <y>780</y>
       <w>75</w>
       <h>15</h>
@@ -840,7 +840,7 @@ getDestination().getActor()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>815</x>
+      <x>715</x>
       <y>765</y>
       <w>150</w>
       <h>20</h>
@@ -852,7 +852,7 @@ target: Actor</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>815</x>
+      <x>715</x>
       <y>780</y>
       <w>210</w>
       <h>20</h>
@@ -864,7 +864,7 @@ new ShotgunAttackAction(target)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>815</x>
+      <x>715</x>
       <y>805</y>
       <w>240</w>
       <h>20</h>
@@ -876,7 +876,7 @@ execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1045</x>
+      <x>945</x>
       <y>805</y>
       <w>10</w>
       <h>85</h>
@@ -887,7 +887,7 @@ execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1045</x>
+      <x>945</x>
       <y>790</y>
       <w>15</w>
       <h>25</h>
@@ -898,7 +898,7 @@ execute(actor: Actor, map: GameMap)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>980</x>
+      <x>880</x>
       <y>820</y>
       <w>75</w>
       <h>60</h>
@@ -914,7 +914,7 @@ corpse: Item)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>815</x>
+      <x>715</x>
       <y>870</y>
       <w>240</w>
       <h>20</h>
@@ -926,7 +926,7 @@ result: String</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
+      <x>220</x>
       <y>880</y>
       <w>500</w>
       <h>20</h>
@@ -938,7 +938,7 @@ result: String</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
+      <x>95</x>
       <y>890</y>
       <w>130</w>
       <h>20</h>
@@ -950,7 +950,7 @@ result: String</panel_attributes>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>110</x>
+      <x>10</x>
       <y>355</y>
       <w>71</w>
       <h>31</h>
@@ -977,7 +977,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
+      <x>305</x>
       <y>160</y>
       <w>15</w>
       <h>810</h>
@@ -988,7 +988,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>315</x>
+      <x>215</x>
       <y>900</y>
       <w>15</w>
       <h>70</h>
@@ -999,7 +999,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
+      <x>90</x>
       <y>915</y>
       <w>15</w>
       <h>55</h>
@@ -1010,7 +1010,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
+      <x>710</x>
       <y>890</y>
       <w>15</w>
       <h>55</h>
@@ -1021,7 +1021,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1045</x>
+      <x>945</x>
       <y>885</y>
       <w>15</w>
       <h>60</h>
@@ -1032,7 +1032,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
+      <x>400</x>
       <y>345</y>
       <w>15</w>
       <h>625</h>
@@ -1043,7 +1043,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>635</x>
+      <x>535</x>
       <y>345</y>
       <w>15</w>
       <h>625</h>
@@ -1054,7 +1054,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>730</x>
+      <x>630</x>
       <y>315</y>
       <w>15</w>
       <h>655</h>
@@ -1065,7 +1065,7 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>955</x>
+      <x>855</x>
       <y>795</y>
       <w>15</w>
       <h>150</h>
@@ -1076,7 +1076,7 @@ for(String textline : textlines) {
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>810</x>
+      <x>710</x>
       <y>930</y>
       <w>10</w>
       <h>10</h>
@@ -1087,7 +1087,7 @@ for(String textline : textlines) {
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>955</x>
+      <x>855</x>
       <y>930</y>
       <w>10</w>
       <h>10</h>
@@ -1098,7 +1098,7 @@ for(String textline : textlines) {
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1045</x>
+      <x>945</x>
       <y>930</y>
       <w>10</w>
       <h>10</h>
