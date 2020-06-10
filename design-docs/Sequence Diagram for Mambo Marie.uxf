@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
+  <help_text>Sequence Diagram to Model Scenario where Mambo Marie is spawned and removed from the CompoundMap
+bg=black</help_text>
   <zoom_level>6</zoom_level>
   <element>
     <id>UMLGeneric</id>
