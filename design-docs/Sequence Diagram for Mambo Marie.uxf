@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>240</x>
+      <y>114</y>
+      <w>66</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>_:CompoundMap_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>414</x>
+      <y>114</y>
+      <w>60</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>_:MamboMarie_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>270</x>
+      <y>150</y>
+      <w>12</w>
+      <h>474</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>126</y>
+      <w>18</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>438</x>
+      <y>150</y>
+      <w>12</w>
+      <h>474</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>438</x>
+      <y>126</y>
+      <w>18</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>12</x>
+      <y>174</y>
+      <w>270</w>
+      <h>456</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+tick()</panel_attributes>
+    <additional_attributes>430.0;740.0;10.0;740.0;10.0;10.0;430.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>54</x>
+      <y>198</y>
+      <w>678</w>
+      <h>408</h>
+    </coordinates>
+    <panel_attributes>optional
+--
+halign=left
+if marie.isConscious()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>522</y>
+      <w>84</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+at(int x, int y)</panel_attributes>
+    <additional_attributes>10.0;50.0;40.0;50.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>126</x>
+      <y>228</y>
+      <w>540</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>optional
+--
+halign=left
+if spawned</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>174</y>
+      <w>174</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+isConscious()</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>618</x>
+      <y>126</y>
+      <w>18</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>594</x>
+      <y>114</y>
+      <w>60</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>_:NumberRange_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>618</x>
+      <y>150</y>
+      <w>12</w>
+      <h>474</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>396</y>
+      <w>90</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+getXRange()</panel_attributes>
+    <additional_attributes>10.0;50.0;50.0;50.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>426</y>
+      <w>354</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+min()
+</panel_attributes>
+    <additional_attributes>570.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>462</y>
+      <w>90</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+getYRange()</panel_attributes>
+    <additional_attributes>10.0;50.0;50.0;50.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>492</y>
+      <w>354</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+min()</panel_attributes>
+    <additional_attributes>570.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>132</x>
+      <y>372</y>
+      <w>534</w>
+      <h>222</h>
+    </coordinates>
+    <panel_attributes>optional
+--
+halign=left
+else</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>150</x>
+      <y>396</y>
+      <w>492</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>optional
+--
+halign=left
+if math.Random() &lt; 0.05</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>150</x>
+      <y>270</y>
+      <w>492</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>optional
+--
+halign=left
+getSpawnCounter % 30 == 0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>234</y>
+      <w>174</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+getSpawnCounter()</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>276</y>
+      <w>156</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+removeActor(Actor actor)</panel_attributes>
+    <additional_attributes>10.0;70.0;90.0;70.0;90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>120</x>
+      <y>60</y>
+      <w>541</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Sequence Diagram to Model Scenario where Mambo Marie is spawned and removed from the CompoundMap
+bg=black</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=textHeight();
+
+for(String textline : textlines) {
+	y += printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>444</y>
+      <w>354</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+      x</panel_attributes>
+    <additional_attributes>10.0;20.0;570.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>510</y>
+      <w>354</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+      y</panel_attributes>
+    <additional_attributes>10.0;20.0;570.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>552</y>
+      <w>114</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+addActor(Actor actor)</panel_attributes>
+    <additional_attributes>10.0;50.0;40.0;50.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
