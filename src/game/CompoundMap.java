@@ -2,11 +2,14 @@ package game;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.ActorLocations;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.GroundFactory;
 import edu.monash.fit2099.engine.Item;
+import edu.monash.fit2099.engine.Location;
 
 /**
  * 
@@ -19,6 +22,8 @@ public class CompoundMap extends GameMap {
 	private boolean MamboStatus;
 	private MamboMarie marie = new MamboMarie();
 	private boolean spawned;
+	private int humans = 0;
+	private int zombies = 0;
 	
 	public CompoundMap(GroundFactory groundFactory, char groundChar, int width, int height) {
 		super(groundFactory, groundChar, width, height);
@@ -36,6 +41,34 @@ public class CompoundMap extends GameMap {
 	 */
 	public boolean getMamboStatus() {
 		return this.MamboStatus;
+	}
+	
+	/**
+	 * Increases count of the actor's type
+	 */
+	public void addActor(Actor actor, Location location) {
+		Objects.requireNonNull(actor);
+		actorLocations.add(actor, location);
+		if(actor.hasCapability(ZombieCapability.ALIVE)) {
+			this.humans++;
+		}
+		if(actor.hasCapability(ZombieCapability.UNDEAD)) {
+			this.zombies++;
+		}
+	}
+	
+	/**
+	 * Reduces count of the actor's type
+	 */
+	public void removeActor(Actor actor) {
+		Objects.requireNonNull(actor);
+		actorLocations.remove(actor);
+		if(actor.hasCapability(ZombieCapability.ALIVE)) {
+			this.humans--;
+		}
+		if(actor.hasCapability(ZombieCapability.UNDEAD)) {
+			this.zombies--;
+		}
 	}
 	
 	/**
@@ -83,5 +116,21 @@ public class CompoundMap extends GameMap {
 		if(spawned && !this.contains(marie)) {
 			this.MamboStatus = false;
 		}
+	}
+	
+	/**
+	 * 
+	 * @return the number of Humans in the compound
+	 */
+	public int getHumanNumber() {
+		return this.humans;
+	}
+	
+	/**
+	 * 
+	 * @return the number of Zombies in the compound
+	 */
+	public int getZombieNumber() {
+		return this.zombies;
 	}
 }

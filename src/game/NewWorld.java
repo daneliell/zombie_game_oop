@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Objects;
+
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
@@ -48,12 +50,12 @@ public class NewWorld extends World {
 			// Is the Player in the Compound
 			if (playersMap instanceof CompoundMap) {
 				// Have all the Humans died?
-				if (getHumanNumber(playersMap) == 0) {
+				if (getHumanNumber((CompoundMap) playersMap) == 0) {
 					gameStatus = 1;
 					break;
 				} 
 				// Have all the zombies and Mambo Marie died?
-				else if (!getMamboStatus((CompoundMap) playersMap) && getZombieNumber(playersMap) == 0) {
+				else if (!getMamboStatus((CompoundMap) playersMap) && getZombieNumber((CompoundMap) playersMap) == 0) {
 					gameStatus = 2;
 					break;
 				}
@@ -91,13 +93,8 @@ public class NewWorld extends World {
 	 * @param map game map the Player is on
 	 * @return number of zombies on the map
 	 */
-	private int getZombieNumber(GameMap map) {
-		for(Actor actor: actorLocations) {
-			if(actor.hasCapability(ZombieCapability.UNDEAD)) {
-				zombies++;
-			}
-		}
-		return zombies;
+	private int getZombieNumber(CompoundMap map) {
+		return map.getZombieNumber();
 	}
 	
 	/**
@@ -105,15 +102,8 @@ public class NewWorld extends World {
 	 * @param map game map the player is on
 	 * @return number of humans on the map excluding the player
 	 */
-	private int getHumanNumber(GameMap map) {
-		for(Actor actor: actorLocations) {
-			if(actor.hasCapability(ZombieCapability.ALIVE)) {
-				humans++;
-			}
-		}
-		// excludes the player
-		humans = humans - 1;
-		return humans;
+	private int getHumanNumber(CompoundMap map) {
+		return map.getHumanNumber();
 	}
 	
 	/**
