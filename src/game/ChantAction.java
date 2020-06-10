@@ -8,6 +8,7 @@ import java.util.List;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.NumberRange;
 
 public class ChantAction extends Action {
 	private String[] zombies = {"Zombie Erica", "Zombie Monica", "Zombie Tina", "Zombie Ahamad", "Zombie Santhi", "Zombie Jr", 
@@ -18,9 +19,15 @@ public class ChantAction extends Action {
 		List<String> names = Arrays.asList(zombies);
 		Collections.shuffle(names);
 		int i = 0;
+		NumberRange xRange = map.getXRange();
+		NumberRange yRange = map.getYRange();
+		int minX = xRange.min();
+		int minY = yRange.min();
+		int maxX = xRange.max();
+		int maxY = yRange.max();
 		while(i<5) {
-			int x = (int) ((Math.random()*((map.getXRange().max()-map.getXRange().min())+1))+map.getXRange().min());
-			int y = (int) ((Math.random()*((map.getYRange().max()-map.getYRange().min())+1))+map.getYRange().min());
+			int x = (int) ((Math.random()*((maxX-minX)+1))+minX);
+			int y = (int) ((Math.random()*((maxY-minY)+1))+minY);
 			if(!map.isAnActorAt(map.at(x, y))) {
 				map.addActor(new Zombie(names.get(i)), map.at(x, y));
 				i++;
