@@ -4,8 +4,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>240</x>
-      <y>114</y>
+      <x>420</x>
+      <y>144</y>
       <w>66</w>
       <h>18</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>414</x>
-      <y>114</y>
+      <x>594</x>
+      <y>144</y>
       <w>60</w>
       <h>18</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>270</x>
-      <y>150</y>
+      <x>450</x>
+      <y>180</y>
       <w>12</w>
       <h>474</h>
     </coordinates>
@@ -37,8 +37,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>126</y>
+      <x>450</x>
+      <y>156</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
@@ -48,8 +48,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>438</x>
-      <y>150</y>
+      <x>618</x>
+      <y>180</y>
       <w>12</w>
       <h>474</h>
     </coordinates>
@@ -59,8 +59,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>438</x>
-      <y>126</y>
+      <x>618</x>
+      <y>156</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
@@ -70,20 +70,20 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>12</x>
-      <y>174</y>
-      <w>270</w>
-      <h>456</h>
+      <x>456</x>
+      <y>180</y>
+      <w>60</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 tick()</panel_attributes>
-    <additional_attributes>430.0;740.0;10.0;740.0;10.0;10.0;430.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;50.0;40.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>54</x>
-      <y>198</y>
+      <x>234</x>
+      <y>228</y>
       <w>678</w>
       <h>408</h>
     </coordinates>
@@ -96,8 +96,8 @@ if marie.isConscious()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>522</y>
+      <x>456</x>
+      <y>552</y>
       <w>84</w>
       <h>42</h>
     </coordinates>
@@ -108,8 +108,8 @@ at(int x, int y)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>126</x>
-      <y>228</y>
+      <x>306</x>
+      <y>258</y>
       <w>540</w>
       <h>138</h>
     </coordinates>
@@ -122,8 +122,8 @@ if spawned</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>174</y>
+      <x>456</x>
+      <y>204</y>
       <w>174</w>
       <h>24</h>
     </coordinates>
@@ -134,8 +134,8 @@ isConscious()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>618</x>
-      <y>126</y>
+      <x>798</x>
+      <y>156</y>
       <w>18</w>
       <h>36</h>
     </coordinates>
@@ -145,8 +145,8 @@ isConscious()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>594</x>
-      <y>114</y>
+      <x>774</x>
+      <y>144</y>
       <w>60</w>
       <h>18</h>
     </coordinates>
@@ -156,8 +156,8 @@ isConscious()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>618</x>
-      <y>150</y>
+      <x>798</x>
+      <y>180</y>
       <w>12</w>
       <h>474</h>
     </coordinates>
@@ -167,8 +167,8 @@ isConscious()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>396</y>
+      <x>456</x>
+      <y>426</y>
       <w>90</w>
       <h>42</h>
     </coordinates>
@@ -179,8 +179,8 @@ getXRange()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>426</y>
+      <x>456</x>
+      <y>456</y>
       <w>354</w>
       <h>30</h>
     </coordinates>
@@ -192,8 +192,8 @@ min()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>462</y>
+      <x>456</x>
+      <y>492</y>
       <w>90</w>
       <h>42</h>
     </coordinates>
@@ -204,8 +204,8 @@ getYRange()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>492</y>
+      <x>456</x>
+      <y>522</y>
       <w>354</w>
       <h>24</h>
     </coordinates>
@@ -216,8 +216,8 @@ min()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>132</x>
-      <y>372</y>
+      <x>312</x>
+      <y>402</y>
       <w>534</w>
       <h>222</h>
     </coordinates>
@@ -230,8 +230,8 @@ else</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>150</x>
-      <y>396</y>
+      <x>330</x>
+      <y>426</y>
       <w>492</w>
       <h>192</h>
     </coordinates>
@@ -244,22 +244,22 @@ if math.Random() &lt; 0.05</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>150</x>
-      <y>270</y>
+      <x>330</x>
+      <y>300</y>
       <w>492</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>optional
 --
 halign=left
-getSpawnCounter % 30 == 0</panel_attributes>
+if getSpawnCounter % 30 == 0</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>234</y>
+      <x>456</x>
+      <y>264</y>
       <w>174</w>
       <h>24</h>
     </coordinates>
@@ -270,8 +270,8 @@ getSpawnCounter()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>276</y>
+      <x>456</x>
+      <y>306</y>
       <w>156</w>
       <h>54</h>
     </coordinates>
@@ -282,8 +282,8 @@ removeActor(Actor actor)</panel_attributes>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>120</x>
-      <y>60</y>
+      <x>300</x>
+      <y>90</y>
       <w>541</w>
       <h>25</h>
     </coordinates>
@@ -307,8 +307,8 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>444</y>
+      <x>456</x>
+      <y>474</y>
       <w>354</w>
       <h>24</h>
     </coordinates>
@@ -319,8 +319,8 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>510</y>
+      <x>456</x>
+      <y>540</y>
       <w>354</w>
       <h>24</h>
     </coordinates>
@@ -331,8 +331,8 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>552</y>
+      <x>456</x>
+      <y>582</y>
       <w>114</w>
       <h>42</h>
     </coordinates>
