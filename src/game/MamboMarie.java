@@ -5,6 +5,14 @@ import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 
+/**
+ * 
+ * @author Sravan
+ * A new type of mob that is the source of zombie pandemic. She appears on the map 5% of the time.
+ * Summons Zombies every 10 turns. 
+ *
+ */
+
 public class MamboMarie extends ZombieActor {
 	private Behaviour behaviour = new WanderBehaviour();
 	private int chantCounter = 0;
