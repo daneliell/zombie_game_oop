@@ -71,7 +71,6 @@ public class Application {
 				gameMap.at(x,  y).addActor(new Human(name));
 			}
 		}
-		gameMap.at(42, 15).addItem(new BraceletOfKyo());
 
 		// place a simple weapon
 		gameMap.at(74, 20).addItem(new Plank());
@@ -138,10 +137,6 @@ public class Application {
         carToBack.addAction(new MoveActorAction(gameMap.at(72,2), "to the Compound!"));
         townGameMap.at(2,14).addItem(carToBack);
         
-        //testing the map
-        //townGameMap.at(72, 11).addItem(carToTown);
-        //townGameMap.at(46, 3).addItem(carToTown);
-        
 		// place shotgun and ammo
 		townGameMap.at(19, 9).addItem(new Shotgun());
 		townGameMap.at(18, 9).addItem(new ShotgunAmmo());
@@ -181,7 +176,7 @@ public class Application {
 		
 		townGameMap.at(10, 23).addActor(new Farmer("Crazy Farmer Bill"));
         
-        String[] townZombies = {"Ooga", "Booga", "Bruh", "Bruhh", "Bruhhh"};
+        String[] townZombies = {"Ooga", "Booga", "Bruh", "Bruhh", "Bruhhh", "Oof"};
 		for (String name : townZombies) {
 			do {
 		        Random r = new Random();

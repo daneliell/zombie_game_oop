@@ -22,7 +22,7 @@ import edu.monash.fit2099.engine.GameMap;
 public class ShotgunShootAction extends Action {
 	
 	private Exit direction;
-	ArrayList<Exit> area = new ArrayList<Exit>();
+	private ArrayList<Exit> area = new ArrayList<Exit>();
 	
 	/**
 	 * Constructor.
