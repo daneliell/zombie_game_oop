@@ -36,7 +36,7 @@ public class NewWorld extends World {
 			lastActionMap.put(actor, new DoNothingAction());
 		}
 		
-		int gameStatus = 0;
+		int gameStatus = 1;
 		// This loop is basically the whole game
 		while (stillRunning()) {
 			GameMap playersMap = actorLocations.locationOf(player).map();
@@ -44,6 +44,7 @@ public class NewWorld extends World {
 			
 			// Player quits the game
 			if(super.lastActionMap.get(player) instanceof QuitGameAction) {
+				gameStatus = 0;
 				break;
 			}
 			
