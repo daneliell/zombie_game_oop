@@ -2,7 +2,6 @@ package game;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
@@ -74,13 +73,6 @@ public class Application {
 
 		// place a simple weapon
 		gameMap.at(74, 20).addItem(new Plank());
-		//place test shotgun
-		gameMap.at(43, 15).addItem(new Shotgun());
-		gameMap.at(43,16).addItem(new ShotgunAmmo());
-		
-		//places test sniper 
-		gameMap.at(41, 15).addItem(new SniperRifle());
-		gameMap.at(41,16).addItem(new SniperAmmo());
 		
 		 //FIXME: Add more zombies!
 		gameMap.at(30, 20).addActor(new Zombie("Groan"));
@@ -108,7 +100,7 @@ public class Application {
 				".........|,,,,,,,,,,|....:.....++++.....++++++..|,,,,,,,|,,,,,,,,,,,,|,,,,,,|.........",
 				".........=====,,=====...::...............++.....=============##==============.........",
 				"..............::........::...................................::.......................",
-				"...::::::::::::::::::::::::::::.::::::::.::::::::::::::::::::::::::::.::::::..........",
+				"..#::::::::::::::::::::::::::::.::::::::.::::::::::::::::::::::::::::.::::::..........",
 				"..............::........::............................................................",
 				".........=====,,=====...::..............#######.##################.#..#######.........",
 				".........|.,,..,,,..|...::..........................+++.....................#.........",
@@ -131,15 +123,15 @@ public class Application {
         gameMap.at(73,2).addItem(carToTown);
         
         //testcar
-        gameMap.at(42,16).addItem(carToTown);
+        //gameMap.at(42,16).addItem(carToTown);
         
         Vehicle carToBack = new Vehicle("Car", '^');
         carToBack.addAction(new MoveActorAction(gameMap.at(72,2), "to the Compound!"));
         townGameMap.at(2,14).addItem(carToBack);
         
 		// place shotgun and ammo
-		townGameMap.at(19, 9).addItem(new Shotgun());
-		townGameMap.at(18, 9).addItem(new ShotgunAmmo());
+		townGameMap.at(10, 18).addItem(new Shotgun());
+		townGameMap.at(11, 18).addItem(new ShotgunAmmo());
 		townGameMap.at(36, 5).addItem(new ShotgunAmmo());
 		townGameMap.at(72, 4).addItem(new ShotgunAmmo());
 		gameMap.at(14, 16).addItem(new ShotgunAmmo());
@@ -161,31 +153,34 @@ public class Application {
 		//place food
 		townGameMap.at(13, 4).addItem(new Food());
         
-        
+	    // Place some random town humans in the safe house
         String[] townHumans = {"Sheriff Bill", "Policeman Jerry", "Firefighter Jenny", "Doctor Aaron", 
         		"Baker Andrea", "Normal Guy Bill", "Teacher Robin"};
 		for (String name : townHumans) {
 			do {
-		        Random r = new Random();
-		        x = r.nextInt(72-49) + 49;
-				y = r.nextInt(11-3) + 3;
+				x = (int) Math.floor(Math.random() * 26.0 + 49.0);
+				y = (int) Math.floor(Math.random() * 9.0 + 4.0);
 			} 
 			while (townGameMap.at(x, y).containsAnActor());
 			townGameMap.at(x,  y).addActor(new Human(name));
 		}
 		
 		townGameMap.at(10, 23).addActor(new Farmer("Crazy Farmer Bill"));
-        
-        String[] townZombies = {"Ooga", "Booga", "Bruh", "Bruhh", "Bruhhh", "Oof"};
+
+	    // Place some random zombies in town
+        String[] townZombies = {"Ooga", "Booga", "Bruh", "Bruhh"};
 		for (String name : townZombies) {
 			do {
-		        Random r = new Random();
-		        x = r.nextInt(79-6) + 6;
-				y = r.nextInt(26-6) + 6;;
+				x = (int) Math.floor(Math.random() * 30.0 + 50.0);
+				y = (int) Math.floor(Math.random() * 14.0 + 15.0);
 			} 
 			while (townGameMap.at(x, y).containsAnActor());
 			townGameMap.at(x,  y).addActor(new Zombie(name));
 		}
+		
+		townGameMap.at(11, 5).addActor(new Zombie("Bruh"));
+		townGameMap.at(35,  8).addActor(new Zombie("Oof"));
+		townGameMap.at(12, 10).addActor(new Zombie("Ooooof"));
 		
 		
 		world.run();

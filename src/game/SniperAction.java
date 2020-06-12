@@ -48,9 +48,6 @@ public class SniperAction extends Action {
 	public String execute(Actor actor, GameMap map) {
 		// Checks if Player has aimed before this
 		if (actor.asPlayer().getAim() > 0) {
-			/*if (actor.asPlayer().getAim() >= 2) {
-				actions.remove(selectedAction);
-			}*/
 			Action nextAction = menu.showMenu(actor, actions, display);
 			// If next Action is not an aim or shoot Action on the same target, clear all aims
 			if ((nextAction != selectedAction) & (nextAction != selectedAction.getNextAction())) {
@@ -75,6 +72,7 @@ public class SniperAction extends Action {
 				}
 			}
 		}
+		// If no valid Actor present, add a DoNothingAction
 		if (hasActor == false) {
 			actions.add(new DoNothingAction());
 		}

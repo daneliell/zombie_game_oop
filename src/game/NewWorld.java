@@ -1,7 +1,5 @@
 package game;
 
-import java.util.Objects;
-
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
@@ -17,9 +15,6 @@ import edu.monash.fit2099.engine.World;
  */
 
 public class NewWorld extends World {
-	private int zombies = 0;
-	private int humans = 0;
-
 	public NewWorld(Display display) {
 		super(display);
 	}
