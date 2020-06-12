@@ -160,7 +160,8 @@ bg=yellow</panel_attributes>
       <h>126</h>
     </coordinates>
     <panel_attributes>engine
---</panel_attributes>
+--
+bg=light_gray</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -172,7 +173,8 @@ bg=yellow</panel_attributes>
       <h>261</h>
     </coordinates>
     <panel_attributes>game
---</panel_attributes>
+--
+bg=light_gray</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
