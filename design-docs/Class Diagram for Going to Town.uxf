@@ -70,7 +70,7 @@ bg=yellow</panel_attributes>
       <w>90</w>
       <h>27</h>
     </coordinates>
-    <panel_attributes>SolidTerrain
+    <panel_attributes>/SolidTerrain/
 bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
