@@ -178,7 +178,7 @@ public class Application {
 			townGameMap.at(x,  y).addActor(new Zombie(name));
 		}
 		
-		townGameMap.at(11, 5).addActor(new Zombie("Bruh"));
+		townGameMap.at(11, 5).addActor(new Zombie("Bruhhh"));
 		townGameMap.at(35,  8).addActor(new Zombie("Oof"));
 		townGameMap.at(12, 10).addActor(new Zombie("Ooooof"));
 		
