@@ -62,11 +62,10 @@ public class ShotgunShootAction extends Action {
 						left = exits.size() - 1;
 					}
 					int right = (j + 1) % (exits.size() - 1);
-					Exit middleExit = exits.get(j);
 					Exit leftExit = exits.get(left);
 					Exit rightExit = exits.get(right);
-					String leftDirection = getAdjacentDirection(middleExit, leftExit);
-					String rightDirection = getAdjacentDirection(middleExit, rightExit);
+					String leftDirection = getAdjacentDirection(exits.get(j), leftExit);
+					String rightDirection = getAdjacentDirection(exits.get(j), rightExit);
 					// In 2nd and 3rd loop, adds further area outside of the 3x3 area
 					for (int k = 0; k < i; k++) {
 						leftExit = addAdjacentArea(leftExit, leftDirection);
@@ -74,7 +73,7 @@ public class ShotgunShootAction extends Action {
 					}
 					area.add(leftExit);
 					area.add(rightExit);
-					area.add(middleExit);
+					area.add(exits.get(j));
 					// Sets the middle exit as the new exit to start checking from
 					exits = exits.get(j).getDestination().getExits();
 				}
