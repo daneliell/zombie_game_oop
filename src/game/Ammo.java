@@ -38,6 +38,7 @@ public abstract class Ammo extends PortableItem{
 	 */
 	public void reduceRounds() {
 		rounds -= 1;
+		assert (rounds >= 0) : "Number of rounds cannot be less than 0";
 	}
 
 }

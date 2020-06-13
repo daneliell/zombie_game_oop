@@ -78,7 +78,8 @@ public class Zombie extends ZombieActor {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-		assert (0 <= armsNumber & legsNumber <= 2) : "Arms and legs cannot be less than 0 or greater than 2";
+		assert (0 <= armsNumber & armsNumber <= 2) : "Arms and legs cannot be less than 0 or greater than 2";
+		assert (0 <= legsNumber & legsNumber <= 2) : "Arms and legs cannot be less than 0 or greater than 2";
 		
 		// has a chance to say something Zombie-like
 		if (Math.random() < DIALOGUE_CHANCE) {
